@@ -3,3 +3,5 @@
 *.mat
 *.xlsx
 *.csv#
+
+!datasets/LVJ_PDetector/*.xlsx

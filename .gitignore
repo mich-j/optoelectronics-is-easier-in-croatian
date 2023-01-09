@@ -5,6 +5,6 @@
 *.csv#
 /visualizations_files
 *.bak
-visualizations.html
-
-!datasets/LVJ_PDetector/*.xlsx
+*.html
+*.pdf
+visualizations.ipynb

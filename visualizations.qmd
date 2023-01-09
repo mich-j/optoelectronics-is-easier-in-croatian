@@ -1,14 +1,19 @@
+---
+title: "Optoelectronics laboratory results"
+format:
+  html:
+    toc: true
+    toc-location: left
+    html-math-method: katex
+---
+
 # Optoelektronika :C
 
+Including necessary libraries
 ```{python}
 
 import pandas as pd
 import matplotlib.pyplot as plt
-
-dataset = pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdF_UpdF_2022-12-02_16-24-39_0.csv', sep=',', skiprows=3)
-
-print(dataset)
-
 ```
 
 # Directory /LED_PD_UpdF_UpdR_02112022
@@ -16,6 +21,8 @@ print(dataset)
 ## Photodiode forward voltage versus forward current
 
 ```{python}
+dataset = pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdF_UpdF_2022-12-02_16-24-39_0.csv', sep=',', skiprows=3)
+
 plt.figure()
 dataset['Get Measurement Value']=dataset['Get Measurement Value'] * 1000 # to convert to mA
 dataset.plot(x='Get Measurement Value.1', y='Get Measurement Value')
@@ -29,11 +36,8 @@ plt.show()
 ```{python}
 dataset=pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdR_UpdR 2022-12-02 15-57-44 0.csv', sep=',', skiprows=3)
 
-print(dataset)
-```
-```{python}
 plt.figure()
-dataset['Get Measurement Value']=dataset['Get Measurement Value'] * 1000 # to convert to mA
+dataset['Get Measurement Value']=dataset['Get Measurement Value'] * 1000 #to convert to mA
 dataset.plot(x='Get Measurement Value.1', y='Get Measurement Value')
 plt.grid()
 plt.xlabel('Voltage [V]')
@@ -41,7 +45,19 @@ plt.ylabel('Current [mA]')
 
 plt.show()
 ```
-# Directory LVJ_PD_BVue_l1mm_02122022G2
 
-File ``Ipd_Ufpd_Uled_0_6V 2022-12-02 11-32-27 0.csv`` has only one measured value
+# Directory /LVJ_PD_BVue_l1mm_02122022G2
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_PD_BVue_l1mm_02122022G2/Ipd_Ufpd_Uled_0_6V 2022-12-02 11-32-27 0.csv', sep=',', skiprows=2)
+
+plt.figure()
+dataset['Get Measurement Value'] = dataset['Get Measurement Value'] * 1000 # to mA
+dataset.plot(x='1 - Sweep CH1 Voltage Setting', y='Get Measurement Value')
+plt.xlabel('$U_{pd} [V]$')
+plt.ylabel('$I_{pd} [mA]$')
+plt.grid()
+
+plt.show()
+```
 

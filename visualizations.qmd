@@ -14,7 +14,33 @@ Including necessary libraries
 
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 from scipy.signal import savgol_filter
+```
+
+Script for plotting several datasets on one plot
+
+```{python}
+def SweepPlot(data, xName, yName, SweepColumnName, labelColumn, skipRows):
+  plt.figure()
+  n = data[SweepColumnName].max()
+  n=n.astype(int)
+  labels = dataset[labelColumn].dropna()
+
+  curr = 0
+  index=list()
+
+  for i in range(skipRows, len(data)-1):
+    curr = data[SweepColumnName][i]
+    if(curr != data[SweepColumnName][i+1]):
+      index.append(i)
+
+  prevIndex = 0
+  for i in range(n):
+    plt.plot(data[xName][skip+prevIndex:index[i]], data[yName][skip+prevIndex:index[i]])
+    prevIndex = index[i]
+  
+  plt.grid()
 ```
 
 # Directory /LED_PD_UpdF_UpdR_02112022
@@ -23,13 +49,13 @@ from scipy.signal import savgol_filter
 
 ```{python}
 dataset = pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdF_UpdF_2022-12-02_16-24-39_0.csv', sep=',', skiprows=3)
+dataset['Get Measurement Value'] = dataset['Get Measurement Value'] * 10**6
+SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2)
+plt.yscale('log')
+plt.legend(loc='best')
 
-plt.figure()
-dataset['Get Measurement Value']=dataset['Get Measurement Value'] * 1000 # to convert to mA
-dataset.plot(x='Get Measurement Value.1', y='Get Measurement Value')
-plt.grid()
 plt.xlabel('Voltage [V]')
-plt.ylabel('Current [mA]')
+plt.ylabel('Current [nA]')
 
 plt.show()
 ```

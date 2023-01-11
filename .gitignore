@@ -8,3 +8,9 @@
 *.html
 *.pdf
 visualizations.ipynb
+*.aux
+*.log
+*.tex
+*.fls
+*.fdb_latexmk
+*.synctex.gz

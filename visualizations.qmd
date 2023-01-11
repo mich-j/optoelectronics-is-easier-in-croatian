@@ -14,6 +14,7 @@ Including necessary libraries
 
 import pandas as pd
 import matplotlib.pyplot as plt
+from scipy.signal import savgol_filter
 ```
 
 # Directory /LED_PD_UpdF_UpdR_02112022
@@ -61,3 +62,202 @@ plt.grid()
 plt.show()
 ```
 
+# Directory LvJ_OPTO_2022_GE211222022
+
+
+
+# Directory LED_PDetector
+
+
+# Directory LVJ_BenchVue_30112022G1
+
+
+# Directory LVJ_OPHO2022\LVJ_OPHO2022
+
+## photodiode b? f = 1kHZ, U_gen = +2V/-2V falling edge?
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_f1ku2of1_1.csv', sep=',', skiprows=1)
+
+
+plt.figure()
+dataset.plot(x='second', y='Volt')
+plt.xlabel('$Time [s]$')
+plt.ylabel('$U_{generator} [V]$')
+plt.grid()
+
+plt.show()
+```
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_f1ku2of1_3.csv', sep=',', skiprows=1)
+
+
+plt.figure()
+dataset.plot(x='second', y='Volt')
+plt.xlabel('$Time [s]$')
+plt.ylabel('$U_{pd} [V]$')
+plt.grid()
+
+plt.show()
+```
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_f1ku2of1_f1.csv', sep=',', skiprows=1)
+
+resistance = 100.0 #
+
+plt.figure()
+# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
+dataset['Volt'] = dataset['Volt'] / resistance * 1000
+filtered = savgol_filter(x=dataset['Volt'], window_length=300, polyorder=2)
+dataset.plot(x='second', y='Volt', label = 'raw current')
+plt.plot(dataset['second'], filtered, label = 'filtered current')
+plt.xlabel('$Time [s]$')
+plt.ylabel('$I_{pd} [mA]$')
+plt.legend()
+plt.grid()
+
+plt.show()
+```
+
+## photodiode b? f = 1kHZ, U_gen = +2V/-2V rising edge
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_f1ku2on4_1.csv', sep=',', skiprows=1)
+
+
+plt.figure()
+dataset.plot(x='second', y='Volt')
+plt.xlabel('$Time [s]$')
+plt.ylabel('$U_{generator} [V]$')
+plt.grid()
+
+plt.show()
+```
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_f1ku2on4_3.csv', sep=',', skiprows=1)
+
+
+plt.figure()
+dataset.plot(x='second', y='Volt')
+plt.xlabel('$Time [s]$')
+plt.ylabel('$U_{pd} [V]$')
+plt.grid()
+
+plt.show()
+```
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_f1ku2on4_F1.csv', sep=',', skiprows=1)
+
+resistance = 100.0 #
+
+plt.figure()
+# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
+dataset['Volt'] = dataset['Volt'] / resistance * 1000
+filtered = savgol_filter(x=dataset['Volt'], window_length=300, polyorder=2)
+dataset.plot(x='second', y='Volt', label = 'raw current')
+plt.plot(dataset['second'], filtered, label = 'filtered current')
+plt.xlabel('$Time [s]$')
+plt.ylabel('$I_{pd} [mA]$')
+plt.legend()
+plt.grid()
+
+plt.show()
+```
+
+## photodiode b? f = 1kHZ, U_gen = +2V/-2V whole period
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_f1ku2t1_1.csv', sep=',', skiprows=1)
+
+
+plt.figure()
+dataset.plot(x='second', y='Volt')
+plt.xlabel('$Time [s]$')
+plt.ylabel('$U_{generator} [V]$')
+plt.grid()
+
+plt.show()
+```
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_f1ku2t1_3.csv', sep=',', skiprows=1)
+
+
+plt.figure()
+dataset.plot(x='second', y='Volt')
+plt.xlabel('$Time [s]$')
+plt.ylabel('$U_{pd} [V]$')
+plt.grid()
+
+plt.show()
+```
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_f1ku2t1_F1.csv', sep=',', skiprows=1)
+
+resistance = 100.0 #
+
+plt.figure()
+# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
+dataset['Volt'] = dataset['Volt'] / resistance * 1000
+filtered = savgol_filter(x=dataset['Volt'], window_length=3, polyorder=2)
+dataset.plot(x='second', y='Volt', label = 'raw current')
+plt.plot(dataset['second'], filtered, label = 'filtered current')
+plt.xlabel('$Time [s]$')
+plt.ylabel('$I_{pd} [mA]$')
+plt.legend()
+plt.grid()
+
+plt.show()
+```
+
+## photodiode b? f = 1kHZ, U_gen = +2V/-2V
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_r1ku2f_1.csv', sep=',', skiprows=1)
+
+
+plt.figure()
+dataset.plot(x='second', y='Volt')
+plt.xlabel('$Time [s]$')
+plt.ylabel('$U_{generator} [V]$')
+plt.grid()
+
+plt.show()
+```
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_r1ku2f_3.csv', sep=',', skiprows=1)
+
+
+plt.figure()
+dataset.plot(x='second', y='Volt')
+plt.xlabel('$Time [s]$')
+plt.ylabel('$U_{pd} [V]$')
+plt.grid()
+
+plt.show()
+```
+
+```{python}
+dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_r1ku2f_f1.csv', sep=',', skiprows=1)
+
+resistance = 100.0 #
+
+plt.figure()
+# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
+dataset['Volt'] = dataset['Volt'] / resistance * 1000
+filtered = savgol_filter(x=dataset['Volt'], window_length=300, polyorder=2)
+dataset.plot(x='second', y='Volt', label = 'raw current')
+plt.plot(dataset['second'], filtered, label = 'filtered current')
+plt.xlabel('$Time [s]$')
+plt.ylabel('$I_{pd} [mA]$')
+plt.legend()
+plt.grid()
+
+plt.show()
+```

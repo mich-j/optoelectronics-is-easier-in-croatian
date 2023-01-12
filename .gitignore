@@ -14,3 +14,4 @@ visualizations.ipynb
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+*.code-workspace

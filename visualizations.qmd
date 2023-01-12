@@ -24,7 +24,7 @@ def SweepPlot(data:pd.DataFrame, xName: str, yName: str, SweepColumnName: str,
   labelColumn: str, skipRows:int, xScale=1.0, yScale=1.0, labelScale=1.0):
 
   n = data[SweepColumnName].max()
-  n=n.astype(int)
+  n = n.astype(int)
   if(labelColumn!=None):
     labels = dataset[labelColumn].dropna().reset_index(drop=True)*labelScale
   
@@ -64,7 +64,7 @@ SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value',
 plt.yscale('log')
 plt.legend(title='$I_{LED} [mA]$', loc='best')
 plt.suptitle('Photodiode forward voltage versus forward current')
-plt.title('Variable LED illumination')
+plt.title('Variable red LED illumination')
 
 plt.xlabel('$U_{pdF} [V]$')
 plt.ylabel('$I_{pdF} [nA]$')
@@ -76,12 +76,44 @@ plt.show()
 dataset=pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdR_UpdR 2022-12-02 15-57-44 0.csv', sep=',', skiprows=3)
 
 SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2, yScale=1000, labelScale=1000)
-plt.legend(title='$I_{LED}$', loc='best')
+plt.legend(title='$I_{LED} [mA]$', loc='best')
 plt.suptitle('Photodiode reverse voltage versus reverse current')
-plt.title('Variable LED illumination')
+plt.title('Variable red LED illumination')
 plt.yscale('log')
-plt.xlabel('Voltage [V]')
-plt.ylabel('Current [mA]')
+plt.xlabel('$U_{pdR} [V]$')
+plt.ylabel('$I_{pdR} [mA]$')
+
+plt.show()
+```
+
+# Directory RED_LED_PD_mj\RED_LED_PD_mj\LVJPD_RED_1cm_BenchVue_30112022G1
+
+```{python}
+dataset = pd.read_csv('datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1/Ipd_Popt6_UpdF_30112022 2022-11-30 12-02-00 0 2022-11-30 12-42-42 0.csv',
+  sep=',', skiprows=5)
+SweepPlot(dataset, '2 - Get Measurement Value', 'Get Measurement Value', 
+  '1 - Sweep CH2 Voltage Setting', '1 - Get CH2 Current Measurement', 2, yScale=10**3, labelScale=1000)
+plt.yscale('log')
+plt.suptitle('Photodiode forward voltage versus forward current')
+plt.title('Variable red LED illumination')
+plt.legend(title='$I_{LED} [mA]$', loc='best')
+plt.xlabel('$U_{pdF} [V]$')
+plt.ylabel('$I_{pdF} [nA]$')
+
+plt.show()
+```
+
+```{python}
+dataset = pd.read_csv('datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1/Ipd_Popt6_UpdR_30112022 2022-11-30 12-02-00 0 2022-11-30 12-03-12 0.csv',
+  sep=',', skiprows=6)
+SweepPlot(dataset, '2 - Get Measurement Value', '3 - Get Measurement Value', 
+  '1 - Sweep CH2 Voltage Setting', '1 - Get CH2 Current Measurement', 2, xScale=-1, yScale=10**6, labelScale=1000)
+plt.yscale('log')
+plt.suptitle('Photodiode reverse voltage versus reverse current')
+plt.title('Variable red LED illumination')
+plt.legend(title='$I_{LED} [mA]$', loc='best')
+plt.xlabel('$U_{pdR} [V]$')
+plt.ylabel('$I_{pdR} [nA]$')
 
 plt.show()
 ```
@@ -93,11 +125,11 @@ In `Ipd_Ufpd_Uled_0_6V 2022-12-02 11-32-27 0.csv` there is only one measured var
 ```{python}
 dataset=pd.read_csv('datasets/LVJ_PD_BVue_l1mm_02122022G2/Ipd_Urpd_Uled_0_6V 2022-12-02 10-29-07 0.csv', sep=',', skiprows=6)
 
-SweepPlot(dataset, '2 - Get Measurement Value', '1 - Get Measurement Value', '3 - Sweep CH2 Voltage Setting', '3 - Get CH2 Current Measurement', 2, yScale=10**6)
-plt.legend(title='$I_{LED}$', loc='best')
+SweepPlot(dataset, '2 - Get Measurement Value', '1 - Get Measurement Value', '3 - Sweep CH2 Voltage Setting', '3 - Get CH2 Current Measurement', 2, yScale=10**6, labelScale=1000)
+plt.legend(title='$I_{LED} [mA]$', loc='best')
 plt.yscale('log')
 plt.suptitle('Photodiode voltage versus photodiode current')
-plt.title('Variable LED illumination')
+plt.title('Variable blue LED illumination, 1 mm distance')
 plt.xlabel('$U_{pd} [V]$')
 plt.ylabel('$I_{pd} [nA]$')
 
@@ -151,6 +183,11 @@ plt.grid()
 
 plt.show()
 ```
+
+To calculate current on the resistor, we can use following equation:
+$$
+I_{R} = \frac{U_{gen}-U_{pd}}{R}
+$$
 
 ```{python}
 dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_f1ku2of1_f1.csv', sep=',', skiprows=1)
@@ -339,6 +376,8 @@ plt.grid()
 
 plt.show()
 ```
+
+
 
 ```{python}
 dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_r1ku2f2_f1.csv', sep=',', skiprows=1)

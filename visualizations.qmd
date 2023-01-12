@@ -21,12 +21,12 @@ Script for plotting several datasets on one plot
 
 ```{python}
 def SweepPlot(data:pd.DataFrame, xName: str, yName: str, SweepColumnName: str, 
-  labelColumn: str, skipRows:int, xScale=1, yScale=1):
+  labelColumn: str, skipRows:int, xScale=1.0, yScale=1.0, labelScale=1.0):
 
   n = data[SweepColumnName].max()
   n=n.astype(int)
   if(labelColumn!=None):
-    labels = dataset[labelColumn].dropna().reset_index(drop=True)
+    labels = dataset[labelColumn].dropna().reset_index(drop=True)*labelScale
   
   curr = 0
   index=list()
@@ -44,7 +44,7 @@ def SweepPlot(data:pd.DataFrame, xName: str, yName: str, SweepColumnName: str,
     if(labelColumn!=None):
       plt.plot(data[xName][skipRows+prevIndex:index[i]]*xScale, 
        data[yName][skipRows+prevIndex:index[i]]*yScale, 
-       label=f'{Decimal(labels[i]):.2E}')
+       label=f'{labels[i]:.2f}')
     else:
       plt.plot(data[xName][skipRows+prevIndex:index[i]]*xScale, 
         data[yName][skipRows+prevIndex:index[i]]*yScale)
@@ -58,16 +58,16 @@ def SweepPlot(data:pd.DataFrame, xName: str, yName: str, SweepColumnName: str,
 ```{python}
 dataset = pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdF_UpdF_2022-12-02_16-24-39_0.csv',
   sep=',', skiprows=3)
-dataset['Get Measurement Value'] = dataset['Get Measurement Value'] * 10**6 #to nA
-SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 
-  'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2)
-plt.yscale('log')
-plt.legend(title='I', loc='best')
-plt.suptitle('Photodiode forward voltage versus for ward current')
-plt.title('No illumination')
 
-plt.xlabel('Voltage [V]')
-plt.ylabel('Current [nA]')
+SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 
+  'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2, yScale=10**6, labelScale=1000)
+plt.yscale('log')
+plt.legend(title='$I_{LED} [mA]$', loc='best')
+plt.suptitle('Photodiode forward voltage versus forward current')
+plt.title('Variable LED illumination')
+
+plt.xlabel('$U_{pdF} [V]$')
+plt.ylabel('$I_{pdF} [nA]$')
 
 plt.show()
 ```
@@ -75,12 +75,10 @@ plt.show()
 ```{python}
 dataset=pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdR_UpdR 2022-12-02 15-57-44 0.csv', sep=',', skiprows=3)
 
-dataset['Get Measurement Value']=dataset['Get Measurement Value'] * 1000 #to convert to mA
-
-SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2)
-plt.legend(title='I', loc='best')
+SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2, yScale=1000, labelScale=1000)
+plt.legend(title='$I_{LED}$', loc='best')
 plt.suptitle('Photodiode reverse voltage versus reverse current')
-plt.title('No illumination')
+plt.title('Variable LED illumination')
 plt.yscale('log')
 plt.xlabel('Voltage [V]')
 plt.ylabel('Current [mA]')
@@ -117,7 +115,7 @@ plt.plot(dataset['1 - Get CH1 Voltage Measurement'], dataset['1 - Get CH1 Curren
 plt.grid()
 plt.xlabel('$U_{pd}[V]$')
 plt.ylabel('$I_{pdF}[mA]$')
-plt.title('Photodiode voltage versus forward current')
+plt.title('Photoresistor voltage versus forward current')
 
 plt.show()
 ```

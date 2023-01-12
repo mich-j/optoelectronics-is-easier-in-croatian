@@ -1,3 +1,3 @@
 # Necessary Python libraries
 
-~pandas scipy matplotlib~
+`pandas scipy matplotlib numpy`

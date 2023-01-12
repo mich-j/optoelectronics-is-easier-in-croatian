@@ -7,8 +7,6 @@ format:
     html-math-method: katex
 ---
 
-# Optoelektronika :C
-
 Including necessary libraries
 ```{python}
 
@@ -16,17 +14,20 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.signal import savgol_filter
+from decimal import Decimal
 ```
 
 Script for plotting several datasets on one plot
 
 ```{python}
-def SweepPlot(data, xName, yName, SweepColumnName, labelColumn, skipRows):
-  plt.figure()
+def SweepPlot(data:pd.DataFrame, xName: str, yName: str, SweepColumnName: str, 
+  labelColumn: str, skipRows:int, xScale=1, yScale=1):
+
   n = data[SweepColumnName].max()
   n=n.astype(int)
-  labels = dataset[labelColumn].dropna()
-
+  if(labelColumn!=None):
+    labels = dataset[labelColumn].dropna().reset_index(drop=True)
+  
   curr = 0
   index=list()
 
@@ -35,12 +36,19 @@ def SweepPlot(data, xName, yName, SweepColumnName, labelColumn, skipRows):
     if(curr != data[SweepColumnName][i+1]):
       index.append(i)
 
+  plt.figure()
+  plt.grid()
+
   prevIndex = 0
   for i in range(n):
-    plt.plot(data[xName][skip+prevIndex:index[i]], data[yName][skip+prevIndex:index[i]])
+    if(labelColumn!=None):
+      plt.plot(data[xName][skipRows+prevIndex:index[i]]*xScale, 
+       data[yName][skipRows+prevIndex:index[i]]*yScale, 
+       label=f'{Decimal(labels[i]):.2E}')
+    else:
+      plt.plot(data[xName][skipRows+prevIndex:index[i]]*xScale, 
+        data[yName][skipRows+prevIndex:index[i]]*yScale)
     prevIndex = index[i]
-  
-  plt.grid()
 ```
 
 # Directory /LED_PD_UpdF_UpdR_02112022
@@ -48,11 +56,15 @@ def SweepPlot(data, xName, yName, SweepColumnName, labelColumn, skipRows):
 ## Photodiode forward voltage versus forward current
 
 ```{python}
-dataset = pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdF_UpdF_2022-12-02_16-24-39_0.csv', sep=',', skiprows=3)
-dataset['Get Measurement Value'] = dataset['Get Measurement Value'] * 10**6
-SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2)
+dataset = pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdF_UpdF_2022-12-02_16-24-39_0.csv',
+  sep=',', skiprows=3)
+dataset['Get Measurement Value'] = dataset['Get Measurement Value'] * 10**6 #to nA
+SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 
+  'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2)
 plt.yscale('log')
-plt.legend(loc='best')
+plt.legend(title='I', loc='best')
+plt.suptitle('Photodiode forward voltage versus for ward current')
+plt.title('No illumination')
 
 plt.xlabel('Voltage [V]')
 plt.ylabel('Current [nA]')
@@ -63,10 +75,13 @@ plt.show()
 ```{python}
 dataset=pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdR_UpdR 2022-12-02 15-57-44 0.csv', sep=',', skiprows=3)
 
-plt.figure()
 dataset['Get Measurement Value']=dataset['Get Measurement Value'] * 1000 #to convert to mA
-dataset.plot(x='Get Measurement Value.1', y='Get Measurement Value')
-plt.grid()
+
+SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2)
+plt.legend(title='I', loc='best')
+plt.suptitle('Photodiode reverse voltage versus reverse current')
+plt.title('No illumination')
+plt.yscale('log')
 plt.xlabel('Voltage [V]')
 plt.ylabel('Current [mA]')
 
@@ -75,15 +90,18 @@ plt.show()
 
 # Directory /LVJ_PD_BVue_l1mm_02122022G2
 
-```{python}
-dataset=pd.read_csv('datasets/LVJ_PD_BVue_l1mm_02122022G2/Ipd_Ufpd_Uled_0_6V 2022-12-02 11-32-27 0.csv', sep=',', skiprows=2)
+In `Ipd_Ufpd_Uled_0_6V 2022-12-02 11-32-27 0.csv` there is only one measured variable. Assumed this dataset is invalid.
 
-plt.figure()
-dataset['Get Measurement Value'] = dataset['Get Measurement Value'] * 1000 # to mA
-dataset.plot(x='1 - Sweep CH1 Voltage Setting', y='Get Measurement Value')
+```{python}
+dataset=pd.read_csv('datasets/LVJ_PD_BVue_l1mm_02122022G2/Ipd_Urpd_Uled_0_6V 2022-12-02 10-29-07 0.csv', sep=',', skiprows=6)
+
+SweepPlot(dataset, '2 - Get Measurement Value', '1 - Get Measurement Value', '3 - Sweep CH2 Voltage Setting', '3 - Get CH2 Current Measurement', 2, yScale=10**6)
+plt.legend(title='$I_{LED}$', loc='best')
+plt.yscale('log')
+plt.suptitle('Photodiode voltage versus photodiode current')
+plt.title('Variable LED illumination')
 plt.xlabel('$U_{pd} [V]$')
-plt.ylabel('$I_{pd} [mA]$')
-plt.grid()
+plt.ylabel('$I_{pd} [nA]$')
 
 plt.show()
 ```
@@ -91,9 +109,18 @@ plt.show()
 # Directory LvJ_OPTO_2022_GE211222022
 
 
-
 # Directory LED_PDetector
+```{python}
+dataset=pd.read_csv('datasets/LVJ_PDetector/IpdF_Upd_15VBenchvue_29112022 2022-11-29 15-56-50.csv', sep=',', skiprows=4)
+plt.figure()
+plt.plot(dataset['1 - Get CH1 Voltage Measurement'], dataset['1 - Get CH1 Current Measurement']*1000)
+plt.grid()
+plt.xlabel('$U_{pd}[V]$')
+plt.ylabel('$I_{pdF}[mA]$')
+plt.title('Photodiode voltage versus forward current')
 
+plt.show()
+```
 
 # Directory LVJ_BenchVue_30112022G1
 
@@ -104,7 +131,6 @@ plt.show()
 
 ```{python}
 dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_f1ku2of1_1.csv', sep=',', skiprows=1)
-
 
 plt.figure()
 dataset.plot(x='second', y='Volt')

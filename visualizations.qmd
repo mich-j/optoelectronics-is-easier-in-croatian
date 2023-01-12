@@ -5,6 +5,10 @@ format:
     toc: true
     toc-location: left
     html-math-method: katex
+    theme: minty
+    code-fold: true
+    code-overflow: wrap
+    code-tools: true
 ---
 
 Including necessary libraries
@@ -51,9 +55,12 @@ def SweepPlot(data:pd.DataFrame, xName: str, yName: str, SweepColumnName: str,
     prevIndex = index[i]
 ```
 
-# Directory /LED_PD_UpdF_UpdR_02112022
 
-## Photodiode forward voltage versus forward current
+
+# Photodiode forward and reverse, in dark and illuminated
+## Under red LED
+
+Directory _/LED_PD_UpdF_UpdR_02112022_
 
 ```{python}
 dataset = pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdF_UpdF_2022-12-02_16-24-39_0.csv',
@@ -86,7 +93,7 @@ plt.ylabel('$I_{pdR} [mA]$')
 plt.show()
 ```
 
-# Directory RED_LED_PD_mj\RED_LED_PD_mj\LVJPD_RED_1cm_BenchVue_30112022G1
+ Directory _/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1_
 
 ```{python}
 dataset = pd.read_csv('datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1/Ipd_Popt6_UpdF_30112022 2022-11-30 12-02-00 0 2022-11-30 12-42-42 0.csv',
@@ -118,7 +125,8 @@ plt.ylabel('$I_{pdR} [nA]$')
 plt.show()
 ```
 
-# Directory /LVJ_PD_BVue_l1mm_02122022G2
+## Under blue LED
+Directory _/LVJ_PD_BVue_l1mm_02122022G2_
 
 In `Ipd_Ufpd_Uled_0_6V 2022-12-02 11-32-27 0.csv` there is only one measured variable. Assumed this dataset is invalid.
 
@@ -136,10 +144,26 @@ plt.ylabel('$I_{pd} [nA]$')
 plt.show()
 ```
 
-# Directory LvJ_OPTO_2022_GE211222022
+# Red LED 
+Directory _/RED_LED_PD_mj/Iled_Uled_RED_
+
+```{python}
+dataset=pd.read_csv('datasets/RED_LED_PD_mj/RED_LED_PD_mj/Iled_Uled_RED/IledRed_UledF_06V_50mV 2022-12-02 16-48-23 1.csv', sep=',')
+plt.figure()
+plt.plot(dataset['1 - Get CH2 Voltage Setting'], dataset['2 - Get Measurement Value Iled']*1000)
+plt.grid()
+plt.xlabel('$U_{LED}[V]$')
+plt.ylabel('$I_{LED}[mA]$')
+plt.title('Red LED voltage versus current')
+
+plt.show()
+```
+
+# TODO Directory /LvJ_OPTO_2022_GE211222022
 
 
-# Directory LED_PDetector
+# Photoresistor
+Directory _/LED_PDetector_
 ```{python}
 dataset=pd.read_csv('datasets/LVJ_PDetector/IpdF_Upd_15VBenchvue_29112022 2022-11-29 15-56-50.csv', sep=',', skiprows=4)
 plt.figure()
@@ -151,9 +175,6 @@ plt.title('Photoresistor voltage versus forward current')
 
 plt.show()
 ```
-
-# Directory LVJ_BenchVue_30112022G1
-
 
 # Directory LVJ_OPHO2022\LVJ_OPHO2022
 

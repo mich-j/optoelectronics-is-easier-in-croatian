@@ -16,6 +16,7 @@ Including necessary libraries
 
 import pandas as pd
 import matplotlib.pyplot as plt
+
 import numpy as np
 from scipy.signal import savgol_filter
 from decimal import Decimal
@@ -24,35 +25,90 @@ from decimal import Decimal
 Script for plotting several datasets on one plot
 
 ```{python}
-def SweepPlot(data:pd.DataFrame, xName: str, yName: str, SweepColumnName: str, 
-  labelColumn: str, skipRows:int, xScale=1.0, yScale=1.0, labelScale=1.0):
+def SweepPlot(
+    data: pd.DataFrame,
+    xName: str,
+    yName: str,
+    SweepColumnName: str,
+    labelColumn: str,
+    skipRows: int,
+    xScale=1.0,
+    yScale=1.0,
+    labelScale=1.0,
+):
 
-  n = data[SweepColumnName].max()
-  n = n.astype(int)
-  if(labelColumn!=None):
-    labels = dataset[labelColumn].dropna().reset_index(drop=True)*labelScale
-  
-  curr = 0
-  index=list()
+    n = data[SweepColumnName].max()
+    n = n.astype(int)
+    if labelColumn != None:
+        labels = data[labelColumn].dropna().reset_index(drop=True) * labelScale
 
-  for i in range(skipRows, len(data)-1):
-    curr = data[SweepColumnName][i]
-    if(curr != data[SweepColumnName][i+1]):
-      index.append(i)
+    curr = 0
+    index = list()
 
-  plt.figure()
-  plt.grid()
+    for i in range(skipRows, len(data) - 1):
+        curr = data[SweepColumnName][i]
+        if curr != data[SweepColumnName][i + 1]:
+            index.append(i)
 
-  prevIndex = 0
-  for i in range(n):
-    if(labelColumn!=None):
-      plt.plot(data[xName][skipRows+prevIndex:index[i]]*xScale, 
-       data[yName][skipRows+prevIndex:index[i]]*yScale, 
-       label=f'{labels[i]:.2f}')
-    else:
-      plt.plot(data[xName][skipRows+prevIndex:index[i]]*xScale, 
-        data[yName][skipRows+prevIndex:index[i]]*yScale)
-    prevIndex = index[i]
+    plt.figure()
+    fig, ax = plt.subplots()
+    plt.grid()
+
+    prevIndex = 0
+    for i in range(n):
+        if labelColumn != None:
+            plt.plot(
+                data[xName][skipRows + prevIndex : index[i]] * xScale,
+                data[yName][skipRows + prevIndex : index[i]] * yScale,
+                label=f"{labels[i]:.2f}",
+            )
+        else:
+            plt.plot(
+                data[xName][skipRows + prevIndex : index[i]] * xScale,
+                data[yName][skipRows + prevIndex : index[i]] * yScale,
+            )
+        prevIndex = index[i]
+
+    return ax
+
+
+def SetScaleType(type):
+    plt.yscale(type)
+
+
+def PlotOscVoltCurr(
+    path_to_dir: str, datasetBaseName, endings:list, title=" ", resistance=100
+):
+    dtsets = list()
+    for var in endings:
+        var = pd.read_csv(path_to_dir + datasetBaseName + var + '.csv', sep=",", skiprows=1)
+        var["second"] = (
+            var["second"] - var["second"][0]
+        ) * 10**9  # to nanoseconds, substract offset
+        dtsets.append(var)
+
+    dtsets[2]["Volt"] = dtsets[2]["Volt"] / resistance * 1000  # to mA
+
+    fig, axVoltage = plt.subplots()
+
+    axVoltage.plot(dtsets[0]["second"], dtsets[0]["Volt"], label="$U_{generator}$")
+    axVoltage.plot(dtsets[1]["second"], dtsets[1]["Volt"], label="$U_{LED}$")
+    axVoltage.set_xlabel("time [ns]")
+    axVoltage.set_ylabel("Voltage [V]")
+
+    axCurrent = axVoltage.twinx()
+
+    axCurrent.plot(
+        dtsets[2]["second"], dtsets[2]["Volt"], label="$\mathcal{I}$", color="green"
+    )
+    axCurrent.set_ylabel("Current [mA]")
+    axVoltage.legend(loc='center left')
+    axCurrent.legend(loc='center right')
+
+    plt.title(title)
+    plt.grid()
+    fig.tight_layout()
+    plt.show()
 ```
 
 
@@ -68,11 +124,11 @@ dataset = pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdF_UpdF_2022-12-02_1
 
 SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 
   'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2, yScale=10**6, labelScale=1000)
+# plt.subplots_adjust()
 plt.yscale('log')
 plt.legend(title='$I_{LED} [mA]$', loc='best')
 plt.suptitle('Photodiode forward voltage versus forward current')
 plt.title('Variable red LED illumination')
-
 plt.xlabel('$U_{pdF} [V]$')
 plt.ylabel('$I_{pdF} [nA]$')
 
@@ -82,13 +138,14 @@ plt.show()
 ```{python}
 dataset=pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdR_UpdR 2022-12-02 15-57-44 0.csv', sep=',', skiprows=3)
 
-SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2, yScale=1000, labelScale=1000)
+SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2, yScale=10**6, labelScale=1000, xScale=-1)
+plt.gca().invert_yaxis()
 plt.legend(title='$I_{LED} [mA]$', loc='best')
 plt.suptitle('Photodiode reverse voltage versus reverse current')
 plt.title('Variable red LED illumination')
-plt.yscale('log')
+# plt.yscale('log')
 plt.xlabel('$U_{pdR} [V]$')
-plt.ylabel('$I_{pdR} [mA]$')
+plt.ylabel('$I_{pdR} [nA]$')
 
 plt.show()
 ```
@@ -109,6 +166,22 @@ plt.ylabel('$I_{pdF} [nA]$')
 
 plt.show()
 ```
+
+```{python}
+dataset = pd.read_csv('datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1/Ipd_Popt6_UpdF_30112022 2022-11-30 12-02-00 0 2022-11-30 12-42-42 0.csv',
+  sep=',', skiprows=5)
+SweepPlot(dataset, '2 - Get Measurement Value', 'Get Measurement Value', 
+  '1 - Sweep CH2 Voltage Setting', '1 - Get CH2 Current Measurement', 2, yScale=10**3, labelScale=1000)
+# plt.yscale('log')
+plt.suptitle('Photodiode forward voltage versus forward current')
+plt.title('Variable red LED illumination')
+plt.legend(title='$I_{LED} [mA]$', loc='best')
+plt.xlabel('$U_{pdF} [V]$')
+plt.ylabel('$I_{pdF} [nA]$')
+
+plt.show()
+```
+
 
 ```{python}
 dataset = pd.read_csv('datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1/Ipd_Popt6_UpdR_30112022 2022-11-30 12-02-00 0 2022-11-30 12-03-12 0.csv',
@@ -144,7 +217,12 @@ plt.ylabel('$I_{pd} [nA]$')
 plt.show()
 ```
 
-# Red LED 
+## Under green LED
+
+# Red LED
+
+## Voltage-current characteristics
+
 Directory _/RED_LED_PD_mj/Iled_Uled_RED_
 
 ```{python}
@@ -157,6 +235,20 @@ plt.ylabel('$I_{LED}[mA]$')
 plt.title('Red LED voltage versus current')
 
 plt.show()
+```
+
+# Blue LED
+
+Directory _LVJ_OPTO_LEDtrans20122022_
+
+```{python}
+
+PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_nt_u4v1khz1_', ['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 1 kHz')
+
+PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_nt_u4v1khz2_', ['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 2 kHz')
+
+PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_onu4v1khz3_',['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 3 kHz')
+
 ```
 
 # TODO Directory /LvJ_OPTO_2022_GE211222022
@@ -178,6 +270,23 @@ plt.show()
 
 # Directory LVJ_OPHO2022\LVJ_OPHO2022
 
+TODO diode current equation
+
+$\mu$ - diode ideality factor can be calculated
+
+$$
+I=I_0(e^{\frac{qU}{\mu KT}}-1)
+$$
+where: 
+
+* $I [A]$ is diode current,
+* $I_0 [A]$ is Dark Saturation Current,
+* $q [C]$ is electron charge,
+* $U [V]$ is voltage applied on the diode,
+* $\mu$ is diode ideality factor,
+* $K [\frac{J}{K}]$ is the Boltzmann constant,
+* $T [K]$ is the temperature.
+
 ## photodiode b? f = 1kHZ, U_gen = +2V/-2V falling edge?
 
 ```{python}
@@ -194,7 +303,6 @@ plt.show()
 
 ```{python}
 dataset=pd.read_csv('datasets/LVJ_OPHO2022/LVJ_OPHO2022/pd_b_f1ku2of1_3.csv', sep=',', skiprows=1)
-
 
 plt.figure()
 dataset.plot(x='second', y='Volt')

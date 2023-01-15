@@ -4,6 +4,7 @@
 *.xlsx
 *.csv#
 /visualizations_files
+/temp
 *.bak
 *.html
 *.pdf

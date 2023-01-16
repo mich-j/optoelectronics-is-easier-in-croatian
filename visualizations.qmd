@@ -87,7 +87,7 @@ def PlotOscVoltCurr(
         ) * 10**9  # to nanoseconds, substract offset
         dtsets.append(var)
 
-    dtsets[2]["Volt"] = dtsets[2]["Volt"] / resistance * 1000  # to mA
+    dtsets[-1]["Volt"] = dtsets[-1]["Volt"] / resistance * 1000  # to mA
 
     fig, axVoltage = plt.subplots()
 
@@ -99,7 +99,7 @@ def PlotOscVoltCurr(
     axCurrent = axVoltage.twinx()
 
     axCurrent.plot(
-        dtsets[2]["second"], dtsets[2]["Volt"], label="$\mathcal{I}$", color="green"
+        dtsets[-1]["second"], dtsets[-1]["Volt"], label="$\mathcal{I}$", color="green"
     )
     axCurrent.set_ylabel("Current [mA]")
     axVoltage.legend(loc='center left')

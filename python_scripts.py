@@ -7,23 +7,10 @@ from decimal import Decimal
 import os.path
 from os import path
 
+from os import listdir
+from os.path import isfile, join
+
 colors = ['blue', 'green', 'orange']
-
-def CheckDataset(
-  columns: pd.Index,
-  columnNames = ('1','3', 'F1')
-  ):
-  order = pd.Index(['x-axis', columnNames[0], columnNames[1], columnNames[2]])
-  if(columns.equals(order) == True):
-    return 'ok'
-  else:
-    print('Wrong column labels, should be:')
-    print(order)
-    print('In the file there is:')
-    print(columns)
-    return 'wrong'
-
-
 
 def SweepPlot(
     data: pd.DataFrame,
@@ -130,9 +117,9 @@ def PlotOscVoltCurr(
 
 def PlotVoltageCurrentDataset(
   dataset: pd.DataFrame,
-  columnNames = ('1', '3', 'F1'),
   title=" "
   ):  
+  columnNames = dataset.columns
   fig, ax1 = plt.subplots()
   ax1.set_xlabel('Time [ns]')
   ax1.set_ylabel('Voltage [V]')
@@ -164,7 +151,6 @@ filteringVoltage: tuple containing window_length and polyorder for voltage filte
 def PlotSingleFile_OPHO(
   fileName = 'x.csv', 
   filePath = 'datasets/LVJ_OPHO2022/LVJ_OPHO2022',
-  columnNames = ('1', '3', 'F1'),
   filterValues = False,  
   filteringCurrent = (-1,-1), 
   filteringVoltage=(-1,-1),
@@ -180,9 +166,10 @@ def PlotSingleFile_OPHO(
     print('Error while reading file')
     print('filePath: ' + filePath)
   else:
-    if(CheckDataset(dataset.columns, columnNames) != 'ok'):
-      return
+    # if(CheckDataset(dataset.columns, columnNames) != 'ok'):
+    #   return
     resistance = 100.0 #
+    columnNames = dataset.columns
     # Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
     dataset[columnNames[2]] = dataset[columnNames[2]] / resistance * 1000
     dataset['x-axis'] = (dataset['x-axis'] - dataset['x-axis'][0]) * 10**9# to nanoseconds, substract offset
@@ -190,4 +177,31 @@ def PlotSingleFile_OPHO(
     if(filterValues):
       dataset[columnNames[2]] = savgol_filter(x=dataset[columnNames[2]], window_length=filteringCurrent[0], polyorder=filteringCurrent[1])
       dataset[columnNames[1]] = savgol_filter(x=dataset[columnNames[1]], window_length=filteringVoltage[0], polyorder=filteringVoltage[1])
-    PlotVoltageCurrentDataset(dataset, columnNames, title)
+    PlotVoltageCurrentDataset(dataset=dataset, title=title)
+
+def GetBaseName(s = ""):
+  return s[0:next(i for i in reversed(range(len(s))) if s[i] == '_')+1]
+def GetEnding(s = ""):
+  return s[next(i for i in reversed(range(len(s))) if s[i] == '_')+1:-4]
+def PrintDataFromDirectory(
+  directoryPath: str
+):
+  onlyfiles = [f for f in listdir(directoryPath) if isfile(join(directoryPath, f))and f[-4:]=='.csv']
+  # print(onlyfiles)
+  files_dataThreeFiles = [f for f in onlyfiles if f[-6]=='_' or f[-7]=='_']
+  fileBaseName = [GetBaseName(files_dataThreeFiles[0])]
+  end = [GetEnding(files_dataThreeFiles[0])]
+  fileEndings = end
+  for f in files_dataThreeFiles:
+    if not(GetBaseName(f) in fileBaseName):
+      fileEndings.append(end)
+      end.clear()
+      fileBaseName.append(GetBaseName(f))
+    end.append(GetEnding(f))
+      
+  for f in fileBaseName:
+    PlotOscVoltCurr(path_to_dir=directoryPath, datasetBaseName=f, endings=fileEndings, title=f)
+
+  files_dataOneFile = [f for f in onlyfiles if f[-6]!='_' and f[-7]!='_']
+  for f in files_dataOneFile:
+    PlotSingleFile_OPHO(fileName=f, filePath=directoryPath, title=f)

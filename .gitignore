@@ -16,3 +16,4 @@ visualizations.ipynb
 *.fdb_latexmk
 *.synctex.gz
 *.code-workspace
+__pycache__/

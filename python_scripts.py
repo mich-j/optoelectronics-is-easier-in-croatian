@@ -12,7 +12,6 @@ def CheckDataset(
   ):
   order = pd.Index(['x-axis', '1', '3', 'F1'])
   if(columns.equals(order) == True):
-    print('ok')
     return 'ok'
   else:
     print('Wrong column labels, should be:')
@@ -132,7 +131,7 @@ def PlotVoltageCurrentDataset(
   dataset: pd.DataFrame
   ):  
   fig, ax1 = plt.subplots()
-  ax1.set_xlabel('Time [s]')
+  ax1.set_xlabel('Time [ns]')
   ax1.set_ylabel('Voltage [V]')
   lns1 = ax1.plot(dataset["x-axis"], dataset['1'], label='U_generator', color = 'black')
   lns2 = ax1.plot(dataset["x-axis"], dataset['3'], label='U_photodiode', color = 'blue')
@@ -180,7 +179,7 @@ def PlotSingleFile_OPHO(
     resistance = 100.0 #
     # Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
     dataset['F1'] = dataset['F1'] / resistance * 1000
-
+    dataset['x-axis'] = (dataset['x-axis'] - dataset['x-axis'][0]) * 10**9# to nanoseconds, substract offset
     #filtering values
     if(filterValues):
       dataset['F1'] = savgol_filter(x=dataset['F1'], window_length=filteringCurrent[0], polyorder=filteringCurrent[1])

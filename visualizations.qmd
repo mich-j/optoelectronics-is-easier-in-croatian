@@ -110,6 +110,36 @@ plt.ylabel('$I_{pdR} [nA]$')
 plt.show()
 ```
 
+### Trace
+
+```{python}
+dataset = pd.read_csv('datasets\RED_LED_PD_mj\RED_LED_PD_mj\LVJPD_RED_1cm_BenchVue_30112022G1\Trace 2022-11-30 13-37-16 0.csv', 
+sep=',', skiprows=1, usecols=['Time (s)','1 (VOLT)','3 (VOLT)'])
+
+dataset['Time (s)'] = (dataset['Time (s)'] - dataset['Time (s)'][0]) * 1000
+
+plt.figure()
+plt.plot(dataset['Time (s)'], dataset['1 (VOLT)'], label='U_generator')
+plt.plot(dataset['Time (s)'], dataset['3 (VOLT)'], label='U_photodiode')
+plt.ylabel('U [V]')
+plt.xlabel('Time [ms]')
+plt.grid()
+plt.show()
+
+dataset = pd.read_csv('datasets\RED_LED_PD_mj\RED_LED_PD_mj\LVJPD_RED_1cm_BenchVue_30112022G1\Trace 2022-11-30 13-40-46 0.csv', 
+sep=',', skiprows=1, usecols=['Time (s)','1 (VOLT)','3 (VOLT)'])
+
+dataset['Time (s)'] = (dataset['Time (s)'] - dataset['Time (s)'][0])*1000
+
+plt.figure()
+plt.plot(dataset['Time (s)'], dataset['1 (VOLT)'], label='U_generator')
+plt.plot(dataset['Time (s)'], dataset['3 (VOLT)'], label='U_photodiode')
+plt.ylabel('U [V]')
+plt.xlabel('Time [ms]')
+plt.grid()
+plt.show()
+```
+
 ## Under blue LED
 Directory _/LVJ_PD_BVue_l1mm_02122022G2_
 
@@ -155,11 +185,13 @@ Directory _LVJ_OPTO_LEDtrans20122022_
 
 ```{python}
 
-pys.PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_nt_u4v1khz1_', ['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 1 kHz')
+# pys.PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_nt_u4v1khz1_', ['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 1 kHz')
 
-pys.PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_nt_u4v1khz2_', ['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 2 kHz')
+# pys.PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_nt_u4v1khz2_', ['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 2 kHz')
 
-pys.PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_onu4v1khz3_',['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 3 kHz')
+# pys.PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_onu4v1khz3_',['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 3 kHz')
+
+pys.PrintDataFromDirectory(directoryPath='datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022')
 
 ```
 
@@ -334,4 +366,14 @@ pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans
 ```{python}
 pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1kt_', endings=('1','3','F1'))
 ```
-# 
+
+# TODO Directory RED_LED_PD_mj/RED_LED_PD_mj/LED_RED_1mm_Ipd_UpdF_UpdR_02112022
+
+```{python}
+
+# dataset = pd.read_csv('dataset/RED_LED_PD_mj/RED_LED_PD_mj/LED_RED_1mm_Ipd_UpdF_UpdR_02112022/IpdF_UpdF 2022-12-02 16-24-39 0.csv', skiprows=[0,1,2,4,5,6,7], sep=',', usecols=['Time',''])
+
+
+```
+
+# TODO Directory RED_LED_PD_mj/RED_LED_PD_mj/RED_transient/

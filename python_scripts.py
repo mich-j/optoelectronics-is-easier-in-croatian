@@ -7,10 +7,13 @@ from decimal import Decimal
 import os.path
 from os import path
 
+colors = ['blue', 'green', 'orange']
+
 def CheckDataset(
-  columns: pd.Index
+  columns: pd.Index,
+  columnNames = ('1','3', 'F1')
   ):
-  order = pd.Index(['x-axis', '1', '3', 'F1'])
+  order = pd.Index(['x-axis', columnNames[0], columnNames[1], columnNames[2]])
   if(columns.equals(order) == True):
     return 'ok'
   else:
@@ -101,19 +104,17 @@ def PlotOscVoltCurr(
 
     fig, axVoltage = plt.subplots()
 
-    pl1 = axVoltage.plot(dtsets[0]["second"], dtsets[0]["Volt"], label="$U_{generator}$")
-    pl2 = axVoltage.plot(dtsets[1]["second"], dtsets[1]["Volt"], label="$U_{LED}$")
+    pl1 = axVoltage.plot(dtsets[0]["second"], dtsets[0]["Volt"], label="$U_{generator}$", color=colors[0])
+    pl2 = axVoltage.plot(dtsets[1]["second"], dtsets[1]["Volt"], label="$U_{LED}$", color=colors[1])
     axVoltage.set_xlabel("time [ns]")
     axVoltage.set_ylabel("Voltage [V]")
 
     axCurrent = axVoltage.twinx()
-
+    axCurrent.tick_params(axis='y', labelcolor=colors[2])
     pl3 = axCurrent.plot(
-        dtsets[2]["second"], dtsets[2]["Volt"], label="$\mathcal{I}$", color="green"
+        dtsets[2]["second"], dtsets[2]["Volt"], label="$\mathcal{I}$", color=colors[2]
     )
-    axCurrent.set_ylabel("Current [mA]")
-    # axVoltage.legend(loc='center left')
-    # axCurrent.legend(loc='center right')
+    axCurrent.set_ylabel("Current [mA]", color=colors[2])
 
     #join labels
     lns = pl1+pl2+pl3
@@ -128,24 +129,27 @@ def PlotOscVoltCurr(
 
 
 def PlotVoltageCurrentDataset(
-  dataset: pd.DataFrame
+  dataset: pd.DataFrame,
+  columnNames = ('1', '3', 'F1'),
+  title=" "
   ):  
   fig, ax1 = plt.subplots()
   ax1.set_xlabel('Time [ns]')
   ax1.set_ylabel('Voltage [V]')
-  lns1 = ax1.plot(dataset["x-axis"], dataset['1'], label='U_generator', color = 'black')
-  lns2 = ax1.plot(dataset["x-axis"], dataset['3'], label='U_photodiode', color = 'blue')
+  lns1 = ax1.plot(dataset["x-axis"], dataset[columnNames[0]], label='U_generator', color = colors[0])
+  lns2 = ax1.plot(dataset["x-axis"], dataset[columnNames[1]], label='U_photodiode', color = colors[1])
 
   ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
-  ax2.set_ylabel('I [mA]', color='red')  # we already handled the x-label with ax1
-  lns3 = ax2.plot(dataset['x-axis'], dataset['F1'], label = 'I_photodiode', color = 'red')
-  ax2.tick_params(axis='y', labelcolor='red')
+  ax2.set_ylabel('I [mA]', color=colors[2])  # we already handled the x-label with ax1
+  lns3 = ax2.plot(dataset['x-axis'], dataset[columnNames[2]], label = 'I_photodiode', color = colors[2])
+  ax2.tick_params(axis='y', labelcolor=colors[2])
 
   #join labels
   lns = lns1+lns2+lns3
   labs = [l.get_label() for l in lns]
   ax1.legend(lns, labs, loc=0) 
-  
+
+  plt.title(title)
   plt.grid()
   fig.tight_layout()  # otherwise the right y-label is slightly clipped
   plt.show()
@@ -160,9 +164,11 @@ filteringVoltage: tuple containing window_length and polyorder for voltage filte
 def PlotSingleFile_OPHO(
   fileName = 'x.csv', 
   filePath = 'datasets/LVJ_OPHO2022/LVJ_OPHO2022',
+  columnNames = ('1', '3', 'F1'),
   filterValues = False,  
   filteringCurrent = (-1,-1), 
-  filteringVoltage=(-1,-1)
+  filteringVoltage=(-1,-1),
+  title=" "
   ):
   if(filePath[-1] != '/'):
     filePath += '/'
@@ -174,14 +180,14 @@ def PlotSingleFile_OPHO(
     print('Error while reading file')
     print('filePath: ' + filePath)
   else:
-    if(CheckDataset(dataset.columns) != 'ok'):
+    if(CheckDataset(dataset.columns, columnNames) != 'ok'):
       return
     resistance = 100.0 #
     # Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
-    dataset['F1'] = dataset['F1'] / resistance * 1000
+    dataset[columnNames[2]] = dataset[columnNames[2]] / resistance * 1000
     dataset['x-axis'] = (dataset['x-axis'] - dataset['x-axis'][0]) * 10**9# to nanoseconds, substract offset
     #filtering values
     if(filterValues):
-      dataset['F1'] = savgol_filter(x=dataset['F1'], window_length=filteringCurrent[0], polyorder=filteringCurrent[1])
-      dataset['3'] = savgol_filter(x=dataset['3'], window_length=filteringVoltage[0], polyorder=filteringVoltage[1])
-    PlotVoltageCurrentDataset(dataset)
+      dataset[columnNames[2]] = savgol_filter(x=dataset[columnNames[2]], window_length=filteringCurrent[0], polyorder=filteringCurrent[1])
+      dataset[columnNames[1]] = savgol_filter(x=dataset[columnNames[1]], window_length=filteringVoltage[0], polyorder=filteringVoltage[1])
+    PlotVoltageCurrentDataset(dataset, columnNames, title)

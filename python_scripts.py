@@ -123,12 +123,12 @@ def PlotVoltageCurrentDataset(
   fig, ax1 = plt.subplots()
   ax1.set_xlabel('Time [ns]')
   ax1.set_ylabel('Voltage [V]')
-  lns1 = ax1.plot(dataset["x-axis"], dataset[columnNames[0]], label='U_generator', color = colors[0])
-  lns2 = ax1.plot(dataset["x-axis"], dataset[columnNames[1]], label='U_photodiode', color = colors[1])
+  lns1 = ax1.plot(dataset[columnNames[0]], dataset[columnNames[1]], label='U_generator', color = colors[0])
+  lns2 = ax1.plot(dataset[columnNames[0]], dataset[columnNames[2]], label='U_photodiode', color = colors[1])
 
   ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
   ax2.set_ylabel('I [mA]', color=colors[2])  # we already handled the x-label with ax1
-  lns3 = ax2.plot(dataset['x-axis'], dataset[columnNames[2]], label = 'I_photodiode', color = colors[2])
+  lns3 = ax2.plot(dataset[columnNames[0]], dataset[columnNames[3]], label = 'I_photodiode', color = colors[2])
   ax2.tick_params(axis='y', labelcolor=colors[2])
 
   #join labels
@@ -171,12 +171,12 @@ def PlotSingleFile_OPHO(
     resistance = 100.0 #
     columnNames = dataset.columns
     # Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
-    dataset[columnNames[2]] = dataset[columnNames[2]] / resistance * 1000
-    dataset['x-axis'] = (dataset['x-axis'] - dataset['x-axis'][0]) * 10**9# to nanoseconds, substract offset
+    dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000
+    dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset
     #filtering values
     if(filterValues):
-      dataset[columnNames[2]] = savgol_filter(x=dataset[columnNames[2]], window_length=filteringCurrent[0], polyorder=filteringCurrent[1])
-      dataset[columnNames[1]] = savgol_filter(x=dataset[columnNames[1]], window_length=filteringVoltage[0], polyorder=filteringVoltage[1])
+      dataset[columnNames[3]] = savgol_filter(x=dataset[columnNames[3]], window_length=filteringCurrent[0], polyorder=filteringCurrent[1])
+      dataset[columnNames[2]] = savgol_filter(x=dataset[columnNames[2]], window_length=filteringVoltage[0], polyorder=filteringVoltage[1])
     PlotVoltageCurrentDataset(dataset=dataset, title=title)
 
 def GetBaseName(s = ""):

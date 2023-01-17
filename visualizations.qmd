@@ -110,7 +110,7 @@ plt.ylabel('$I_{pdR} [nA]$')
 plt.show()
 ```
 
-### Trace
+### Trace - RED_LED_PD_mj\LVJPD_RED_1cm_BenchVue_30112022G1
 
 ```{python}
 dataset = pd.read_csv('datasets\RED_LED_PD_mj\RED_LED_PD_mj\LVJPD_RED_1cm_BenchVue_30112022G1\Trace 2022-11-30 13-37-16 0.csv', 
@@ -425,6 +425,94 @@ datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled15mA_Uf3V_off1V_f1k
 ```{python}
 
 dataset = pd.read_csv('datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled20mA_Uf3V_off1V_f1kHz\Trace 2022-12-21 13-13-35 0.csv', skiprows=1, sep=',', usecols=['Time (s)','2 (VOLT)','3 (VOLT)','M1'])
+
+resistance = 100.0 #
+columnNames = dataset.columns
+# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
+dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000
+dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset
+
+pys.PlotVoltageCurrentDataset(dataset)
+
+```
+
+
+# TODO Green LED
+
+## ILED_Green_Ipd_UpdUF_0_2V
+
+Ipd_UpdUF_0_2V_G_Popt0_6V 2022-12-06 10-31-19 0.csv
+```{python}
+dataset = pd.read_csv('datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Ipd_UpdUF_0_2V_G_Popt0_6V 2022-12-06 10-31-19 0.csv', skiprows=[0,1,2,3,4,5,7,8, 9], sep=',', usecols=['1 - Sweep CH2 Voltage Setting', '1 - Sweep CH1 Voltage Setting', '3 - Get Measurement Value', '2 - Get Measurement Value'])
+
+# 'Sweep CH2 Voltage Setting', 'Sweep CH1 Voltage Setting', 'Get Measurement Value', 'Get Measurement Value.1'
+
+pys.SweepPlot(dataset, '2 - Get Measurement Value', '3 - Get Measurement Value', 
+  '1 - Sweep CH2 Voltage Setting', '2 - Get Measurement Value', 2, yScale=10**6, labelScale=1000)
+# plt.subplots_adjust()
+plt.yscale('log')
+plt.legend(title='$I_{LED} [mA]$', loc='best')
+plt.suptitle('Photodiode forward voltage versus forward current')
+plt.title('Variable red LED illumination')
+plt.xlabel('$U_{pdF} [V]$')
+plt.ylabel('$I_{pdF} [nA]$')
+
+plt.show()
+```
+
+datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled0A_Trace 2022-12-06 12-55-36 0.csv
+
+```{python}
+
+dataset = pd.read_csv('datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled0A_Trace 2022-12-06 12-55-36 0.csv', skiprows=1, sep=',', usecols=['Time (s)','1 (VOLT)','2 (AMP)','M1'])
+
+resistance = 100.0 #
+columnNames = dataset.columns
+# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
+dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000
+dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset
+
+pys.PlotVoltageCurrentDataset(dataset)
+
+```
+
+datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-01-29 0.csv 
+
+```{python}
+
+dataset = pd.read_csv('datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-01-29 0.csv', skiprows=1, sep=',', usecols=['Time (s)','1 (VOLT)','2 (AMP)','M1'])
+
+resistance = 100.0 #
+columnNames = dataset.columns
+# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
+dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000
+dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset
+
+pys.PlotVoltageCurrentDataset(dataset)
+
+```
+
+datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-02-20 0.csv
+
+```{python}
+
+dataset = pd.read_csv('datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-02-20 0.csv', skiprows=1, sep=',', usecols=['Time (s)','1 (VOLT)','2 (AMP)','M1'])
+
+resistance = 100.0 #
+columnNames = dataset.columns
+# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
+dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000
+dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset
+
+pys.PlotVoltageCurrentDataset(dataset)
+
+```
+
+datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-02-38 0.csv
+
+```{python}
+
+dataset = pd.read_csv('datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-02-38 0.csv', skiprows=1, sep=',', usecols=['Time (s)','1 (VOLT)','2 (AMP)','M1'])
 
 resistance = 100.0 #
 columnNames = dataset.columns

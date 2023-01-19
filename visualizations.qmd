@@ -21,45 +21,100 @@ from scipy.signal import savgol_filter
 from decimal import Decimal
 from os import listdir
 from os.path import isfile, join
+from scipy.optimize import curve_fit
 
 import python_scripts as pys
 ```
 
 # Photodiode forward and reverse, in dark and illuminated
+
+TODO diode current equation
+
+$\mu$ - diode ideality factor can be calculated
+
+$$
+I=I_0(e^{\frac{qU}{\mu KT}}-1)
+$$
+where: 
+
+* $I [A]$ is diode current,
+* $I_0 [A]$ is Dark Saturation Current,
+* $q [C]$ is electron charge,
+* $U [V]$ is voltage applied on the diode,
+* $\mu$ is diode ideality factor,
+* $K [\frac{J}{K}]$ is the Boltzmann constant,
+* $T [K]$ is the temperature.
+
+Constants:
+```{python}
+#| code-fold: false
+q = 1.602176634*10**(-19)
+T = 298.15
+k = 1.380649*10**(-23)
+```
+
+
+Exponential function can be, in general, pictured as:
+
+$$
+y = a e^{x b}
+$$
+
+so that:
+
+$$
+b = \frac{q}{\mu k T}
+$$
+
+and:
+
+$$
+\mu = \frac{q}{bkT}
+$$
+
+```{python}
+
+def exp_func(x, a, b):
+  return a * np.exp(b * x)
+
+```
+
 ## Under red LED
 
 Directory _/LED_PD_UpdF_UpdR_02112022_
 
+**suspended two plots because they had pretty much the same results as the next two ones**
+
 ```{python}
-dataset = pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdF_UpdF_2022-12-02_16-24-39_0.csv',
-  sep=',', skiprows=3)
+# dataset = pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdF_UpdF_2022-12-02_16-24-39_0.csv',
+#   sep=',', skiprows=3)
 
-pys.SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 
-  'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2, yScale=10**6, labelScale=1000)
-# plt.subplots_adjust()
-plt.yscale('log')
-plt.legend(title='$I_{LED} [mA]$', loc='best')
-plt.suptitle('Photodiode forward voltage versus forward current')
-plt.title('Variable red LED illumination')
-plt.xlabel('$U_{pdF} [V]$')
-plt.ylabel('$I_{pdF} [nA]$')
+# pys.SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 
+#   'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2, yScale=10**6, labelScale=1000)
+# # plt.subplots_adjust()
+# plt.yscale('log')
+# plt.legend(title='$I_{LED} [mA]$', loc='best')
+# plt.suptitle('Photodiode forward voltage versus forward current')
+# plt.title('Variable red LED illumination')
+# plt.xlabel('$U_{pdF} [V]$')
+# plt.ylabel('$I_{pdF} [nA]$')
 
-plt.show()
+# plt.show()
 ```
 
 ```{python}
-dataset=pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdR_UpdR 2022-12-02 15-57-44 0.csv', sep=',', skiprows=3)
+# dataset=pd.read_csv('datasets/LED_PD_UpdF_UpdR_02112022/IpdR_UpdR 2022-12-02 15-57-44 0.csv', sep=',', skiprows=3)
 
-pys.SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2, yScale=10**6, labelScale=1000, xScale=-1)
-plt.gca().invert_yaxis()
-plt.legend(title='$I_{LED} [mA]$', loc='best')
-plt.suptitle('Photodiode reverse voltage versus reverse current')
-plt.title('Variable red LED illumination')
-# plt.yscale('log')
-plt.xlabel('$U_{pdR} [V]$')
-plt.ylabel('$I_{pdR} [nA]$')
+# pys.SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 'Sweep CH2 Voltage Setting', 'Get CH2 Current Measurement', 2, yScale=10**6, labelScale=1000, xScale=-1)
+# plt.gca().invert_yaxis()
+# plt.legend(title='$I_{LED} [mA]$', loc='best')
+# plt.suptitle('Photodiode reverse voltage versus reverse current')
+# plt.title('Variable red LED illumination')
+# # plt.yscale('log')
+# plt.xlabel('$U_{pdR} [V]$')
+# plt.ylabel('$I_{pdR} [nA]$')
 
-plt.show()
+# plt.show()
 ```
 
  Directory _/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1_
@@ -79,6 +134,10 @@ plt.ylabel('$I_{pdF} [nA]$')
 plt.show()
 ```
 
+We will fit an exponential function to our obtained results.
+
+1. Dark case:
+
 ```{python}
 dataset = pd.read_csv('datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1/Ipd_Popt6_UpdF_30112022 2022-11-30 12-02-00 0 2022-11-30 12-42-42 0.csv',
   sep=',', skiprows=5)
@@ -87,13 +146,32 @@ pys.SweepPlot(dataset, '2 - Get Measurement Value', 'Get Measurement Value',
 # plt.yscale('log')
 plt.suptitle('Photodiode forward voltage versus forward current')
 plt.title('Variable red LED illumination')
-plt.legend(title='$I_{LED} [mA]$', loc='best')
+
 plt.xlabel('$U_{pdF} [V]$')
 plt.ylabel('$I_{pdF} [nA]$')
 
+x=dataset['2 - Get Measurement Value'][3:44]
+y = dataset['Get Measurement Value'][3:44]
+
+popt, pcov = curve_fit(exp_func, x, y)
+
+plt.plot(x, exp_func(x, *popt)*1000, label='fit')
+
+plt.legend(title='$I_{LED} [mA]$', loc='best')
 plt.show()
+
 ```
 
+After fitting, we get:
+
+```{python}
+print(f'a = {popt[0]:.3E}, b = {popt[1]:.3f}')
+```
+
+```{python}
+mu = q / (popt[1] * k * T)
+print(f'\N{GREEK SMALL LETTER MU} = {mu:.3f}')
+```
 
 ```{python}
 dataset = pd.read_csv('datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1/Ipd_Popt6_UpdR_30112022 2022-11-30 12-02-00 0 2022-11-30 12-03-12 0.csv',
@@ -230,23 +308,6 @@ plt.show()
 ```
 
 # Directory LVJ_OPHO2022\LVJ_OPHO2022
-
-TODO diode current equation
-
-$\mu$ - diode ideality factor can be calculated
-
-$$
-I=I_0(e^{\frac{qU}{\mu KT}}-1)
-$$
-where: 
-
-* $I [A]$ is diode current,
-* $I_0 [A]$ is Dark Saturation Current,
-* $q [C]$ is electron charge,
-* $U [V]$ is voltage applied on the diode,
-* $\mu$ is diode ideality factor,
-* $K [\frac{J}{K}]$ is the Boltzmann constant,
-* $T [K]$ is the temperature.
 
 To calculate current on the resistor, we can use following equation:
 $$

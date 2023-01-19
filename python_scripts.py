@@ -3,12 +3,15 @@ import matplotlib.pyplot as plt
 
 import numpy as np
 from scipy.signal import savgol_filter
-from decimal import Decimal
+from scipy.optimize import curve_fit
+
 import os.path
 from os import path
 
 from os import listdir
 from os.path import isfile, join
+
+import constants as const
 
 colors = ["blue", "green", "orange"]
 
@@ -35,6 +38,8 @@ filesNotToPlot = [
 ]
 
 
+
+
 def SweepPlot(
     data: pd.DataFrame,
     xName: str,
@@ -45,6 +50,7 @@ def SweepPlot(
     xScale=1.0,
     yScale=1.0,
     labelScale=1.0,
+    curveFitFunc=None,
 ):
 
     n = data[SweepColumnName].max()
@@ -65,21 +71,35 @@ def SweepPlot(
     plt.grid()
 
     prevIndex = 0
-    for i in range(n):
+    mu = list()
+
+    for i in range(n + 1):
+        x = data[xName][skipRows + prevIndex : index[i]]
+        y = data[yName][skipRows + prevIndex : index[i]]
         if labelColumn != None:
             plt.plot(
-                data[xName][skipRows + prevIndex : index[i]] * xScale,
-                data[yName][skipRows + prevIndex : index[i]] * yScale,
+                x * xScale,
+                y * yScale,
                 label=f"{labels[i]:.2f}",
             )
+            if curveFitFunc != None:
+                popt, pcov = curve_fit(curveFitFunc, x.dropna(), y.dropna())
+                mu.append(const.q / (popt[1] * const.k * const.T))
         else:
             plt.plot(
-                data[xName][skipRows + prevIndex : index[i]] * xScale,
-                data[yName][skipRows + prevIndex : index[i]] * yScale,
+                x * xScale,
+                y * yScale,
             )
         prevIndex = index[i]
 
-    return ax
+    if curveFitFunc != None:
+        pd.options.display.float_format = '{:,.3f}'.format
+        d = {"i_led": labels, "mu": mu}
+        df = pd.DataFrame(data=d)
+    else:
+        df = None
+
+    return ax, df
 
 
 def SetScaleType(type):
@@ -287,7 +307,7 @@ def PrintDataFromDirectory(directoryPath: str):
                 path_to_dir=directoryPath,
                 datasetBaseName=f,
                 endings=fileEndings,
-                title=f,
+                title=f
             )
 
     files_dataOneFile = [f for f in onlyfiles if f[-6] != "_" and f[-7] != "_"]
@@ -303,7 +323,7 @@ def PrintDataFromDirectory(directoryPath: str):
                 title=f,
                 filterValues=True,
                 filteringCurrent=(100, 5),
-                filteringVoltage=(100, 5),
+                filteringVoltage=(100, 5)
             )
         else:
             PlotSingleFile_OPHO(fileName=f, filePath=directoryPath, title=f)

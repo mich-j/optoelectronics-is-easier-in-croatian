@@ -129,6 +129,7 @@ def PlotOscVoltCurr(
         dtsets.append(var)
 
     dtsets[2]["Volt"] = dtsets[2]["Volt"] / resistance * 1000  # to mA
+    
 
     if filterValues:
         dtsets[2]["Volt"] = savgol_filter(
@@ -170,6 +171,14 @@ def PlotOscVoltCurr(
     fig.tight_layout()
     plt.show()
 
+    diodeResistance = dtsets[1]["Volt"] / (dtsets[2]["Volt"] / 1000)
+    plt.figure()
+    plt.plot(dtsets[0]["second"], diodeResistance, label = 'Resistance')
+    plt.ylabel('Resistance [Ohm]')
+    plt.xlabel('Time [ns]')
+    plt.grid()
+    plt.show()
+
 
 def PlotVoltageCurrentDataset(dataset: pd.DataFrame, title=" "):
     columnNames = dataset.columns
@@ -207,6 +216,14 @@ def PlotVoltageCurrentDataset(dataset: pd.DataFrame, title=" "):
     plt.title(title)
     plt.grid()
     fig.tight_layout()  # otherwise the right y-label is slightly clipped
+    plt.show()
+
+    diodeResistance = dataset[columnNames[2]] / (dataset[columnNames[3]] / 1000)
+    plt.figure()
+    plt.plot(dataset[columnNames[0]], diodeResistance, label = 'Resistance')
+    plt.ylabel('Resistance [Ohm]')
+    plt.xlabel('Time [ns]')
+    plt.grid()
     plt.show()
 
 

@@ -38,8 +38,6 @@ filesNotToPlot = [
 ]
 
 
-
-
 def SweepPlot(
     data: pd.DataFrame,
     xName: str,
@@ -93,7 +91,7 @@ def SweepPlot(
         prevIndex = index[i]
 
     if curveFitFunc != None:
-        pd.options.display.float_format = '{:,.3f}'.format
+        pd.options.display.float_format = "{:,.3f}".format
         d = {"i_led": labels, "mu": mu}
         df = pd.DataFrame(data=d)
     else:
@@ -129,7 +127,6 @@ def PlotOscVoltCurr(
         dtsets.append(var)
 
     dtsets[2]["Volt"] = dtsets[2]["Volt"] / resistance * 1000  # to mA
-    
 
     if filterValues:
         dtsets[2]["Volt"] = savgol_filter(
@@ -143,18 +140,19 @@ def PlotOscVoltCurr(
             polyorder=filteringVoltage[1],
         )
 
-    fig, axVoltage = plt.subplots()
+    fig, axVoltage = plt.subplots(2, 1, sharex=True, figsize=(8, 5))
 
-    pl1 = axVoltage.plot(
-        dtsets[0]["second"], dtsets[0]["Volt"], label="$U_{generator}$", color=colors[0]
+    pl1 = axVoltage[0].plot(
+        dtsets[0]["second"], dtsets[0]["Volt"], label="$U_{~}$", color=colors[0]
     )
-    pl2 = axVoltage.plot(
-        dtsets[1]["second"], dtsets[1]["Volt"], label="$U_{LED}$", color=colors[1]
+    pl2 = axVoltage[0].plot(
+        dtsets[1]["second"], dtsets[1]["Volt"], label="$U_{d}$", color=colors[1]
     )
-    axVoltage.set_xlabel("time [ns]")
-    axVoltage.set_ylabel("Voltage [V]")
 
-    axCurrent = axVoltage.twinx()
+    axVoltage[0].set_ylabel("Voltage [V]")
+    axVoltage[0].grid()
+
+    axCurrent = axVoltage[0].twinx()
     axCurrent.tick_params(axis="y", labelcolor=colors[2])
     pl3 = axCurrent.plot(
         dtsets[2]["second"], dtsets[2]["Volt"], label="$\mathcal{I}$", color=colors[2]
@@ -164,19 +162,18 @@ def PlotOscVoltCurr(
     # join labels
     lns = pl1 + pl2 + pl3
     labs = [l.get_label() for l in lns]
-    axVoltage.legend(lns, labs, loc=0)
+    axVoltage[0].legend(lns, labs)
+
+    diodeResistance = dtsets[1]["Volt"] / (dtsets[2]["Volt"])
+
+    axVoltage[1].plot(dtsets[0]["second"], diodeResistance, label="Resistance")
+    axVoltage[1].set_ylabel("Resistance $[k \Omega]$")
+    axVoltage[1].set_xlabel("time [ns]")
+    axVoltage[1].grid()
 
     plt.title(title)
-    plt.grid()
-    fig.tight_layout()
-    plt.show()
 
-    diodeResistance = dtsets[1]["Volt"] / (dtsets[2]["Volt"] / 1000)
-    plt.figure()
-    plt.plot(dtsets[0]["second"], diodeResistance, label = 'Resistance')
-    plt.ylabel('Resistance [Ohm]')
-    plt.xlabel('Time [ns]')
-    plt.grid()
+    fig.tight_layout()
     plt.show()
 
 
@@ -220,9 +217,9 @@ def PlotVoltageCurrentDataset(dataset: pd.DataFrame, title=" "):
 
     diodeResistance = dataset[columnNames[2]] / (dataset[columnNames[3]] / 1000)
     plt.figure()
-    plt.plot(dataset[columnNames[0]], diodeResistance, label = 'Resistance')
-    plt.ylabel('Resistance [Ohm]')
-    plt.xlabel('Time [ns]')
+    plt.plot(dataset[columnNames[0]], diodeResistance, label="Resistance")
+    plt.ylabel("Resistance [Ohm]")
+    plt.xlabel("Time [ns]")
     plt.grid()
     plt.show()
 
@@ -324,7 +321,7 @@ def PrintDataFromDirectory(directoryPath: str):
                 path_to_dir=directoryPath,
                 datasetBaseName=f,
                 endings=fileEndings,
-                title=f
+                title=f,
             )
 
     files_dataOneFile = [f for f in onlyfiles if f[-6] != "_" and f[-7] != "_"]
@@ -340,7 +337,7 @@ def PrintDataFromDirectory(directoryPath: str):
                 title=f,
                 filterValues=True,
                 filteringCurrent=(100, 5),
-                filteringVoltage=(100, 5)
+                filteringVoltage=(100, 5),
             )
         else:
             PlotSingleFile_OPHO(fileName=f, filePath=directoryPath, title=f)

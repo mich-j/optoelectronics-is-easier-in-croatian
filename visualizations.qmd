@@ -304,6 +304,7 @@ pys.PrintDataFromDirectory(directoryPath='datasets/LVJ_OPTO_LEDtrans20122022/LVJ
 ```{python}
 pys.PrintDataFromDirectory(directoryPath="datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022")
 ```
+
 ## Directory /LvJ_OPTO_2022_GE211222022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr
 
 ```{python}
@@ -351,31 +352,28 @@ filteringCurrent=(200,5), filteringVoltage=(200,5))
 pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_f1ku2on4_', endings=('1','3','F1'))
 ```
 
-<!-- ## photodiode b? f = 1kHZ, U_gen = +2V/-2V whole period
+## photodiode b? f = 1kHZ, U_gen = +2V/-2V whole period
 ```{python}
-pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_f1ku2t1_', endings=('1','3','F1'))
-``` -->
+# pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_f1ku2t1_', endings=('1','3','F1'))
+```
 
 ## photodiode b? r1k? U_gen = +2V/-2V f?
-
 
 ```{python}
 pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2f_', endings=('1','3','F1'))
 ```
 
-<!-- ## photodiode b? f = 1kHZ, U_gen = +2V/-2V
-
-
-```{python}
-pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2f2_', endings=('1','3','F1'))
-``` -->
-
-<!-- ## photodiode b? f = 1kHZ, U_gen = +2V/-2V pd_b_r1ku2f2_1???
-
+## photodiode b? f = 1kHZ, U_gen = +2V/-2V
 
 ```{python}
-pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2f2_', endings=('1','3','F1'))
-``` -->
+#pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2f2_', endings=('1','3','F1'))
+```
+
+## photodiode b? f = 1kHZ, U_gen = +2V/-2V pd_b_r1ku2f2_1???
+
+```{python}
+#pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2f2_', endings=('1','3','F1'))
+```
 
 ## photodiode b? f = 1kHZ, U_gen = +2V/-2V pd_b_r1ku2r_1???
 
@@ -398,10 +396,10 @@ pys.PlotSingleFile_OPHO(fileName='pd_d_f1ku2onr1.csv', filePath='datasets/LVJ_OP
 filteringCurrent=(200, 5), filteringVoltage=(200,5))
 ```
 
-<!-- ## photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr2_1???
+## photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr2_1???
 ```{python}
-pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_d_f1ku2onr2_', endings=('1','3','F1'))
-``` -->
+# pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_d_f1ku2onr2_', endings=('1','3','F1'))
+```
 
 ## photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr6_1???
 ```{python}
@@ -439,52 +437,15 @@ pys.PlotSingleFile_OPHO(fileName='iled_bu5vf1khon3.csv', filePath='datasets/LVJ_
 filteringCurrent=(200, 5), filteringVoltage=(200,5))
 ```
 
-<!-- ## iled_bu5vf1khon4_1
+## iled_bu5vf1khon4_1
 ```{python}
 pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1khon4_', endings=('1','3','F1'))
 ```
 
 ## iled_bu5vf1kt_1
 ```{python}
-pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1kt_', endings=('1','3','F1'))
-``` -->
-
-# Directory RED_LED_PD_mj/RED_LED_PD_mj/LED_RED_1mm_Ipd_UpdF_UpdR_02112022 -> the same as LED_PD_UpdF_UpdR_02112022
-
-```{python}
-
-dataset = pd.read_csv('datasets\RED_LED_PD_mj\RED_LED_PD_mj\LED_RED_1mm_Ipd_UpdF_UpdR_02112022\IpdF_UpdF 2022-12-02 16-24-39 0.csv', skiprows=[0,1,2,4,5,6,7], sep=',', usecols=['Time','Sweep CH2 Voltage Setting', 'Sweep CH1 Voltage Setting', 'Get Measurement Value', 'Get Measurement Value.1'])
-
-
-pys.SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 
-  'Sweep CH2 Voltage Setting', 'Get Measurement Value', 2, yScale=10**6, labelScale=1000)
-# plt.subplots_adjust()
-plt.yscale('log')
-plt.legend(title='$I_{LED} [mA]$', loc='best')
-plt.suptitle('Photodiode forward voltage versus forward current')
-plt.title('Variable red LED illumination')
-plt.xlabel('$U_{pdF} [V]$')
-plt.ylabel('$I_{pdF} [nA]$')
-
-plt.show()
-
-dataset = pd.read_csv('datasets\RED_LED_PD_mj\RED_LED_PD_mj\LED_RED_1mm_Ipd_UpdF_UpdR_02112022\IpdR_UpdR 2022-12-02 15-57-44 0.csv', skiprows=[0,1,2,4,5,6,7], sep=',', usecols=['Time','Sweep CH2 Voltage Setting', 'Sweep CH1 Voltage Setting', 'Get Measurement Value', 'Get Measurement Value.1'])
-
-
-pys.SweepPlot(dataset, 'Get Measurement Value.1', 'Get Measurement Value', 
-  'Sweep CH2 Voltage Setting', 'Get Measurement Value', 2, yScale=10**6, labelScale=1000)
-# plt.subplots_adjust()
-plt.yscale('log')
-plt.legend(title='$I_{LED} [mA]$', loc='best')
-plt.suptitle('Photodiode forward voltage versus forward current')
-plt.title('Variable red LED illumination')
-plt.xlabel('$U_{pdF} [V]$')
-plt.ylabel('$I_{pdF} [nA]$')
-
-plt.show()
-
-```
-
+# pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1kt_', endings=('1','3','F1'))
+``` 
 # Directory RED_LED_PD_mj/RED_LED_PD_mj/RED_transient/
 
 ## iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off

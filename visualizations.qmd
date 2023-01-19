@@ -223,8 +223,6 @@ plt.show()
 
 ## Under green LED
 
-### ILED_Green_Ipd_UpdUF_0_2V
-
 Directory _GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V_
 
 Ipd_UpdUF_0_2V_G_Popt0_6V 2022-12-06 10-31-19 0.csv
@@ -262,7 +260,6 @@ plt.show()
 
 $\mu$ calculation results:
 ```{python}
-#| code-fold: false
 print(mu_calc)
 ```
 

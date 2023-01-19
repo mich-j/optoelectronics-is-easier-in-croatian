@@ -17,3 +17,4 @@ visualizations.ipynb
 *.synctex.gz
 *.code-workspace
 __pycache__/
+/README_files

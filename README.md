@@ -7,8 +7,8 @@
 ## TODO
 
 - [x] Ideality factor for the photodiode in the dark and under illumination (forward)
-- [ ] Idelaity factor in the dark and under illumination (reverse)
-- [ ] Combine I(U) plots for forward and reverse
+- [x] Ideality factor in the dark and under illumination (reverse)
+- [x] Combine I(U) plots for forward and reverse
 - [ ] Transient: extract the lifetime from the exponential part at various illumination.
 - [ ] Transient: storage time
 - [ ] Transient: rise/fall time

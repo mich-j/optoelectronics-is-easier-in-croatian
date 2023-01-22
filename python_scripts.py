@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 
 import numpy as np
 from scipy.signal import savgol_filter
@@ -49,6 +50,8 @@ def SweepPlot(
     yScale=1.0,
     labelScale=1.0,
     curveFitFunc=None,
+    colormap=None,
+    color_normalize=None,
 ):
 
     n = data[SweepColumnName].max()
@@ -64,8 +67,7 @@ def SweepPlot(
         if curr != data[SweepColumnName][i + 1]:
             index.append(i)
 
-    plt.figure()
-    fig, ax = plt.subplots()
+    # fig, ax = plt.subplots()
     plt.grid()
 
     prevIndex = 0
@@ -74,20 +76,24 @@ def SweepPlot(
     for i in range(n + 1):
         x = data[xName][skipRows + prevIndex : index[i]]
         y = data[yName][skipRows + prevIndex : index[i]]
-        if labelColumn != None:
+
+        if colormap != None:
+            plt.plot(
+                x * xScale,
+                y * yScale,
+                label=f"{labels[i]:.2f}",
+                color=colormap(color_normalize(labels[i])),
+            )
+        else:
             plt.plot(
                 x * xScale,
                 y * yScale,
                 label=f"{labels[i]:.2f}",
             )
-            if curveFitFunc != None:
-                popt, pcov = curve_fit(curveFitFunc, x.dropna(), y.dropna())
-                mu.append(const.q / (popt[1] * const.k * const.T))
-        else:
-            plt.plot(
-                x * xScale,
-                y * yScale,
-            )
+            # mu ideality factor calculation
+        if curveFitFunc != None:
+            popt, pcov = curve_fit(curveFitFunc, x.dropna(), y.dropna())
+            mu.append(const.q / (popt[1] * const.k * const.T))
         prevIndex = index[i]
 
     if curveFitFunc != None:
@@ -96,8 +102,59 @@ def SweepPlot(
         df = pd.DataFrame(data=d)
     else:
         df = None
+    return None, df
 
-    return ax, df
+
+def SweepPlotForwardReverse(dfForw, dfRev, clmnForw, clmnRev, vmin, vmax, curveFitFunc):
+    cmap = mpl.colormaps["viridis"]
+    norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax)
+
+    mu = list()
+
+    plt.figure(figsize=(8, 5))
+    axF, muF = SweepPlot(
+        dfForw,
+        clmnForw[0],
+        clmnForw[1],
+        clmnForw[2],
+        clmnForw[3],
+        2,
+        yScale=10**3,
+        labelScale=1000,
+        curveFitFunc=curveFitFunc,
+        colormap=cmap,
+        color_normalize=norm,
+    )
+    mu.append(muF)
+
+    axR, muR = SweepPlot(
+        dfRev,
+        clmnRev[0],
+        clmnRev[1],
+        clmnRev[2],
+        clmnRev[3],
+        2,
+        yScale=10**3,
+        labelScale=1000,
+        curveFitFunc=curveFitFunc,
+        colormap=cmap,
+        color_normalize=norm,
+    )
+    mu.append(muR)
+
+    plt.grid()
+    plt.yscale("log")
+    plt.xlabel("$U_{pdF} [V]$")
+    plt.ylabel("$I_{pdF} [nA]$")
+
+    plt.colorbar(
+        mpl.cm.ScalarMappable(norm=norm, cmap=cmap),
+        ax=plt.gca(),
+        label="$I_{LED} [mA]$",
+    )
+
+
+    return mu
 
 
 def SetScaleType(type):
@@ -164,9 +221,7 @@ def PlotOscVoltCurr(
     labs = [l.get_label() for l in lns]
     axVoltage[0].legend(lns, labs)
 
-    diodeResistance = dtsets[1]["Volt"] / (dtsets[2]["Volt"])
-
-    axVoltage[1].plot(dtsets[0]["second"], diodeResistance, label="Resistance")
+    # axVoltage[1].plot(dtsets[0]["second"], diodeResistance, label="Resistance")
     axVoltage[1].set_ylabel("Resistance $[k \Omega]$")
     axVoltage[1].set_xlabel("time [ns]")
     axVoltage[1].grid()

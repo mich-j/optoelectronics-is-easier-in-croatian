@@ -147,14 +147,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#photodiode-b-f-1khz-u_gen-2v-2v-falling-edge" id="toc-photodiode-b-f-1khz-u_gen-2v-2v-falling-edge" class="nav-link" data-scroll-target="#photodiode-b-f-1khz-u_gen-2v-2v-falling-edge">photodiode b? f = 1kHZ, U_gen = +2V/-2V falling edge?</a></li>
   <li><a href="#photodiode-b-f-1khz-u_gen-2v-2v-rising-edge" id="toc-photodiode-b-f-1khz-u_gen-2v-2v-rising-edge" class="nav-link" data-scroll-target="#photodiode-b-f-1khz-u_gen-2v-2v-rising-edge">photodiode b? f = 1kHZ, U_gen = +2V/-2V rising edge</a></li>
-  <li><a href="#photodiode-b-f-1khz-u_gen-2v-2v-whole-period" id="toc-photodiode-b-f-1khz-u_gen-2v-2v-whole-period" class="nav-link" data-scroll-target="#photodiode-b-f-1khz-u_gen-2v-2v-whole-period">photodiode b? f = 1kHZ, U_gen = +2V/-2V whole period</a></li>
   <li><a href="#photodiode-b-r1k-u_gen-2v-2v-f" id="toc-photodiode-b-r1k-u_gen-2v-2v-f" class="nav-link" data-scroll-target="#photodiode-b-r1k-u_gen-2v-2v-f">photodiode b? r1k? U_gen = +2V/-2V f?</a></li>
-  <li><a href="#photodiode-b-f-1khz-u_gen-2v-2v" id="toc-photodiode-b-f-1khz-u_gen-2v-2v" class="nav-link" data-scroll-target="#photodiode-b-f-1khz-u_gen-2v-2v">photodiode b? f = 1kHZ, U_gen = +2V/-2V</a></li>
-  <li><a href="#photodiode-b-f-1khz-u_gen-2v-2v-pd_b_r1ku2f2_1" id="toc-photodiode-b-f-1khz-u_gen-2v-2v-pd_b_r1ku2f2_1" class="nav-link" data-scroll-target="#photodiode-b-f-1khz-u_gen-2v-2v-pd_b_r1ku2f2_1">photodiode b? f = 1kHZ, U_gen = +2V/-2V pd_b_r1ku2f2_1???</a></li>
   <li><a href="#photodiode-b-f-1khz-u_gen-2v-2v-pd_b_r1ku2r_1" id="toc-photodiode-b-f-1khz-u_gen-2v-2v-pd_b_r1ku2r_1" class="nav-link" data-scroll-target="#photodiode-b-f-1khz-u_gen-2v-2v-pd_b_r1ku2r_1">photodiode b? f = 1kHZ, U_gen = +2V/-2V pd_b_r1ku2r_1???</a></li>
   <li><a href="#photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2off1_1" id="toc-photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2off1_1" class="nav-link" data-scroll-target="#photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2off1_1">photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2off1_1???</a></li>
   <li><a href="#photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr1" id="toc-photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr1" class="nav-link" data-scroll-target="#photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr1">photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr1???</a></li>
-  <li><a href="#photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr2_1" id="toc-photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr2_1" class="nav-link" data-scroll-target="#photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr2_1">photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr2_1???</a></li>
   <li><a href="#photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr6_1" id="toc-photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr6_1" class="nav-link" data-scroll-target="#photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr6_1">photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr6_1???</a></li>
   </ul></li>
   <li><a href="#directory-lvj_opho2022_opho2022_trans" id="toc-directory-lvj_opho2022_opho2022_trans" class="nav-link" data-scroll-target="#directory-lvj_opho2022_opho2022_trans">Directory LVJ_OPHO2022_OPHO2022_trans</a>
@@ -412,26 +408,20 @@ b = \frac{q}{\mu k T}
 <div class="cell" data-execution_count="9">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_nt_u4v1khz1_', ['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 1 kHz')</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_nt_u4v1khz2_', ['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 2 kHz')</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_onu4v1khz3_',['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 3 kHz')</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>pys.PrintDataFromDirectory(directoryPath<span class="op">=</span><span class="st">'datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pys.PrintDataFromDirectory(directoryPath<span class="op">=</span><span class="st">'datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Plotting file: led_b_nt_u4v1khz1_</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-10-output-2.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-10-output-2.png" width="662" height="470"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>skipping file: led_b_nt_u4v1khz2_
 Plotting file: led_b_onu4v1khz3_</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-10-output-4.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-10-output-4.png" width="662" height="470"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>skipping file: led_b_tru4v1khz6_
@@ -460,7 +450,7 @@ filePath: datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/led_b_ton
 <pre><code>Plotting file: irtr_v3vf1kof15ma_</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-11-output-2.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-11-output-2.png" width="662" height="470"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>skipping file: irtr_v3vf1kof1_
@@ -470,7 +460,7 @@ skipping file: irtr_v3vf1kof_
 Plotting file: irtr_v3vf1kon3_</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-11-output-4.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-11-output-4.png" width="662" height="470"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>skipping file: irtr_v3vf1k_
@@ -490,13 +480,13 @@ skipping file: irtr_v3vf1kon2.csv</code></pre>
 <pre><code>Plotting file: i_rof_vf_0_5vf1k4_</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-12-output-2.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-12-output-2.png" width="662" height="470"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Plotting file: i_ron_vf_0_5vf1k5_</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-12-output-4.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-12-output-4.png" width="662" height="470"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>skipping file: i_rof_vf_0_5vf1k3.csv
@@ -517,13 +507,13 @@ skipping file: i_r_vf_0_5vf1k9.csv</code></pre>
 Plotting file: idtr_v2vf1kof3_</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-13-output-2.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-13-output-2.png" width="662" height="470"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Plotting file: idtr_v2vf1kon_</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-13-output-4.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-13-output-4.png" width="662" height="470"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>skipping file: idtr_v3vf1kof4_
@@ -569,7 +559,7 @@ I_{R} = \frac{U_{gen}-U_{pd}}{R}
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-15-output-1.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-15-output-1.png" width="662" height="470"></p>
 </div>
 </div>
 </section>
@@ -581,79 +571,99 @@ I_{R} = \frac{U_{gen}-U_{pd}}{R}
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_f1ku2on4_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-16-output-1.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-16-output-1.png" width="662" height="470"></p>
 </div>
-</div>
-</section>
-<section id="photodiode-b-f-1khz-u_gen-2v-2v-whole-period" class="level2">
-<h2 class="anchored" data-anchor-id="photodiode-b-f-1khz-u_gen-2v-2v-whole-period">photodiode b? f = 1kHZ, U_gen = +2V/-2V whole period</h2>
-<div class="cell" data-execution_count="16">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_f1ku2t1_', endings=('1','3','F1'))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="photodiode-b-r1k-u_gen-2v-2v-f" class="level2">
 <h2 class="anchored" data-anchor-id="photodiode-b-r1k-u_gen-2v-2v-f">photodiode b? r1k? U_gen = +2V/-2V f?</h2>
-<div class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="16">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_r1ku2f_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_r1ku2f_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-18-output-1.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-17-output-1.png" width="662" height="470"></p>
 </div>
-</div>
-</section>
-<section id="photodiode-b-f-1khz-u_gen-2v-2v" class="level2">
-<h2 class="anchored" data-anchor-id="photodiode-b-f-1khz-u_gen-2v-2v">photodiode b? f = 1kHZ, U_gen = +2V/-2V</h2>
-<div class="cell" data-execution_count="18">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2f2_', endings=('1','3','F1'))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="photodiode-b-f-1khz-u_gen-2v-2v-pd_b_r1ku2f2_1" class="level2">
-<h2 class="anchored" data-anchor-id="photodiode-b-f-1khz-u_gen-2v-2v-pd_b_r1ku2f2_1">photodiode b? f = 1kHZ, U_gen = +2V/-2V pd_b_r1ku2f2_1???</h2>
-<div class="cell" data-execution_count="19">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2f2_', endings=('1','3','F1'))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="photodiode-b-f-1khz-u_gen-2v-2v-pd_b_r1ku2r_1" class="level2">
 <h2 class="anchored" data-anchor-id="photodiode-b-f-1khz-u_gen-2v-2v-pd_b_r1ku2r_1">photodiode b? f = 1kHZ, U_gen = +2V/-2V pd_b_r1ku2r_1???</h2>
-<div class="cell" data-execution_count="20">
+<div class="cell" data-execution_count="17">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_r1ku2r_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_r1ku2r_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-21-output-1.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-18-output-1.png" width="662" height="470"></p>
 </div>
 </div>
 </section>
 <section id="photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2off1_1" class="level2">
 <h2 class="anchored" data-anchor-id="photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2off1_1">photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2off1_1???</h2>
-<div class="cell" data-execution_count="21">
+<div class="cell" data-execution_count="18">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_d_f1ku2off1_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_d_f1ku2off1_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-22-output-1.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-19-output-1.png" width="662" height="470"></p>
 </div>
 </div>
 </section>
 <section id="photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr1" class="level2">
 <h2 class="anchored" data-anchor-id="photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr1">photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr1???</h2>
+<div class="cell" data-execution_count="19">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>pys.PlotSingleFile_OPHO(fileName<span class="op">=</span><span class="st">'pd_d_f1ku2onr1.csv'</span>, filePath<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022'</span>, filterValues<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="visualizations_files/figure-html/cell-20-output-1.png" width="662" height="470"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="visualizations_files/figure-html/cell-20-output-2.png" width="621" height="429"></p>
+</div>
+</div>
+</section>
+<section id="photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr6_1" class="level2">
+<h2 class="anchored" data-anchor-id="photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr6_1">photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr6_1???</h2>
+<div class="cell" data-execution_count="20">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_d_f1ku2onr6_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="visualizations_files/figure-html/cell-21-output-1.png" width="662" height="470"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="directory-lvj_opho2022_opho2022_trans" class="level1">
+<h1>Directory LVJ_OPHO2022_OPHO2022_trans</h1>
+<section id="iled_bu5vf1khof2.csv" class="level2">
+<h2 class="anchored" data-anchor-id="iled_bu5vf1khof2.csv">iled_bu5vf1khof2.csv???</h2>
+<div class="cell" data-execution_count="21">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>pys.PlotSingleFile_OPHO(fileName<span class="op">=</span><span class="st">'iled_bu5vf1khof2.csv'</span>, filePath<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/Blue/B_trans'</span>, filterValues<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="visualizations_files/figure-html/cell-22-output-1.png" width="662" height="470"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="visualizations_files/figure-html/cell-22-output-2.png" width="621" height="429"></p>
+</div>
+</div>
+</section>
+<section id="iled_bu5vf1khon3" class="level2">
+<h2 class="anchored" data-anchor-id="iled_bu5vf1khon3">iled_bu5vf1khon3</h2>
 <div class="cell" data-execution_count="22">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>pys.PlotSingleFile_OPHO(fileName<span class="op">=</span><span class="st">'pd_d_f1ku2onr1.csv'</span>, filePath<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022'</span>, filterValues<span class="op">=</span><span class="va">True</span>,</span>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>pys.PlotSingleFile_OPHO(fileName<span class="op">=</span><span class="st">'iled_bu5vf1khon3.csv'</span>, filePath<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/Blue/B_trans'</span>, filterValues<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -664,101 +674,24 @@ I_{R} = \frac{U_{gen}-U_{pd}}{R}
 </div>
 </div>
 </section>
-<section id="photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr2_1" class="level2">
-<h2 class="anchored" data-anchor-id="photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr2_1">photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr2_1???</h2>
+<section id="iled_bu5vf1khon4_1" class="level2">
+<h2 class="anchored" data-anchor-id="iled_bu5vf1khon4_1">iled_bu5vf1khon4_1</h2>
 <div class="cell" data-execution_count="23">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_d_f1ku2onr2_', endings=('1','3','F1'))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr6_1" class="level2">
-<h2 class="anchored" data-anchor-id="photodiode-d-f-1khz-u_gen-2v-2v-pd_d_f1ku2onr6_1">photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr6_1???</h2>
-<div class="cell" data-execution_count="24">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_d_f1ku2onr6_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans'</span>, datasetBaseName<span class="op">=</span><span class="st">'iled_bu5vf1khon4_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-25-output-1.png" width="757" height="470"></p>
-</div>
-</div>
-</section>
-</section>
-<section id="directory-lvj_opho2022_opho2022_trans" class="level1">
-<h1>Directory LVJ_OPHO2022_OPHO2022_trans</h1>
-<section id="iled_bu5vf1khof2.csv" class="level2">
-<h2 class="anchored" data-anchor-id="iled_bu5vf1khof2.csv">iled_bu5vf1khof2.csv???</h2>
-<div class="cell" data-execution_count="25">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>pys.PlotSingleFile_OPHO(fileName<span class="op">=</span><span class="st">'iled_bu5vf1khof2.csv'</span>, filePath<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/Blue/B_trans'</span>, filterValues<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-26-output-1.png" width="662" height="470"></p>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-26-output-2.png" width="621" height="429"></p>
-</div>
-</div>
-<!-- ## iled_bu5vf1khof3_1
-
-pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1khof3_', endings=('1','3','F1'))
-``` -->
-<!-- ## iled_bu5vf1khof4_1
-
-::: {.cell execution_count=26}
-``` {.python .cell-code}
-pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1khof4_', endings=('1','3','F1'))
-```
-
-::: {.cell-output .cell-output-display}
-![](visualizations_files/figure-html/cell-27-output-1.png){width=757 height=470}
-:::
-:::
-
-
-## iled_bu5vf1khon_1
-
-pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1khon_', endings=('1','3','F1'))
-``` -->
-</section>
-<section id="iled_bu5vf1khon3" class="level2">
-<h2 class="anchored" data-anchor-id="iled_bu5vf1khon3">iled_bu5vf1khon3</h2>
-<div class="cell" data-execution_count="27">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>pys.PlotSingleFile_OPHO(fileName<span class="op">=</span><span class="st">'iled_bu5vf1khon3.csv'</span>, filePath<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/Blue/B_trans'</span>, filterValues<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-28-output-1.png" width="662" height="470"></p>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-28-output-2.png" width="621" height="429"></p>
-</div>
-</div>
-</section>
-<section id="iled_bu5vf1khon4_1" class="level2">
-<h2 class="anchored" data-anchor-id="iled_bu5vf1khon4_1">iled_bu5vf1khon4_1</h2>
-<div class="cell" data-execution_count="28">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans'</span>, datasetBaseName<span class="op">=</span><span class="st">'iled_bu5vf1khon4_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-29-output-1.png" width="757" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-24-output-1.png" width="662" height="470"></p>
 </div>
 </div>
 </section>
 <section id="iled_bu5vf1kt_1" class="level2">
 <h2 class="anchored" data-anchor-id="iled_bu5vf1kt_1">iled_bu5vf1kt_1</h2>
-<div class="cell" data-execution_count="29">
+<div class="cell" data-execution_count="24">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1kt_', endings=('1','3','F1'))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1kt_', endings=('1','3','F1'))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -767,45 +700,45 @@ pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans
 <h1>Directory RED_LED_PD_mj/RED_LED_PD_mj/RED_transient/</h1>
 <section id="ipd_t_rled15ma_uf3v_off1v_f1khz_off" class="level2">
 <h2 class="anchored" data-anchor-id="ipd_t_rled15ma_uf3v_off1v_f1khz_off">iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off</h2>
-<div class="cell" data-execution_count="30">
+<div class="cell" data-execution_count="25">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.read_csv(<span class="st">'datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off\Trace 2022-12-21 12-27-21 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">1</span>, sep<span class="op">=</span><span class="st">','</span>, usecols<span class="op">=</span>[<span class="st">'Time (s)'</span>,<span class="st">'2 (VOLT)'</span>,<span class="st">'3 (VOLT)'</span>,<span class="st">'M1'</span>])</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>resistance <span class="op">=</span> <span class="fl">100.0</span> <span class="co">#</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> dataset.columns</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">3</span>]] <span class="op">=</span> dataset[columnNames[<span class="dv">3</span>]] <span class="op">/</span> resistance <span class="op">*</span> <span class="dv">1000</span></span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">0</span>]] <span class="op">=</span> (dataset[columnNames[<span class="dv">0</span>]] <span class="op">-</span> dataset[columnNames[<span class="dv">0</span>]][<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">10</span><span class="op">**</span><span class="dv">9</span><span class="co"># to nanoseconds, substract offset</span></span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>pys.PlotVoltageCurrentDataset(dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.read_csv(<span class="st">'datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off\Trace 2022-12-21 12-27-21 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">1</span>, sep<span class="op">=</span><span class="st">','</span>, usecols<span class="op">=</span>[<span class="st">'Time (s)'</span>,<span class="st">'2 (VOLT)'</span>,<span class="st">'3 (VOLT)'</span>,<span class="st">'M1'</span>])</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>resistance <span class="op">=</span> <span class="fl">100.0</span> <span class="co">#</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> dataset.columns</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">3</span>]] <span class="op">=</span> dataset[columnNames[<span class="dv">3</span>]] <span class="op">/</span> resistance <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">0</span>]] <span class="op">=</span> (dataset[columnNames[<span class="dv">0</span>]] <span class="op">-</span> dataset[columnNames[<span class="dv">0</span>]][<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">10</span><span class="op">**</span><span class="dv">9</span><span class="co"># to nanoseconds, substract offset</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>pys.PlotVoltageCurrentDataset(dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-31-output-1.png" width="662" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-26-output-1.png" width="662" height="470"></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-31-output-2.png" width="603" height="429"></p>
+<p><img src="visualizations_files/figure-html/cell-26-output-2.png" width="603" height="429"></p>
 </div>
 </div>
 <p>datasets_LED_PD_mj_LED_PD_mj_transient_t_Rled15mA_Uf3V_off1V_f1kHz_off-12-21 12-29-00 0.csv is the same file, but seperated with tabs</p>
-<div class="cell" data-execution_count="31">
+<div class="cell" data-execution_count="26">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.read_csv(<span class="st">'datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled20mA_Uf3V_off1V_f1kHz\Trace 2022-12-21 13-13-35 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">1</span>, sep<span class="op">=</span><span class="st">','</span>, usecols<span class="op">=</span>[<span class="st">'Time (s)'</span>,<span class="st">'2 (VOLT)'</span>,<span class="st">'3 (VOLT)'</span>,<span class="st">'M1'</span>])</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>resistance <span class="op">=</span> <span class="fl">100.0</span> <span class="co">#</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> dataset.columns</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">3</span>]] <span class="op">=</span> dataset[columnNames[<span class="dv">3</span>]] <span class="op">/</span> resistance <span class="op">*</span> <span class="dv">1000</span></span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">0</span>]] <span class="op">=</span> (dataset[columnNames[<span class="dv">0</span>]] <span class="op">-</span> dataset[columnNames[<span class="dv">0</span>]][<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">10</span><span class="op">**</span><span class="dv">9</span><span class="co"># to nanoseconds, substract offset</span></span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>pys.PlotVoltageCurrentDataset(dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.read_csv(<span class="st">'datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled20mA_Uf3V_off1V_f1kHz\Trace 2022-12-21 13-13-35 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">1</span>, sep<span class="op">=</span><span class="st">','</span>, usecols<span class="op">=</span>[<span class="st">'Time (s)'</span>,<span class="st">'2 (VOLT)'</span>,<span class="st">'3 (VOLT)'</span>,<span class="st">'M1'</span>])</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>resistance <span class="op">=</span> <span class="fl">100.0</span> <span class="co">#</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> dataset.columns</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">3</span>]] <span class="op">=</span> dataset[columnNames[<span class="dv">3</span>]] <span class="op">/</span> resistance <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">0</span>]] <span class="op">=</span> (dataset[columnNames[<span class="dv">0</span>]] <span class="op">-</span> dataset[columnNames[<span class="dv">0</span>]][<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">10</span><span class="op">**</span><span class="dv">9</span><span class="co"># to nanoseconds, substract offset</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>pys.PlotVoltageCurrentDataset(dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-32-output-1.png" width="662" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-27-output-1.png" width="662" height="470"></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-32-output-2.png" width="610" height="429"></p>
+<p><img src="visualizations_files/figure-html/cell-27-output-2.png" width="610" height="429"></p>
 </div>
 </div>
 </section>
@@ -813,81 +746,26 @@ pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans
 <section id="todo-green-led" class="level1">
 <h1>TODO Green LED</h1>
 <p>datasets_LED_PD_mj_Green_Ipd_UpdUF_0_2V_ipd_Ustep_4V_Iled0A_Trace 2022-12-06 12-55-36 0.csv</p>
-<div class="cell" data-execution_count="32">
+<div class="cell" data-execution_count="27">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.read_csv(<span class="st">'datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled0A_Trace 2022-12-06 12-55-36 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">1</span>, sep<span class="op">=</span><span class="st">','</span>, usecols<span class="op">=</span>[<span class="st">'Time (s)'</span>,<span class="st">'1 (VOLT)'</span>,<span class="st">'2 (AMP)'</span>,<span class="st">'M1'</span>])</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>resistance <span class="op">=</span> <span class="fl">100.0</span> <span class="co">#</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> dataset.columns</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">3</span>]] <span class="op">=</span> dataset[columnNames[<span class="dv">3</span>]] <span class="op">/</span> resistance <span class="op">*</span> <span class="dv">1000</span></span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">0</span>]] <span class="op">=</span> (dataset[columnNames[<span class="dv">0</span>]] <span class="op">-</span> dataset[columnNames[<span class="dv">0</span>]][<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">10</span><span class="op">**</span><span class="dv">9</span><span class="co"># to nanoseconds, substract offset</span></span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>pys.PlotVoltageCurrentDataset(dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.read_csv(<span class="st">'datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled0A_Trace 2022-12-06 12-55-36 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">1</span>, sep<span class="op">=</span><span class="st">','</span>, usecols<span class="op">=</span>[<span class="st">'Time (s)'</span>,<span class="st">'1 (VOLT)'</span>,<span class="st">'2 (AMP)'</span>,<span class="st">'M1'</span>])</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>resistance <span class="op">=</span> <span class="fl">100.0</span> <span class="co">#</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> dataset.columns</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">3</span>]] <span class="op">=</span> dataset[columnNames[<span class="dv">3</span>]] <span class="op">/</span> resistance <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">0</span>]] <span class="op">=</span> (dataset[columnNames[<span class="dv">0</span>]] <span class="op">-</span> dataset[columnNames[<span class="dv">0</span>]][<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">10</span><span class="op">**</span><span class="dv">9</span><span class="co"># to nanoseconds, substract offset</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>pys.PlotVoltageCurrentDataset(dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-33-output-1.png" width="662" height="470"></p>
+<p><img src="visualizations_files/figure-html/cell-28-output-1.png" width="662" height="470"></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="visualizations_files/figure-html/cell-33-output-2.png" width="596" height="433"></p>
+<p><img src="visualizations_files/figure-html/cell-28-output-2.png" width="596" height="433"></p>
 </div>
 </div>
-<p>datasets_LED_PD_mj_Green_Ipd_UpdUF_0_2V_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-01-29 0.csv</p>
-<!-- ```{python}
-
-dataset = pd.read_csv('datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-01-29 0.csv', skiprows=1, sep=',', usecols=['Time (s)','1 (VOLT)','2 (AMP)','M1'])
-
-resistance = 100.0 #
-columnNames = dataset.columns
-# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
-dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000
-dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset
-
-pys.PlotVoltageCurrentDataset(dataset)
-
-```
-
-datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-02-20 0.csv
-
-::: {.cell execution_count=33}
-``` {.python .cell-code}
-dataset = pd.read_csv('datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-02-20 0.csv', skiprows=1, sep=',', usecols=['Time (s)','1 (VOLT)','2 (AMP)','M1'])
-
-resistance = 100.0 #
-columnNames = dataset.columns
-# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
-dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000
-dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset
-
-pys.PlotVoltageCurrentDataset(dataset)
-```
-
-::: {.cell-output .cell-output-display}
-![](visualizations_files/figure-html/cell-34-output-1.png){width=662 height=470}
-:::
-
-::: {.cell-output .cell-output-display}
-![](visualizations_files/figure-html/cell-34-output-2.png){width=596 height=432}
-:::
-:::
-
-
-datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-02-38 0.csv
-
-
-
-dataset = pd.read_csv('datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-02-38 0.csv', skiprows=1, sep=',', usecols=['Time (s)','1 (VOLT)','2 (AMP)','M1'])
-
-resistance = 100.0 #
-columnNames = dataset.columns
-# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
-dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000
-dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset
-
-pys.PlotVoltageCurrentDataset(dataset)
-
-``` -->
 <!-- -->
 
 </section>
@@ -1078,466 +956,377 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb45" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Optoelectronics laboratory results"</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: left</span></span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="co">    html-math-method: katex</span></span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: minty</span></span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
-<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>Including necessary libraries</span>
-<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib <span class="im">as</span> mpl</span>
-<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> savgol_filter</span>
-<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os <span class="im">import</span> listdir</span>
-<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os.path <span class="im">import</span> isfile, join</span>
-<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> constants <span class="im">as</span> const</span>
-<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> python_scripts <span class="im">as</span> pys</span>
-<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-31"><a href="#cb45-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-32"><a href="#cb45-32" aria-hidden="true" tabindex="-1"></a><span class="fu"># Photodiode forward and reverse, in dark and illuminated</span></span>
-<span id="cb45-33"><a href="#cb45-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-34"><a href="#cb45-34" aria-hidden="true" tabindex="-1"></a>$\mu$ - diode ideality factor can be calculated</span>
-<span id="cb45-35"><a href="#cb45-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-36"><a href="#cb45-36" aria-hidden="true" tabindex="-1"></a>Shockley diode equation: </span>
-<span id="cb45-37"><a href="#cb45-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-38"><a href="#cb45-38" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb45-39"><a href="#cb45-39" aria-hidden="true" tabindex="-1"></a>I=I_0(e^{\frac{qU}{\mu KT}}-1)</span>
-<span id="cb45-40"><a href="#cb45-40" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb45-41"><a href="#cb45-41" aria-hidden="true" tabindex="-1"></a>where: </span>
-<span id="cb45-42"><a href="#cb45-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-43"><a href="#cb45-43" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$I <span class="co">[</span><span class="ot">A</span><span class="co">]</span>$ is diode current,</span>
-<span id="cb45-44"><a href="#cb45-44" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$I_0 <span class="co">[</span><span class="ot">A</span><span class="co">]</span>$ is Dark Saturation Current,</span>
-<span id="cb45-45"><a href="#cb45-45" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$q <span class="co">[</span><span class="ot">C</span><span class="co">]</span>$ is electron charge,</span>
-<span id="cb45-46"><a href="#cb45-46" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$U <span class="co">[</span><span class="ot">V</span><span class="co">]</span>$ is voltage applied on the diode,</span>
-<span id="cb45-47"><a href="#cb45-47" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$\mu$ is diode ideality factor,</span>
-<span id="cb45-48"><a href="#cb45-48" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$K <span class="co">[</span><span class="ot">\frac{J}{K}</span><span class="co">]</span>$ is the Boltzmann constant,</span>
-<span id="cb45-49"><a href="#cb45-49" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$T <span class="co">[</span><span class="ot">K</span><span class="co">]</span>$ is the temperature.</span>
-<span id="cb45-50"><a href="#cb45-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-51"><a href="#cb45-51" aria-hidden="true" tabindex="-1"></a>For _forward bias_, the "-1" is negligible.</span>
-<span id="cb45-52"><a href="#cb45-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-53"><a href="#cb45-53" aria-hidden="true" tabindex="-1"></a>Constants:</span>
-<span id="cb45-56"><a href="#cb45-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-57"><a href="#cb45-57" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'k = </span><span class="sc">{</span>const<span class="sc">.</span>k<span class="sc">:.6E}</span><span class="ss">'</span>)</span>
-<span id="cb45-58"><a href="#cb45-58" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'T = </span><span class="sc">{</span>const<span class="sc">.</span>T<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
-<span id="cb45-59"><a href="#cb45-59" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'q = </span><span class="sc">{</span>const<span class="sc">.</span>q<span class="sc">:.9E}</span><span class="ss">'</span>)</span>
-<span id="cb45-60"><a href="#cb45-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-61"><a href="#cb45-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-62"><a href="#cb45-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-63"><a href="#cb45-63" aria-hidden="true" tabindex="-1"></a>Exponential function can be, in general, pictured as:</span>
-<span id="cb45-64"><a href="#cb45-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-65"><a href="#cb45-65" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb45-66"><a href="#cb45-66" aria-hidden="true" tabindex="-1"></a>y = a e^{x b}</span>
-<span id="cb45-67"><a href="#cb45-67" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb45-68"><a href="#cb45-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-69"><a href="#cb45-69" aria-hidden="true" tabindex="-1"></a>so that:</span>
-<span id="cb45-70"><a href="#cb45-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-71"><a href="#cb45-71" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb45-72"><a href="#cb45-72" aria-hidden="true" tabindex="-1"></a>b = \frac{q}{\mu k T}</span>
-<span id="cb45-73"><a href="#cb45-73" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb45-74"><a href="#cb45-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-75"><a href="#cb45-75" aria-hidden="true" tabindex="-1"></a>and:</span>
-<span id="cb45-76"><a href="#cb45-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-77"><a href="#cb45-77" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb45-78"><a href="#cb45-78" aria-hidden="true" tabindex="-1"></a>\boxed{\mu = \frac{q}{bkT}}</span>
-<span id="cb45-79"><a href="#cb45-79" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb45-80"><a href="#cb45-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-83"><a href="#cb45-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-84"><a href="#cb45-84" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> exp_func(x, a, b):</span>
-<span id="cb45-85"><a href="#cb45-85" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> a <span class="op">*</span> np.exp(b <span class="op">*</span> x)</span>
-<span id="cb45-86"><a href="#cb45-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-87"><a href="#cb45-87" aria-hidden="true" tabindex="-1"></a>mu<span class="op">=</span><span class="bu">dict</span>()</span>
-<span id="cb45-88"><a href="#cb45-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-89"><a href="#cb45-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-90"><a href="#cb45-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## Under red LED</span></span>
-<span id="cb45-91"><a href="#cb45-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-92"><a href="#cb45-92" aria-hidden="true" tabindex="-1"></a> Directory _/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1_</span>
-<span id="cb45-93"><a href="#cb45-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-94"><a href="#cb45-94" aria-hidden="true" tabindex="-1"></a>We will fit an exponential function to our obtained results, in forward and reverse case.</span>
-<span id="cb45-95"><a href="#cb45-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-96"><a href="#cb45-96" aria-hidden="true" tabindex="-1"></a>After fitting, we get $\mu$ for different illumination cases:</span>
-<span id="cb45-97"><a href="#cb45-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-100"><a href="#cb45-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-101"><a href="#cb45-101" aria-hidden="true" tabindex="-1"></a>dtF <span class="op">=</span> pd.read_csv(<span class="st">'datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1/Ipd_Popt6_UpdF_30112022 2022-11-30 12-02-00 0 2022-11-30 12-42-42 0.csv'</span>,</span>
-<span id="cb45-102"><a href="#cb45-102" aria-hidden="true" tabindex="-1"></a>  sep<span class="op">=</span><span class="st">','</span>, skiprows<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb45-103"><a href="#cb45-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-104"><a href="#cb45-104" aria-hidden="true" tabindex="-1"></a>dtR <span class="op">=</span> pd.read_csv(<span class="st">'datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1/Ipd_Popt6_UpdR_30112022 2022-11-30 12-02-00 0 2022-11-30 12-03-12 0.csv'</span>,</span>
-<span id="cb45-105"><a href="#cb45-105" aria-hidden="true" tabindex="-1"></a>  sep<span class="op">=</span><span class="st">','</span>, skiprows<span class="op">=</span><span class="dv">6</span>)</span>
-<span id="cb45-106"><a href="#cb45-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-107"><a href="#cb45-107" aria-hidden="true" tabindex="-1"></a>cF <span class="op">=</span> [<span class="st">'2 - Get Measurement Value'</span>, <span class="st">'Get Measurement Value'</span>, <span class="st">'1 - Sweep CH2 Voltage Setting'</span>, <span class="st">'1 - Get CH2 Current Measurement'</span>]</span>
-<span id="cb45-108"><a href="#cb45-108" aria-hidden="true" tabindex="-1"></a>cR <span class="op">=</span> [<span class="st">'2 - Get Measurement Value'</span>, <span class="st">'3 - Get Measurement Value'</span>, <span class="st">'1 - Sweep CH2 Voltage Setting'</span>, <span class="st">'1 - Get CH2 Current Measurement'</span>]</span>
-<span id="cb45-109"><a href="#cb45-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-110"><a href="#cb45-110" aria-hidden="true" tabindex="-1"></a>muFR <span class="op">=</span> pys.SweepPlotForwardReverse(dtF, dtR, cF, cR, <span class="dv">0</span>, <span class="dv">27</span>, exp_func)</span>
-<span id="cb45-111"><a href="#cb45-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-112"><a href="#cb45-112" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Photodiode U / I characterictics"</span>)</span>
-<span id="cb45-113"><a href="#cb45-113" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Variable red LED illumination"</span>)</span>
-<span id="cb45-114"><a href="#cb45-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-115"><a href="#cb45-115" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb45-116"><a href="#cb45-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-117"><a href="#cb45-117" aria-hidden="true" tabindex="-1"></a>mu[<span class="st">'red_F'</span>] <span class="op">=</span> muFR[<span class="dv">0</span>]</span>
-<span id="cb45-118"><a href="#cb45-118" aria-hidden="true" tabindex="-1"></a>mu[<span class="st">'red_R'</span>] <span class="op">=</span> muFR[<span class="dv">1</span>]</span>
-<span id="cb45-119"><a href="#cb45-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-120"><a href="#cb45-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-121"><a href="#cb45-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## Under blue LED</span></span>
-<span id="cb45-122"><a href="#cb45-122" aria-hidden="true" tabindex="-1"></a>Directory _/LVJ_PD_BVue_l1mm_02122022G2_</span>
-<span id="cb45-123"><a href="#cb45-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-124"><a href="#cb45-124" aria-hidden="true" tabindex="-1"></a>In <span class="in">`Ipd_Ufpd_Uled_0_6V 2022-12-02 11-32-27 0.csv`</span> there is only one measured variable. Assumed this dataset is invalid.</span>
-<span id="cb45-125"><a href="#cb45-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-128"><a href="#cb45-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-129"><a href="#cb45-129" aria-hidden="true" tabindex="-1"></a>dataset<span class="op">=</span>pd.read_csv(<span class="st">'datasets/LVJ_PD_BVue_l1mm_02122022G2/Ipd_Urpd_Uled_0_6V 2022-12-02 10-29-07 0.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, skiprows<span class="op">=</span><span class="dv">6</span>)</span>
-<span id="cb45-130"><a href="#cb45-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-131"><a href="#cb45-131" aria-hidden="true" tabindex="-1"></a>ax, mu_calc <span class="op">=</span> pys.SweepPlot(dataset, <span class="st">'2 - Get Measurement Value'</span>, <span class="st">'1 - Get Measurement Value'</span>, <span class="st">'3 - Sweep CH2 Voltage Setting'</span>, <span class="st">'3 - Get CH2 Current Measurement'</span>, <span class="dv">2</span>, yScale<span class="op">=</span><span class="dv">10</span><span class="op">**</span><span class="dv">6</span>, labelScale<span class="op">=</span><span class="dv">1000</span>, curveFitFunc<span class="op">=</span>exp_func)</span>
-<span id="cb45-132"><a href="#cb45-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-133"><a href="#cb45-133" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'$I_</span><span class="sc">{LED}</span><span class="st"> [mA]$'</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
-<span id="cb45-134"><a href="#cb45-134" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">'log'</span>)</span>
-<span id="cb45-135"><a href="#cb45-135" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Photodiode reverse voltage versus photodiode reverse current'</span>)</span>
-<span id="cb45-136"><a href="#cb45-136" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Variable blue LED illumination, 1 mm distance'</span>)</span>
-<span id="cb45-137"><a href="#cb45-137" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$U_</span><span class="sc">{pd}</span><span class="st"> [V]$'</span>)</span>
-<span id="cb45-138"><a href="#cb45-138" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'$I_</span><span class="sc">{pd}</span><span class="st"> [nA]$'</span>)</span>
-<span id="cb45-139"><a href="#cb45-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-140"><a href="#cb45-140" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb45-141"><a href="#cb45-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-142"><a href="#cb45-142" aria-hidden="true" tabindex="-1"></a>mu[<span class="st">'blu_R'</span>] <span class="op">=</span> mu_calc</span>
-<span id="cb45-143"><a href="#cb45-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-144"><a href="#cb45-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-145"><a href="#cb45-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-146"><a href="#cb45-146" aria-hidden="true" tabindex="-1"></a><span class="fu">## Under green LED</span></span>
-<span id="cb45-147"><a href="#cb45-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-148"><a href="#cb45-148" aria-hidden="true" tabindex="-1"></a>Directory _GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V_</span>
-<span id="cb45-149"><a href="#cb45-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-150"><a href="#cb45-150" aria-hidden="true" tabindex="-1"></a>Ipd_UpdUF_0_2V_G_Popt0_6V 2022-12-06 10-31-19 0.csv</span>
-<span id="cb45-153"><a href="#cb45-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-154"><a href="#cb45-154" aria-hidden="true" tabindex="-1"></a>dtF <span class="op">=</span> pd.read_csv(<span class="st">'datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Ipd_UpdUF_0_2V_G_Popt0_6V 2022-12-06 10-31-19 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">6</span>)</span>
-<span id="cb45-155"><a href="#cb45-155" aria-hidden="true" tabindex="-1"></a>dtR <span class="op">=</span> pd.read_csv(<span class="st">'datasets\GREEN_LED_PD_mj\IpdUpdR_Green\IpdG_UpdR_V0_5V_Popt0_6V 2022-12-06 11-19-45 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb45-156"><a href="#cb45-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-157"><a href="#cb45-157" aria-hidden="true" tabindex="-1"></a>dtR[<span class="st">'Get Measurement Value.1'</span>] <span class="op">=</span> dtR[<span class="st">'Get Measurement Value.1'</span>] <span class="op">*</span> (<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb45-158"><a href="#cb45-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-159"><a href="#cb45-159" aria-hidden="true" tabindex="-1"></a>cF <span class="op">=</span> [<span class="st">'2 - Get Measurement Value'</span>, <span class="st">'3 - Get Measurement Value'</span>, <span class="st">'1 - Sweep CH2 Voltage Setting'</span>, <span class="st">'1 - Get CH2 Current Measurement'</span>]</span>
-<span id="cb45-160"><a href="#cb45-160" aria-hidden="true" tabindex="-1"></a>cR <span class="op">=</span> [<span class="st">'Get Measurement Value.1'</span>, <span class="st">'Get Measurement Value'</span>, <span class="st">'Sweep CH2 Voltage Setting'</span>, <span class="st">'Get CH2 Current Measurement'</span>]</span>
-<span id="cb45-161"><a href="#cb45-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-162"><a href="#cb45-162" aria-hidden="true" tabindex="-1"></a>muFR <span class="op">=</span> pys.SweepPlotForwardReverse(dtF, dtR, cF, cR, <span class="dv">0</span>, <span class="dv">27</span>, exp_func)</span>
-<span id="cb45-163"><a href="#cb45-163" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Photodiode U / I characterictics"</span>)</span>
-<span id="cb45-164"><a href="#cb45-164" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Variable green LED illumination"</span>)</span>
-<span id="cb45-165"><a href="#cb45-165" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb45-166"><a href="#cb45-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-167"><a href="#cb45-167" aria-hidden="true" tabindex="-1"></a>mu[<span class="st">'grn_F'</span>] <span class="op">=</span> muFR[<span class="dv">0</span>]</span>
-<span id="cb45-168"><a href="#cb45-168" aria-hidden="true" tabindex="-1"></a>mu[<span class="st">'grn_R'</span>] <span class="op">=</span> muFR[<span class="dv">1</span>]</span>
-<span id="cb45-169"><a href="#cb45-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-170"><a href="#cb45-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-171"><a href="#cb45-171" aria-hidden="true" tabindex="-1"></a><span class="fu"># Photodiode ideality factor</span></span>
-<span id="cb45-172"><a href="#cb45-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-175"><a href="#cb45-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-176"><a href="#cb45-176" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, sharex<span class="op">=</span><span class="va">True</span>, figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">7</span>))</span>
-<span id="cb45-177"><a href="#cb45-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-178"><a href="#cb45-178" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> mu:</span>
-<span id="cb45-179"><a href="#cb45-179" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> key.split(<span class="st">'_'</span>)[<span class="dv">1</span>] <span class="op">==</span> <span class="st">'F'</span>:</span>
-<span id="cb45-180"><a href="#cb45-180" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">0</span>].plot(mu[key][<span class="st">'i_led'</span>], mu[key][<span class="st">'mu'</span>], label<span class="op">=</span>key.split(<span class="st">'_'</span>)[<span class="dv">0</span>])</span>
-<span id="cb45-181"><a href="#cb45-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-182"><a href="#cb45-182" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> mu:</span>
-<span id="cb45-183"><a href="#cb45-183" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> key.split(<span class="st">'_'</span>)[<span class="dv">1</span>] <span class="op">==</span> <span class="st">'R'</span>:</span>
-<span id="cb45-184"><a href="#cb45-184" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">1</span>].plot(mu[key][<span class="st">'i_led'</span>], mu[key][<span class="st">'mu'</span>], label<span class="op">=</span>key.split(<span class="st">'_'</span>)[<span class="dv">0</span>])</span>
-<span id="cb45-185"><a href="#cb45-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-186"><a href="#cb45-186" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axs:</span>
-<span id="cb45-187"><a href="#cb45-187" aria-hidden="true" tabindex="-1"></a>  ax.grid()</span>
-<span id="cb45-188"><a href="#cb45-188" aria-hidden="true" tabindex="-1"></a>  ax.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span>
-<span id="cb45-189"><a href="#cb45-189" aria-hidden="true" tabindex="-1"></a>  ax.set_ylabel(<span class="st">'$\mu [-]$'</span>)</span>
-<span id="cb45-190"><a href="#cb45-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-191"><a href="#cb45-191" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].set_title(<span class="st">'Forward bias'</span>)</span>
-<span id="cb45-192"><a href="#cb45-192" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_xlabel(<span class="st">'$I_</span><span class="sc">{LED}</span><span class="st"> [mA]$'</span>)</span>
-<span id="cb45-193"><a href="#cb45-193" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">'Reverse bias'</span>)</span>
-<span id="cb45-194"><a href="#cb45-194" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Photodiode ideality factor vs illumination'</span>)</span>
-<span id="cb45-195"><a href="#cb45-195" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
-<span id="cb45-196"><a href="#cb45-196" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb45-197"><a href="#cb45-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-198"><a href="#cb45-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-199"><a href="#cb45-199" aria-hidden="true" tabindex="-1"></a><span class="fu"># LED Voltage-current characteristics</span></span>
-<span id="cb45-200"><a href="#cb45-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-201"><a href="#cb45-201" aria-hidden="true" tabindex="-1"></a><span class="fu">## Red LED</span></span>
-<span id="cb45-202"><a href="#cb45-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-203"><a href="#cb45-203" aria-hidden="true" tabindex="-1"></a>Directory _/RED_LED_PD_mj/Iled_Uled_RED_</span>
-<span id="cb45-204"><a href="#cb45-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-207"><a href="#cb45-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-208"><a href="#cb45-208" aria-hidden="true" tabindex="-1"></a>dataset<span class="op">=</span>pd.read_csv(<span class="st">'datasets/RED_LED_PD_mj/RED_LED_PD_mj/Iled_Uled_RED/IledRed_UledF_06V_50mV 2022-12-02 16-48-23 1.csv'</span>, sep<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb45-209"><a href="#cb45-209" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb45-210"><a href="#cb45-210" aria-hidden="true" tabindex="-1"></a>plt.plot(dataset[<span class="st">'1 - Get CH2 Voltage Setting'</span>], dataset[<span class="st">'2 - Get Measurement Value Iled'</span>]<span class="op">*</span><span class="dv">1000</span>)</span>
-<span id="cb45-211"><a href="#cb45-211" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb45-212"><a href="#cb45-212" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$U_</span><span class="sc">{LED}</span><span class="st">[V]$'</span>)</span>
-<span id="cb45-213"><a href="#cb45-213" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'$I_</span><span class="sc">{LED}</span><span class="st">[mA]$'</span>)</span>
-<span id="cb45-214"><a href="#cb45-214" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Red LED voltage versus current'</span>)</span>
-<span id="cb45-215"><a href="#cb45-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-216"><a href="#cb45-216" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb45-217"><a href="#cb45-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-218"><a href="#cb45-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-219"><a href="#cb45-219" aria-hidden="true" tabindex="-1"></a><span class="fu">## Blue LED</span></span>
-<span id="cb45-220"><a href="#cb45-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-221"><a href="#cb45-221" aria-hidden="true" tabindex="-1"></a>Directory _LVJ_OPTO_LEDtrans20122022_</span>
-<span id="cb45-222"><a href="#cb45-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-225"><a href="#cb45-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-226"><a href="#cb45-226" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_nt_u4v1khz1_', ['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 1 kHz')</span></span>
-<span id="cb45-227"><a href="#cb45-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-228"><a href="#cb45-228" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_nt_u4v1khz2_', ['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 2 kHz')</span></span>
-<span id="cb45-229"><a href="#cb45-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-230"><a href="#cb45-230" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr('datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022/', 'led_b_onu4v1khz3_',['1', '3', 'F1'], 'Blue LED, rectangular wave, 1 to 4 V, 3 kHz')</span></span>
-<span id="cb45-231"><a href="#cb45-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-232"><a href="#cb45-232" aria-hidden="true" tabindex="-1"></a>pys.PrintDataFromDirectory(directoryPath<span class="op">=</span><span class="st">'datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022'</span>)</span>
-<span id="cb45-233"><a href="#cb45-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-234"><a href="#cb45-234" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-235"><a href="#cb45-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-236"><a href="#cb45-236" aria-hidden="true" tabindex="-1"></a><span class="fu"># LED transient characteristics</span></span>
-<span id="cb45-237"><a href="#cb45-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-238"><a href="#cb45-238" aria-hidden="true" tabindex="-1"></a><span class="fu"># Directory /LvJ_OPTO_2022_GE211222022</span></span>
-<span id="cb45-239"><a href="#cb45-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-242"><a href="#cb45-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-243"><a href="#cb45-243" aria-hidden="true" tabindex="-1"></a>pys.PrintDataFromDirectory(directoryPath<span class="op">=</span><span class="st">"datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022"</span>)</span>
-<span id="cb45-244"><a href="#cb45-244" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-245"><a href="#cb45-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-246"><a href="#cb45-246" aria-hidden="true" tabindex="-1"></a><span class="fu">## Directory /LvJ_OPTO_2022_GE211222022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr</span></span>
-<span id="cb45-247"><a href="#cb45-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-250"><a href="#cb45-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-251"><a href="#cb45-251" aria-hidden="true" tabindex="-1"></a>pys.PrintDataFromDirectory(directoryPath<span class="op">=</span><span class="st">'datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022\LED_R_0_5Vtr'</span>)</span>
-<span id="cb45-252"><a href="#cb45-252" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-253"><a href="#cb45-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-254"><a href="#cb45-254" aria-hidden="true" tabindex="-1"></a><span class="fu">## Directory /LvJ_OPTO_2022_GE211222022/LVJ_OPTO_2022_GE21122022/PD_dark</span></span>
-<span id="cb45-255"><a href="#cb45-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-258"><a href="#cb45-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-259"><a href="#cb45-259" aria-hidden="true" tabindex="-1"></a>pys.PrintDataFromDirectory(directoryPath<span class="op">=</span><span class="st">'datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022\PD_dark'</span>)</span>
-<span id="cb45-260"><a href="#cb45-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-261"><a href="#cb45-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-262"><a href="#cb45-262" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-263"><a href="#cb45-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-264"><a href="#cb45-264" aria-hidden="true" tabindex="-1"></a><span class="fu"># Photoresistor</span></span>
-<span id="cb45-265"><a href="#cb45-265" aria-hidden="true" tabindex="-1"></a>Directory _/LED_PDetector_</span>
-<span id="cb45-268"><a href="#cb45-268" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-269"><a href="#cb45-269" aria-hidden="true" tabindex="-1"></a>dataset<span class="op">=</span>pd.read_csv(<span class="st">'datasets/LVJ_PDetector/IpdF_Upd_15VBenchvue_29112022 2022-11-29 15-56-50.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, skiprows<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb45-270"><a href="#cb45-270" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb45-271"><a href="#cb45-271" aria-hidden="true" tabindex="-1"></a>plt.plot(dataset[<span class="st">'1 - Get CH1 Voltage Measurement'</span>], dataset[<span class="st">'1 - Get CH1 Current Measurement'</span>]<span class="op">*</span><span class="dv">1000</span>)</span>
-<span id="cb45-272"><a href="#cb45-272" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb45-273"><a href="#cb45-273" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$U_</span><span class="sc">{pd}</span><span class="st">[V]$'</span>)</span>
-<span id="cb45-274"><a href="#cb45-274" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'$I_</span><span class="sc">{pdF}</span><span class="st">[mA]$'</span>)</span>
-<span id="cb45-275"><a href="#cb45-275" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Photoresistor voltage versus forward current'</span>)</span>
-<span id="cb45-276"><a href="#cb45-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-277"><a href="#cb45-277" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb45-278"><a href="#cb45-278" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-279"><a href="#cb45-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-280"><a href="#cb45-280" aria-hidden="true" tabindex="-1"></a><span class="fu"># Directory LVJ_OPHO2022\LVJ_OPHO2022</span></span>
-<span id="cb45-281"><a href="#cb45-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-282"><a href="#cb45-282" aria-hidden="true" tabindex="-1"></a>To calculate current on the resistor, we can use following equation:</span>
-<span id="cb45-283"><a href="#cb45-283" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb45-284"><a href="#cb45-284" aria-hidden="true" tabindex="-1"></a>I_{R} = \frac{U_{gen}-U_{pd}}{R}</span>
-<span id="cb45-285"><a href="#cb45-285" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb45-286"><a href="#cb45-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-287"><a href="#cb45-287" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode b? f = 1kHZ, U_gen = +2V/-2V falling edge?</span></span>
-<span id="cb45-288"><a href="#cb45-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-291"><a href="#cb45-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-292"><a href="#cb45-292" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_f1ku2of1_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>), filterValues<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb45-293"><a href="#cb45-293" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span>
-<span id="cb45-294"><a href="#cb45-294" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-295"><a href="#cb45-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-296"><a href="#cb45-296" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode b? f = 1kHZ, U_gen = +2V/-2V rising edge</span></span>
-<span id="cb45-299"><a href="#cb45-299" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-300"><a href="#cb45-300" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_f1ku2on4_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span>
-<span id="cb45-301"><a href="#cb45-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-302"><a href="#cb45-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-303"><a href="#cb45-303" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode b? f = 1kHZ, U_gen = +2V/-2V whole period</span></span>
-<span id="cb45-306"><a href="#cb45-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-307"><a href="#cb45-307" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_f1ku2t1_', endings=('1','3','F1'))</span></span>
-<span id="cb45-308"><a href="#cb45-308" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-309"><a href="#cb45-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-310"><a href="#cb45-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode b? r1k? U_gen = +2V/-2V f?</span></span>
-<span id="cb45-311"><a href="#cb45-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-314"><a href="#cb45-314" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-315"><a href="#cb45-315" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_r1ku2f_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span>
-<span id="cb45-316"><a href="#cb45-316" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-317"><a href="#cb45-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-318"><a href="#cb45-318" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode b? f = 1kHZ, U_gen = +2V/-2V</span></span>
-<span id="cb45-319"><a href="#cb45-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-322"><a href="#cb45-322" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-323"><a href="#cb45-323" aria-hidden="true" tabindex="-1"></a><span class="co">#pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2f2_', endings=('1','3','F1'))</span></span>
-<span id="cb45-324"><a href="#cb45-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-325"><a href="#cb45-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-326"><a href="#cb45-326" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode b? f = 1kHZ, U_gen = +2V/-2V pd_b_r1ku2f2_1???</span></span>
-<span id="cb45-327"><a href="#cb45-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-330"><a href="#cb45-330" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-331"><a href="#cb45-331" aria-hidden="true" tabindex="-1"></a><span class="co">#pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2f2_', endings=('1','3','F1'))</span></span>
-<span id="cb45-332"><a href="#cb45-332" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-333"><a href="#cb45-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-334"><a href="#cb45-334" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode b? f = 1kHZ, U_gen = +2V/-2V pd_b_r1ku2r_1???</span></span>
-<span id="cb45-335"><a href="#cb45-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-338"><a href="#cb45-338" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-339"><a href="#cb45-339" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_r1ku2r_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span>
-<span id="cb45-340"><a href="#cb45-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-341"><a href="#cb45-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-342"><a href="#cb45-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-343"><a href="#cb45-343" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2off1_1???</span></span>
-<span id="cb45-344"><a href="#cb45-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-347"><a href="#cb45-347" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-348"><a href="#cb45-348" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_d_f1ku2off1_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span>
-<span id="cb45-349"><a href="#cb45-349" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-350"><a href="#cb45-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-351"><a href="#cb45-351" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr1???</span></span>
-<span id="cb45-352"><a href="#cb45-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-353"><a href="#cb45-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-356"><a href="#cb45-356" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-357"><a href="#cb45-357" aria-hidden="true" tabindex="-1"></a>pys.PlotSingleFile_OPHO(fileName<span class="op">=</span><span class="st">'pd_d_f1ku2onr1.csv'</span>, filePath<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022'</span>, filterValues<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb45-358"><a href="#cb45-358" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span>
-<span id="cb45-359"><a href="#cb45-359" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-360"><a href="#cb45-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-361"><a href="#cb45-361" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr2_1???</span></span>
-<span id="cb45-364"><a href="#cb45-364" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-365"><a href="#cb45-365" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_d_f1ku2onr2_', endings=('1','3','F1'))</span></span>
-<span id="cb45-366"><a href="#cb45-366" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-367"><a href="#cb45-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-368"><a href="#cb45-368" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr6_1???</span></span>
-<span id="cb45-371"><a href="#cb45-371" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-372"><a href="#cb45-372" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_d_f1ku2onr6_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span>
-<span id="cb45-373"><a href="#cb45-373" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-374"><a href="#cb45-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-375"><a href="#cb45-375" aria-hidden="true" tabindex="-1"></a><span class="fu"># Directory LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans</span></span>
-<span id="cb45-376"><a href="#cb45-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-377"><a href="#cb45-377" aria-hidden="true" tabindex="-1"></a><span class="fu">## iled_bu5vf1khof2.csv???</span></span>
-<span id="cb45-380"><a href="#cb45-380" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-381"><a href="#cb45-381" aria-hidden="true" tabindex="-1"></a>pys.PlotSingleFile_OPHO(fileName<span class="op">=</span><span class="st">'iled_bu5vf1khof2.csv'</span>, filePath<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/Blue/B_trans'</span>, filterValues<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb45-382"><a href="#cb45-382" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span>
-<span id="cb45-383"><a href="#cb45-383" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-384"><a href="#cb45-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-385"><a href="#cb45-385" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ## iled_bu5vf1khof3_1</span></span>
-<span id="cb45-388"><a href="#cb45-388" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-389"><a href="#cb45-389" aria-hidden="true" tabindex="-1"></a><span class="co">pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1khof3_', endings=('1','3','F1'))</span></span>
-<span id="cb45-390"><a href="#cb45-390" aria-hidden="true" tabindex="-1"></a><span class="co">``` --&gt;</span></span>
-<span id="cb45-391"><a href="#cb45-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-392"><a href="#cb45-392" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ## iled_bu5vf1khof4_1</span></span>
-<span id="cb45-393"><a href="#cb45-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-396"><a href="#cb45-396" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-397"><a href="#cb45-397" aria-hidden="true" tabindex="-1"></a><span class="co">pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1khof4_', endings=('1','3','F1'))</span></span>
-<span id="cb45-398"><a href="#cb45-398" aria-hidden="true" tabindex="-1"></a><span class="co">```</span></span>
-<span id="cb45-399"><a href="#cb45-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-400"><a href="#cb45-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-401"><a href="#cb45-401" aria-hidden="true" tabindex="-1"></a><span class="co">## iled_bu5vf1khon_1</span></span>
-<span id="cb45-404"><a href="#cb45-404" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-405"><a href="#cb45-405" aria-hidden="true" tabindex="-1"></a><span class="co">pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1khon_', endings=('1','3','F1'))</span></span>
-<span id="cb45-406"><a href="#cb45-406" aria-hidden="true" tabindex="-1"></a><span class="co">``` --&gt;</span></span>
-<span id="cb45-407"><a href="#cb45-407" aria-hidden="true" tabindex="-1"></a><span class="fu">## iled_bu5vf1khon3</span></span>
-<span id="cb45-408"><a href="#cb45-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-411"><a href="#cb45-411" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-412"><a href="#cb45-412" aria-hidden="true" tabindex="-1"></a>pys.PlotSingleFile_OPHO(fileName<span class="op">=</span><span class="st">'iled_bu5vf1khon3.csv'</span>, filePath<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/Blue/B_trans'</span>, filterValues<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb45-413"><a href="#cb45-413" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span>
-<span id="cb45-414"><a href="#cb45-414" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-415"><a href="#cb45-415" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-416"><a href="#cb45-416" aria-hidden="true" tabindex="-1"></a><span class="fu">## iled_bu5vf1khon4_1</span></span>
-<span id="cb45-419"><a href="#cb45-419" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-420"><a href="#cb45-420" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans'</span>, datasetBaseName<span class="op">=</span><span class="st">'iled_bu5vf1khon4_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span>
-<span id="cb45-421"><a href="#cb45-421" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-422"><a href="#cb45-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-423"><a href="#cb45-423" aria-hidden="true" tabindex="-1"></a><span class="fu">## iled_bu5vf1kt_1</span></span>
-<span id="cb45-426"><a href="#cb45-426" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-427"><a href="#cb45-427" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1kt_', endings=('1','3','F1'))</span></span>
-<span id="cb45-428"><a href="#cb45-428" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
-<span id="cb45-429"><a href="#cb45-429" aria-hidden="true" tabindex="-1"></a><span class="fu"># Directory RED_LED_PD_mj/RED_LED_PD_mj/RED_transient/</span></span>
-<span id="cb45-430"><a href="#cb45-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-431"><a href="#cb45-431" aria-hidden="true" tabindex="-1"></a><span class="fu">## iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off</span></span>
-<span id="cb45-434"><a href="#cb45-434" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-435"><a href="#cb45-435" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.read_csv(<span class="st">'datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off\Trace 2022-12-21 12-27-21 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">1</span>, sep<span class="op">=</span><span class="st">','</span>, usecols<span class="op">=</span>[<span class="st">'Time (s)'</span>,<span class="st">'2 (VOLT)'</span>,<span class="st">'3 (VOLT)'</span>,<span class="st">'M1'</span>])</span>
-<span id="cb45-436"><a href="#cb45-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-437"><a href="#cb45-437" aria-hidden="true" tabindex="-1"></a>resistance <span class="op">=</span> <span class="fl">100.0</span> <span class="co">#</span></span>
-<span id="cb45-438"><a href="#cb45-438" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> dataset.columns</span>
-<span id="cb45-439"><a href="#cb45-439" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
-<span id="cb45-440"><a href="#cb45-440" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">3</span>]] <span class="op">=</span> dataset[columnNames[<span class="dv">3</span>]] <span class="op">/</span> resistance <span class="op">*</span> <span class="dv">1000</span></span>
-<span id="cb45-441"><a href="#cb45-441" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">0</span>]] <span class="op">=</span> (dataset[columnNames[<span class="dv">0</span>]] <span class="op">-</span> dataset[columnNames[<span class="dv">0</span>]][<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">10</span><span class="op">**</span><span class="dv">9</span><span class="co"># to nanoseconds, substract offset</span></span>
-<span id="cb45-442"><a href="#cb45-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-443"><a href="#cb45-443" aria-hidden="true" tabindex="-1"></a>pys.PlotVoltageCurrentDataset(dataset)</span>
-<span id="cb45-444"><a href="#cb45-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-445"><a href="#cb45-445" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-446"><a href="#cb45-446" aria-hidden="true" tabindex="-1"></a>datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off\Trace 2022-12-21 12-29-00 0.csv is the same file, but seperated with tabs</span>
-<span id="cb45-447"><a href="#cb45-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-448"><a href="#cb45-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-451"><a href="#cb45-451" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-452"><a href="#cb45-452" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.read_csv(<span class="st">'datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled20mA_Uf3V_off1V_f1kHz\Trace 2022-12-21 13-13-35 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">1</span>, sep<span class="op">=</span><span class="st">','</span>, usecols<span class="op">=</span>[<span class="st">'Time (s)'</span>,<span class="st">'2 (VOLT)'</span>,<span class="st">'3 (VOLT)'</span>,<span class="st">'M1'</span>])</span>
-<span id="cb45-453"><a href="#cb45-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-454"><a href="#cb45-454" aria-hidden="true" tabindex="-1"></a>resistance <span class="op">=</span> <span class="fl">100.0</span> <span class="co">#</span></span>
-<span id="cb45-455"><a href="#cb45-455" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> dataset.columns</span>
-<span id="cb45-456"><a href="#cb45-456" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
-<span id="cb45-457"><a href="#cb45-457" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">3</span>]] <span class="op">=</span> dataset[columnNames[<span class="dv">3</span>]] <span class="op">/</span> resistance <span class="op">*</span> <span class="dv">1000</span></span>
-<span id="cb45-458"><a href="#cb45-458" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">0</span>]] <span class="op">=</span> (dataset[columnNames[<span class="dv">0</span>]] <span class="op">-</span> dataset[columnNames[<span class="dv">0</span>]][<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">10</span><span class="op">**</span><span class="dv">9</span><span class="co"># to nanoseconds, substract offset</span></span>
-<span id="cb45-459"><a href="#cb45-459" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-460"><a href="#cb45-460" aria-hidden="true" tabindex="-1"></a>pys.PlotVoltageCurrentDataset(dataset)</span>
-<span id="cb45-461"><a href="#cb45-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-462"><a href="#cb45-462" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-463"><a href="#cb45-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-464"><a href="#cb45-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-465"><a href="#cb45-465" aria-hidden="true" tabindex="-1"></a><span class="fu"># TODO Green LED</span></span>
-<span id="cb45-466"><a href="#cb45-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-467"><a href="#cb45-467" aria-hidden="true" tabindex="-1"></a>datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled0A_Trace 2022-12-06 12-55-36 0.csv</span>
-<span id="cb45-468"><a href="#cb45-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-471"><a href="#cb45-471" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-472"><a href="#cb45-472" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.read_csv(<span class="st">'datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled0A_Trace 2022-12-06 12-55-36 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">1</span>, sep<span class="op">=</span><span class="st">','</span>, usecols<span class="op">=</span>[<span class="st">'Time (s)'</span>,<span class="st">'1 (VOLT)'</span>,<span class="st">'2 (AMP)'</span>,<span class="st">'M1'</span>])</span>
-<span id="cb45-473"><a href="#cb45-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-474"><a href="#cb45-474" aria-hidden="true" tabindex="-1"></a>resistance <span class="op">=</span> <span class="fl">100.0</span> <span class="co">#</span></span>
-<span id="cb45-475"><a href="#cb45-475" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> dataset.columns</span>
-<span id="cb45-476"><a href="#cb45-476" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
-<span id="cb45-477"><a href="#cb45-477" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">3</span>]] <span class="op">=</span> dataset[columnNames[<span class="dv">3</span>]] <span class="op">/</span> resistance <span class="op">*</span> <span class="dv">1000</span></span>
-<span id="cb45-478"><a href="#cb45-478" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">0</span>]] <span class="op">=</span> (dataset[columnNames[<span class="dv">0</span>]] <span class="op">-</span> dataset[columnNames[<span class="dv">0</span>]][<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">10</span><span class="op">**</span><span class="dv">9</span><span class="co"># to nanoseconds, substract offset</span></span>
-<span id="cb45-479"><a href="#cb45-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-480"><a href="#cb45-480" aria-hidden="true" tabindex="-1"></a>pys.PlotVoltageCurrentDataset(dataset)</span>
-<span id="cb45-481"><a href="#cb45-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-482"><a href="#cb45-482" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb45-483"><a href="#cb45-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-484"><a href="#cb45-484" aria-hidden="true" tabindex="-1"></a>datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-01-29 0.csv </span>
-<span id="cb45-485"><a href="#cb45-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-486"><a href="#cb45-486" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ```{python}</span></span>
-<span id="cb45-487"><a href="#cb45-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-488"><a href="#cb45-488" aria-hidden="true" tabindex="-1"></a><span class="co">dataset = pd.read_csv('datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-01-29 0.csv', skiprows=1, sep=',', usecols=['Time (s)','1 (VOLT)','2 (AMP)','M1'])</span></span>
-<span id="cb45-489"><a href="#cb45-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-490"><a href="#cb45-490" aria-hidden="true" tabindex="-1"></a><span class="co">resistance = 100.0 #</span></span>
-<span id="cb45-491"><a href="#cb45-491" aria-hidden="true" tabindex="-1"></a><span class="co">columnNames = dataset.columns</span></span>
-<span id="cb45-492"><a href="#cb45-492" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
-<span id="cb45-493"><a href="#cb45-493" aria-hidden="true" tabindex="-1"></a><span class="co">dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000</span></span>
-<span id="cb45-494"><a href="#cb45-494" aria-hidden="true" tabindex="-1"></a><span class="co">dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset</span></span>
-<span id="cb45-495"><a href="#cb45-495" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-496"><a href="#cb45-496" aria-hidden="true" tabindex="-1"></a><span class="co">pys.PlotVoltageCurrentDataset(dataset)</span></span>
-<span id="cb45-497"><a href="#cb45-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-498"><a href="#cb45-498" aria-hidden="true" tabindex="-1"></a><span class="co">```</span></span>
-<span id="cb45-499"><a href="#cb45-499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-500"><a href="#cb45-500" aria-hidden="true" tabindex="-1"></a><span class="co">datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-02-20 0.csv</span></span>
-<span id="cb45-501"><a href="#cb45-501" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-504"><a href="#cb45-504" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-505"><a href="#cb45-505" aria-hidden="true" tabindex="-1"></a><span class="co">dataset = pd.read_csv('datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-02-20 0.csv', skiprows=1, sep=',', usecols=['Time (s)','1 (VOLT)','2 (AMP)','M1'])</span></span>
-<span id="cb45-506"><a href="#cb45-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-507"><a href="#cb45-507" aria-hidden="true" tabindex="-1"></a><span class="co">resistance = 100.0 #</span></span>
-<span id="cb45-508"><a href="#cb45-508" aria-hidden="true" tabindex="-1"></a><span class="co">columnNames = dataset.columns</span></span>
-<span id="cb45-509"><a href="#cb45-509" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
-<span id="cb45-510"><a href="#cb45-510" aria-hidden="true" tabindex="-1"></a><span class="co">dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000</span></span>
-<span id="cb45-511"><a href="#cb45-511" aria-hidden="true" tabindex="-1"></a><span class="co">dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset</span></span>
-<span id="cb45-512"><a href="#cb45-512" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-513"><a href="#cb45-513" aria-hidden="true" tabindex="-1"></a><span class="co">pys.PlotVoltageCurrentDataset(dataset)</span></span>
-<span id="cb45-514"><a href="#cb45-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-515"><a href="#cb45-515" aria-hidden="true" tabindex="-1"></a><span class="co">```</span></span>
-<span id="cb45-516"><a href="#cb45-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-517"><a href="#cb45-517" aria-hidden="true" tabindex="-1"></a><span class="co">datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-02-38 0.csv</span></span>
-<span id="cb45-518"><a href="#cb45-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-521"><a href="#cb45-521" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb45-522"><a href="#cb45-522" aria-hidden="true" tabindex="-1"></a><span class="co">dataset = pd.read_csv('datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-02-38 0.csv', skiprows=1, sep=',', usecols=['Time (s)','1 (VOLT)','2 (AMP)','M1'])</span></span>
-<span id="cb45-523"><a href="#cb45-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-524"><a href="#cb45-524" aria-hidden="true" tabindex="-1"></a><span class="co">resistance = 100.0 #</span></span>
-<span id="cb45-525"><a href="#cb45-525" aria-hidden="true" tabindex="-1"></a><span class="co">columnNames = dataset.columns</span></span>
-<span id="cb45-526"><a href="#cb45-526" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
-<span id="cb45-527"><a href="#cb45-527" aria-hidden="true" tabindex="-1"></a><span class="co">dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000</span></span>
-<span id="cb45-528"><a href="#cb45-528" aria-hidden="true" tabindex="-1"></a><span class="co">dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset</span></span>
-<span id="cb45-529"><a href="#cb45-529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-530"><a href="#cb45-530" aria-hidden="true" tabindex="-1"></a><span class="co">pys.PlotVoltageCurrentDataset(dataset)</span></span>
-<span id="cb45-531"><a href="#cb45-531" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-532"><a href="#cb45-532" aria-hidden="true" tabindex="-1"></a><span class="co">``` --&gt;</span></span>
+<div class="sourceCode" id="cb41" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Optoelectronics laboratory results"</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: left</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co">    html-math-method: katex</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: minty</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>Including necessary libraries</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib <span class="im">as</span> mpl</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> savgol_filter</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os <span class="im">import</span> listdir</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os.path <span class="im">import</span> isfile, join</span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> constants <span class="im">as</span> const</span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> python_scripts <span class="im">as</span> pys</span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a><span class="fu"># Photodiode forward and reverse, in dark and illuminated</span></span>
+<span id="cb41-33"><a href="#cb41-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a>$\mu$ - diode ideality factor can be calculated</span>
+<span id="cb41-35"><a href="#cb41-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-36"><a href="#cb41-36" aria-hidden="true" tabindex="-1"></a>Shockley diode equation: </span>
+<span id="cb41-37"><a href="#cb41-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-38"><a href="#cb41-38" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb41-39"><a href="#cb41-39" aria-hidden="true" tabindex="-1"></a>I=I_0(e^{\frac{qU}{\mu KT}}-1)</span>
+<span id="cb41-40"><a href="#cb41-40" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb41-41"><a href="#cb41-41" aria-hidden="true" tabindex="-1"></a>where: </span>
+<span id="cb41-42"><a href="#cb41-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-43"><a href="#cb41-43" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$I <span class="co">[</span><span class="ot">A</span><span class="co">]</span>$ is diode current,</span>
+<span id="cb41-44"><a href="#cb41-44" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$I_0 <span class="co">[</span><span class="ot">A</span><span class="co">]</span>$ is Dark Saturation Current,</span>
+<span id="cb41-45"><a href="#cb41-45" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$q <span class="co">[</span><span class="ot">C</span><span class="co">]</span>$ is electron charge,</span>
+<span id="cb41-46"><a href="#cb41-46" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$U <span class="co">[</span><span class="ot">V</span><span class="co">]</span>$ is voltage applied on the diode,</span>
+<span id="cb41-47"><a href="#cb41-47" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$\mu$ is diode ideality factor,</span>
+<span id="cb41-48"><a href="#cb41-48" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$K <span class="co">[</span><span class="ot">\frac{J}{K}</span><span class="co">]</span>$ is the Boltzmann constant,</span>
+<span id="cb41-49"><a href="#cb41-49" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>$T <span class="co">[</span><span class="ot">K</span><span class="co">]</span>$ is the temperature.</span>
+<span id="cb41-50"><a href="#cb41-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-51"><a href="#cb41-51" aria-hidden="true" tabindex="-1"></a>For _forward bias_, the "-1" is negligible.</span>
+<span id="cb41-52"><a href="#cb41-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-53"><a href="#cb41-53" aria-hidden="true" tabindex="-1"></a>Constants:</span>
+<span id="cb41-56"><a href="#cb41-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-57"><a href="#cb41-57" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'k = </span><span class="sc">{</span>const<span class="sc">.</span>k<span class="sc">:.6E}</span><span class="ss">'</span>)</span>
+<span id="cb41-58"><a href="#cb41-58" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'T = </span><span class="sc">{</span>const<span class="sc">.</span>T<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
+<span id="cb41-59"><a href="#cb41-59" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'q = </span><span class="sc">{</span>const<span class="sc">.</span>q<span class="sc">:.9E}</span><span class="ss">'</span>)</span>
+<span id="cb41-60"><a href="#cb41-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-61"><a href="#cb41-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-62"><a href="#cb41-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-63"><a href="#cb41-63" aria-hidden="true" tabindex="-1"></a>Exponential function can be, in general, pictured as:</span>
+<span id="cb41-64"><a href="#cb41-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-65"><a href="#cb41-65" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb41-66"><a href="#cb41-66" aria-hidden="true" tabindex="-1"></a>y = a e^{x b}</span>
+<span id="cb41-67"><a href="#cb41-67" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb41-68"><a href="#cb41-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-69"><a href="#cb41-69" aria-hidden="true" tabindex="-1"></a>so that:</span>
+<span id="cb41-70"><a href="#cb41-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-71"><a href="#cb41-71" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb41-72"><a href="#cb41-72" aria-hidden="true" tabindex="-1"></a>b = \frac{q}{\mu k T}</span>
+<span id="cb41-73"><a href="#cb41-73" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb41-74"><a href="#cb41-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-75"><a href="#cb41-75" aria-hidden="true" tabindex="-1"></a>and:</span>
+<span id="cb41-76"><a href="#cb41-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-77"><a href="#cb41-77" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb41-78"><a href="#cb41-78" aria-hidden="true" tabindex="-1"></a>\boxed{\mu = \frac{q}{bkT}}</span>
+<span id="cb41-79"><a href="#cb41-79" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb41-80"><a href="#cb41-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-83"><a href="#cb41-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-84"><a href="#cb41-84" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> exp_func(x, a, b):</span>
+<span id="cb41-85"><a href="#cb41-85" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> a <span class="op">*</span> np.exp(b <span class="op">*</span> x)</span>
+<span id="cb41-86"><a href="#cb41-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-87"><a href="#cb41-87" aria-hidden="true" tabindex="-1"></a>mu<span class="op">=</span><span class="bu">dict</span>()</span>
+<span id="cb41-88"><a href="#cb41-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-89"><a href="#cb41-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-90"><a href="#cb41-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## Under red LED</span></span>
+<span id="cb41-91"><a href="#cb41-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-92"><a href="#cb41-92" aria-hidden="true" tabindex="-1"></a> Directory _/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1_</span>
+<span id="cb41-93"><a href="#cb41-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-94"><a href="#cb41-94" aria-hidden="true" tabindex="-1"></a>We will fit an exponential function to our obtained results, in forward and reverse case.</span>
+<span id="cb41-95"><a href="#cb41-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-96"><a href="#cb41-96" aria-hidden="true" tabindex="-1"></a>After fitting, we get $\mu$ for different illumination cases:</span>
+<span id="cb41-97"><a href="#cb41-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-100"><a href="#cb41-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-101"><a href="#cb41-101" aria-hidden="true" tabindex="-1"></a>dtF <span class="op">=</span> pd.read_csv(<span class="st">'datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1/Ipd_Popt6_UpdF_30112022 2022-11-30 12-02-00 0 2022-11-30 12-42-42 0.csv'</span>,</span>
+<span id="cb41-102"><a href="#cb41-102" aria-hidden="true" tabindex="-1"></a>  sep<span class="op">=</span><span class="st">','</span>, skiprows<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb41-103"><a href="#cb41-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-104"><a href="#cb41-104" aria-hidden="true" tabindex="-1"></a>dtR <span class="op">=</span> pd.read_csv(<span class="st">'datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1/Ipd_Popt6_UpdR_30112022 2022-11-30 12-02-00 0 2022-11-30 12-03-12 0.csv'</span>,</span>
+<span id="cb41-105"><a href="#cb41-105" aria-hidden="true" tabindex="-1"></a>  sep<span class="op">=</span><span class="st">','</span>, skiprows<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb41-106"><a href="#cb41-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-107"><a href="#cb41-107" aria-hidden="true" tabindex="-1"></a>cF <span class="op">=</span> [<span class="st">'2 - Get Measurement Value'</span>, <span class="st">'Get Measurement Value'</span>, <span class="st">'1 - Sweep CH2 Voltage Setting'</span>, <span class="st">'1 - Get CH2 Current Measurement'</span>]</span>
+<span id="cb41-108"><a href="#cb41-108" aria-hidden="true" tabindex="-1"></a>cR <span class="op">=</span> [<span class="st">'2 - Get Measurement Value'</span>, <span class="st">'3 - Get Measurement Value'</span>, <span class="st">'1 - Sweep CH2 Voltage Setting'</span>, <span class="st">'1 - Get CH2 Current Measurement'</span>]</span>
+<span id="cb41-109"><a href="#cb41-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-110"><a href="#cb41-110" aria-hidden="true" tabindex="-1"></a>muFR <span class="op">=</span> pys.SweepPlotForwardReverse(dtF, dtR, cF, cR, <span class="dv">0</span>, <span class="dv">27</span>, exp_func)</span>
+<span id="cb41-111"><a href="#cb41-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-112"><a href="#cb41-112" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Photodiode U / I characterictics"</span>)</span>
+<span id="cb41-113"><a href="#cb41-113" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Variable red LED illumination"</span>)</span>
+<span id="cb41-114"><a href="#cb41-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-115"><a href="#cb41-115" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb41-116"><a href="#cb41-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-117"><a href="#cb41-117" aria-hidden="true" tabindex="-1"></a>mu[<span class="st">'red_F'</span>] <span class="op">=</span> muFR[<span class="dv">0</span>]</span>
+<span id="cb41-118"><a href="#cb41-118" aria-hidden="true" tabindex="-1"></a>mu[<span class="st">'red_R'</span>] <span class="op">=</span> muFR[<span class="dv">1</span>]</span>
+<span id="cb41-119"><a href="#cb41-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-120"><a href="#cb41-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-121"><a href="#cb41-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## Under blue LED</span></span>
+<span id="cb41-122"><a href="#cb41-122" aria-hidden="true" tabindex="-1"></a>Directory _/LVJ_PD_BVue_l1mm_02122022G2_</span>
+<span id="cb41-123"><a href="#cb41-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-124"><a href="#cb41-124" aria-hidden="true" tabindex="-1"></a>In <span class="in">`Ipd_Ufpd_Uled_0_6V 2022-12-02 11-32-27 0.csv`</span> there is only one measured variable. Assumed this dataset is invalid.</span>
+<span id="cb41-125"><a href="#cb41-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-128"><a href="#cb41-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-129"><a href="#cb41-129" aria-hidden="true" tabindex="-1"></a>dataset<span class="op">=</span>pd.read_csv(<span class="st">'datasets/LVJ_PD_BVue_l1mm_02122022G2/Ipd_Urpd_Uled_0_6V 2022-12-02 10-29-07 0.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, skiprows<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb41-130"><a href="#cb41-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-131"><a href="#cb41-131" aria-hidden="true" tabindex="-1"></a>ax, mu_calc <span class="op">=</span> pys.SweepPlot(dataset, <span class="st">'2 - Get Measurement Value'</span>, <span class="st">'1 - Get Measurement Value'</span>, <span class="st">'3 - Sweep CH2 Voltage Setting'</span>, <span class="st">'3 - Get CH2 Current Measurement'</span>, <span class="dv">2</span>, yScale<span class="op">=</span><span class="dv">10</span><span class="op">**</span><span class="dv">6</span>, labelScale<span class="op">=</span><span class="dv">1000</span>, curveFitFunc<span class="op">=</span>exp_func)</span>
+<span id="cb41-132"><a href="#cb41-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-133"><a href="#cb41-133" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'$I_</span><span class="sc">{LED}</span><span class="st"> [mA]$'</span>, loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb41-134"><a href="#cb41-134" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">'log'</span>)</span>
+<span id="cb41-135"><a href="#cb41-135" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Photodiode reverse voltage versus photodiode reverse current'</span>)</span>
+<span id="cb41-136"><a href="#cb41-136" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Variable blue LED illumination, 1 mm distance'</span>)</span>
+<span id="cb41-137"><a href="#cb41-137" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$U_</span><span class="sc">{pd}</span><span class="st"> [V]$'</span>)</span>
+<span id="cb41-138"><a href="#cb41-138" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'$I_</span><span class="sc">{pd}</span><span class="st"> [nA]$'</span>)</span>
+<span id="cb41-139"><a href="#cb41-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-140"><a href="#cb41-140" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb41-141"><a href="#cb41-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-142"><a href="#cb41-142" aria-hidden="true" tabindex="-1"></a>mu[<span class="st">'blu_R'</span>] <span class="op">=</span> mu_calc</span>
+<span id="cb41-143"><a href="#cb41-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-144"><a href="#cb41-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-145"><a href="#cb41-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-146"><a href="#cb41-146" aria-hidden="true" tabindex="-1"></a><span class="fu">## Under green LED</span></span>
+<span id="cb41-147"><a href="#cb41-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-148"><a href="#cb41-148" aria-hidden="true" tabindex="-1"></a>Directory _GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V_</span>
+<span id="cb41-149"><a href="#cb41-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-150"><a href="#cb41-150" aria-hidden="true" tabindex="-1"></a>Ipd_UpdUF_0_2V_G_Popt0_6V 2022-12-06 10-31-19 0.csv</span>
+<span id="cb41-153"><a href="#cb41-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-154"><a href="#cb41-154" aria-hidden="true" tabindex="-1"></a>dtF <span class="op">=</span> pd.read_csv(<span class="st">'datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Ipd_UpdUF_0_2V_G_Popt0_6V 2022-12-06 10-31-19 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb41-155"><a href="#cb41-155" aria-hidden="true" tabindex="-1"></a>dtR <span class="op">=</span> pd.read_csv(<span class="st">'datasets\GREEN_LED_PD_mj\IpdUpdR_Green\IpdG_UpdR_V0_5V_Popt0_6V 2022-12-06 11-19-45 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb41-156"><a href="#cb41-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-157"><a href="#cb41-157" aria-hidden="true" tabindex="-1"></a>dtR[<span class="st">'Get Measurement Value.1'</span>] <span class="op">=</span> dtR[<span class="st">'Get Measurement Value.1'</span>] <span class="op">*</span> (<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb41-158"><a href="#cb41-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-159"><a href="#cb41-159" aria-hidden="true" tabindex="-1"></a>cF <span class="op">=</span> [<span class="st">'2 - Get Measurement Value'</span>, <span class="st">'3 - Get Measurement Value'</span>, <span class="st">'1 - Sweep CH2 Voltage Setting'</span>, <span class="st">'1 - Get CH2 Current Measurement'</span>]</span>
+<span id="cb41-160"><a href="#cb41-160" aria-hidden="true" tabindex="-1"></a>cR <span class="op">=</span> [<span class="st">'Get Measurement Value.1'</span>, <span class="st">'Get Measurement Value'</span>, <span class="st">'Sweep CH2 Voltage Setting'</span>, <span class="st">'Get CH2 Current Measurement'</span>]</span>
+<span id="cb41-161"><a href="#cb41-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-162"><a href="#cb41-162" aria-hidden="true" tabindex="-1"></a>muFR <span class="op">=</span> pys.SweepPlotForwardReverse(dtF, dtR, cF, cR, <span class="dv">0</span>, <span class="dv">27</span>, exp_func)</span>
+<span id="cb41-163"><a href="#cb41-163" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Photodiode U / I characterictics"</span>)</span>
+<span id="cb41-164"><a href="#cb41-164" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Variable green LED illumination"</span>)</span>
+<span id="cb41-165"><a href="#cb41-165" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb41-166"><a href="#cb41-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-167"><a href="#cb41-167" aria-hidden="true" tabindex="-1"></a>mu[<span class="st">'grn_F'</span>] <span class="op">=</span> muFR[<span class="dv">0</span>]</span>
+<span id="cb41-168"><a href="#cb41-168" aria-hidden="true" tabindex="-1"></a>mu[<span class="st">'grn_R'</span>] <span class="op">=</span> muFR[<span class="dv">1</span>]</span>
+<span id="cb41-169"><a href="#cb41-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-170"><a href="#cb41-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-171"><a href="#cb41-171" aria-hidden="true" tabindex="-1"></a><span class="fu"># Photodiode ideality factor</span></span>
+<span id="cb41-172"><a href="#cb41-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-175"><a href="#cb41-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-176"><a href="#cb41-176" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, sharex<span class="op">=</span><span class="va">True</span>, figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">7</span>))</span>
+<span id="cb41-177"><a href="#cb41-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-178"><a href="#cb41-178" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> mu:</span>
+<span id="cb41-179"><a href="#cb41-179" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> key.split(<span class="st">'_'</span>)[<span class="dv">1</span>] <span class="op">==</span> <span class="st">'F'</span>:</span>
+<span id="cb41-180"><a href="#cb41-180" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">0</span>].plot(mu[key][<span class="st">'i_led'</span>], mu[key][<span class="st">'mu'</span>], label<span class="op">=</span>key.split(<span class="st">'_'</span>)[<span class="dv">0</span>])</span>
+<span id="cb41-181"><a href="#cb41-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-182"><a href="#cb41-182" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> mu:</span>
+<span id="cb41-183"><a href="#cb41-183" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> key.split(<span class="st">'_'</span>)[<span class="dv">1</span>] <span class="op">==</span> <span class="st">'R'</span>:</span>
+<span id="cb41-184"><a href="#cb41-184" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">1</span>].plot(mu[key][<span class="st">'i_led'</span>], mu[key][<span class="st">'mu'</span>], label<span class="op">=</span>key.split(<span class="st">'_'</span>)[<span class="dv">0</span>])</span>
+<span id="cb41-185"><a href="#cb41-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-186"><a href="#cb41-186" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axs:</span>
+<span id="cb41-187"><a href="#cb41-187" aria-hidden="true" tabindex="-1"></a>  ax.grid()</span>
+<span id="cb41-188"><a href="#cb41-188" aria-hidden="true" tabindex="-1"></a>  ax.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb41-189"><a href="#cb41-189" aria-hidden="true" tabindex="-1"></a>  ax.set_ylabel(<span class="st">'$\mu [-]$'</span>)</span>
+<span id="cb41-190"><a href="#cb41-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-191"><a href="#cb41-191" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].set_title(<span class="st">'Forward bias'</span>)</span>
+<span id="cb41-192"><a href="#cb41-192" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_xlabel(<span class="st">'$I_</span><span class="sc">{LED}</span><span class="st"> [mA]$'</span>)</span>
+<span id="cb41-193"><a href="#cb41-193" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">'Reverse bias'</span>)</span>
+<span id="cb41-194"><a href="#cb41-194" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Photodiode ideality factor vs illumination'</span>)</span>
+<span id="cb41-195"><a href="#cb41-195" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
+<span id="cb41-196"><a href="#cb41-196" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb41-197"><a href="#cb41-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-198"><a href="#cb41-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-199"><a href="#cb41-199" aria-hidden="true" tabindex="-1"></a><span class="fu"># LED Voltage-current characteristics</span></span>
+<span id="cb41-200"><a href="#cb41-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-201"><a href="#cb41-201" aria-hidden="true" tabindex="-1"></a><span class="fu">## Red LED</span></span>
+<span id="cb41-202"><a href="#cb41-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-203"><a href="#cb41-203" aria-hidden="true" tabindex="-1"></a>Directory _/RED_LED_PD_mj/Iled_Uled_RED_</span>
+<span id="cb41-204"><a href="#cb41-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-207"><a href="#cb41-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-208"><a href="#cb41-208" aria-hidden="true" tabindex="-1"></a>dataset<span class="op">=</span>pd.read_csv(<span class="st">'datasets/RED_LED_PD_mj/RED_LED_PD_mj/Iled_Uled_RED/IledRed_UledF_06V_50mV 2022-12-02 16-48-23 1.csv'</span>, sep<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb41-209"><a href="#cb41-209" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb41-210"><a href="#cb41-210" aria-hidden="true" tabindex="-1"></a>plt.plot(dataset[<span class="st">'1 - Get CH2 Voltage Setting'</span>], dataset[<span class="st">'2 - Get Measurement Value Iled'</span>]<span class="op">*</span><span class="dv">1000</span>)</span>
+<span id="cb41-211"><a href="#cb41-211" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb41-212"><a href="#cb41-212" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$U_</span><span class="sc">{LED}</span><span class="st">[V]$'</span>)</span>
+<span id="cb41-213"><a href="#cb41-213" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'$I_</span><span class="sc">{LED}</span><span class="st">[mA]$'</span>)</span>
+<span id="cb41-214"><a href="#cb41-214" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Red LED voltage versus current'</span>)</span>
+<span id="cb41-215"><a href="#cb41-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-216"><a href="#cb41-216" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb41-217"><a href="#cb41-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-218"><a href="#cb41-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-219"><a href="#cb41-219" aria-hidden="true" tabindex="-1"></a><span class="fu">## Blue LED</span></span>
+<span id="cb41-220"><a href="#cb41-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-221"><a href="#cb41-221" aria-hidden="true" tabindex="-1"></a>Directory _LVJ_OPTO_LEDtrans20122022_</span>
+<span id="cb41-222"><a href="#cb41-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-225"><a href="#cb41-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-226"><a href="#cb41-226" aria-hidden="true" tabindex="-1"></a>pys.PrintDataFromDirectory(directoryPath<span class="op">=</span><span class="st">'datasets/LVJ_OPTO_LEDtrans20122022/LVJ_OPTO_LEDtrans20122022'</span>)</span>
+<span id="cb41-227"><a href="#cb41-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-228"><a href="#cb41-228" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-229"><a href="#cb41-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-230"><a href="#cb41-230" aria-hidden="true" tabindex="-1"></a><span class="fu"># LED transient characteristics</span></span>
+<span id="cb41-231"><a href="#cb41-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-232"><a href="#cb41-232" aria-hidden="true" tabindex="-1"></a><span class="fu"># Directory /LvJ_OPTO_2022_GE211222022</span></span>
+<span id="cb41-233"><a href="#cb41-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-236"><a href="#cb41-236" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-237"><a href="#cb41-237" aria-hidden="true" tabindex="-1"></a>pys.PrintDataFromDirectory(directoryPath<span class="op">=</span><span class="st">"datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022"</span>)</span>
+<span id="cb41-238"><a href="#cb41-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-239"><a href="#cb41-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-240"><a href="#cb41-240" aria-hidden="true" tabindex="-1"></a><span class="fu">## Directory /LvJ_OPTO_2022_GE211222022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr</span></span>
+<span id="cb41-241"><a href="#cb41-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-244"><a href="#cb41-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-245"><a href="#cb41-245" aria-hidden="true" tabindex="-1"></a>pys.PrintDataFromDirectory(directoryPath<span class="op">=</span><span class="st">'datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022\LED_R_0_5Vtr'</span>)</span>
+<span id="cb41-246"><a href="#cb41-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-247"><a href="#cb41-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-248"><a href="#cb41-248" aria-hidden="true" tabindex="-1"></a><span class="fu">## Directory /LvJ_OPTO_2022_GE211222022/LVJ_OPTO_2022_GE21122022/PD_dark</span></span>
+<span id="cb41-249"><a href="#cb41-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-252"><a href="#cb41-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-253"><a href="#cb41-253" aria-hidden="true" tabindex="-1"></a>pys.PrintDataFromDirectory(directoryPath<span class="op">=</span><span class="st">'datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022\PD_dark'</span>)</span>
+<span id="cb41-254"><a href="#cb41-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-255"><a href="#cb41-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-256"><a href="#cb41-256" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-257"><a href="#cb41-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-258"><a href="#cb41-258" aria-hidden="true" tabindex="-1"></a><span class="fu"># Photoresistor</span></span>
+<span id="cb41-259"><a href="#cb41-259" aria-hidden="true" tabindex="-1"></a>Directory _/LED_PDetector_</span>
+<span id="cb41-262"><a href="#cb41-262" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-263"><a href="#cb41-263" aria-hidden="true" tabindex="-1"></a>dataset<span class="op">=</span>pd.read_csv(<span class="st">'datasets/LVJ_PDetector/IpdF_Upd_15VBenchvue_29112022 2022-11-29 15-56-50.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, skiprows<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb41-264"><a href="#cb41-264" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb41-265"><a href="#cb41-265" aria-hidden="true" tabindex="-1"></a>plt.plot(dataset[<span class="st">'1 - Get CH1 Voltage Measurement'</span>], dataset[<span class="st">'1 - Get CH1 Current Measurement'</span>]<span class="op">*</span><span class="dv">1000</span>)</span>
+<span id="cb41-266"><a href="#cb41-266" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb41-267"><a href="#cb41-267" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$U_</span><span class="sc">{pd}</span><span class="st">[V]$'</span>)</span>
+<span id="cb41-268"><a href="#cb41-268" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'$I_</span><span class="sc">{pdF}</span><span class="st">[mA]$'</span>)</span>
+<span id="cb41-269"><a href="#cb41-269" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Photoresistor voltage versus forward current'</span>)</span>
+<span id="cb41-270"><a href="#cb41-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-271"><a href="#cb41-271" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb41-272"><a href="#cb41-272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-273"><a href="#cb41-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-274"><a href="#cb41-274" aria-hidden="true" tabindex="-1"></a><span class="fu"># Directory LVJ_OPHO2022\LVJ_OPHO2022</span></span>
+<span id="cb41-275"><a href="#cb41-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-276"><a href="#cb41-276" aria-hidden="true" tabindex="-1"></a>To calculate current on the resistor, we can use following equation:</span>
+<span id="cb41-277"><a href="#cb41-277" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb41-278"><a href="#cb41-278" aria-hidden="true" tabindex="-1"></a>I_{R} = \frac{U_{gen}-U_{pd}}{R}</span>
+<span id="cb41-279"><a href="#cb41-279" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb41-280"><a href="#cb41-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-281"><a href="#cb41-281" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode b? f = 1kHZ, U_gen = +2V/-2V falling edge?</span></span>
+<span id="cb41-282"><a href="#cb41-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-285"><a href="#cb41-285" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-286"><a href="#cb41-286" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_f1ku2of1_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>), filterValues<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb41-287"><a href="#cb41-287" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span>
+<span id="cb41-288"><a href="#cb41-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-289"><a href="#cb41-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-290"><a href="#cb41-290" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode b? f = 1kHZ, U_gen = +2V/-2V rising edge</span></span>
+<span id="cb41-293"><a href="#cb41-293" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-294"><a href="#cb41-294" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_f1ku2on4_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span>
+<span id="cb41-295"><a href="#cb41-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-296"><a href="#cb41-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-297"><a href="#cb41-297" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode b? r1k? U_gen = +2V/-2V f?</span></span>
+<span id="cb41-298"><a href="#cb41-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-301"><a href="#cb41-301" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-302"><a href="#cb41-302" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_r1ku2f_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span>
+<span id="cb41-303"><a href="#cb41-303" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-304"><a href="#cb41-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-305"><a href="#cb41-305" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode b? f = 1kHZ, U_gen = +2V/-2V pd_b_r1ku2r_1???</span></span>
+<span id="cb41-306"><a href="#cb41-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-309"><a href="#cb41-309" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-310"><a href="#cb41-310" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_b_r1ku2r_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span>
+<span id="cb41-311"><a href="#cb41-311" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-312"><a href="#cb41-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-313"><a href="#cb41-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-314"><a href="#cb41-314" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2off1_1???</span></span>
+<span id="cb41-315"><a href="#cb41-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-318"><a href="#cb41-318" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-319"><a href="#cb41-319" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_d_f1ku2off1_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span>
+<span id="cb41-320"><a href="#cb41-320" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-321"><a href="#cb41-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-322"><a href="#cb41-322" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr1???</span></span>
+<span id="cb41-323"><a href="#cb41-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-324"><a href="#cb41-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-327"><a href="#cb41-327" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-328"><a href="#cb41-328" aria-hidden="true" tabindex="-1"></a>pys.PlotSingleFile_OPHO(fileName<span class="op">=</span><span class="st">'pd_d_f1ku2onr1.csv'</span>, filePath<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022'</span>, filterValues<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb41-329"><a href="#cb41-329" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span>
+<span id="cb41-330"><a href="#cb41-330" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-331"><a href="#cb41-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-332"><a href="#cb41-332" aria-hidden="true" tabindex="-1"></a><span class="fu">## photodiode d? f = 1kHZ, U_gen = +2V/-2V pd_d_f1ku2onr6_1???</span></span>
+<span id="cb41-335"><a href="#cb41-335" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-336"><a href="#cb41-336" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/'</span>, datasetBaseName<span class="op">=</span><span class="st">'pd_d_f1ku2onr6_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span>
+<span id="cb41-337"><a href="#cb41-337" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-338"><a href="#cb41-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-339"><a href="#cb41-339" aria-hidden="true" tabindex="-1"></a><span class="fu"># Directory LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans</span></span>
+<span id="cb41-340"><a href="#cb41-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-341"><a href="#cb41-341" aria-hidden="true" tabindex="-1"></a><span class="fu">## iled_bu5vf1khof2.csv???</span></span>
+<span id="cb41-344"><a href="#cb41-344" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-345"><a href="#cb41-345" aria-hidden="true" tabindex="-1"></a>pys.PlotSingleFile_OPHO(fileName<span class="op">=</span><span class="st">'iled_bu5vf1khof2.csv'</span>, filePath<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/Blue/B_trans'</span>, filterValues<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb41-346"><a href="#cb41-346" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span>
+<span id="cb41-347"><a href="#cb41-347" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-348"><a href="#cb41-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-349"><a href="#cb41-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-350"><a href="#cb41-350" aria-hidden="true" tabindex="-1"></a><span class="fu">## iled_bu5vf1khon3</span></span>
+<span id="cb41-351"><a href="#cb41-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-354"><a href="#cb41-354" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-355"><a href="#cb41-355" aria-hidden="true" tabindex="-1"></a>pys.PlotSingleFile_OPHO(fileName<span class="op">=</span><span class="st">'iled_bu5vf1khon3.csv'</span>, filePath<span class="op">=</span><span class="st">'datasets/LVJ_OPHO2022/LVJ_OPHO2022/Blue/B_trans'</span>, filterValues<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb41-356"><a href="#cb41-356" aria-hidden="true" tabindex="-1"></a>filteringCurrent<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">5</span>), filteringVoltage<span class="op">=</span>(<span class="dv">200</span>,<span class="dv">5</span>))</span>
+<span id="cb41-357"><a href="#cb41-357" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-358"><a href="#cb41-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-359"><a href="#cb41-359" aria-hidden="true" tabindex="-1"></a><span class="fu">## iled_bu5vf1khon4_1</span></span>
+<span id="cb41-362"><a href="#cb41-362" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-363"><a href="#cb41-363" aria-hidden="true" tabindex="-1"></a>pys.PlotOscVoltCurr(path_to_dir<span class="op">=</span><span class="st">'datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans'</span>, datasetBaseName<span class="op">=</span><span class="st">'iled_bu5vf1khon4_'</span>, endings<span class="op">=</span>(<span class="st">'1'</span>,<span class="st">'3'</span>,<span class="st">'F1'</span>))</span>
+<span id="cb41-364"><a href="#cb41-364" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-365"><a href="#cb41-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-366"><a href="#cb41-366" aria-hidden="true" tabindex="-1"></a><span class="fu">## iled_bu5vf1kt_1</span></span>
+<span id="cb41-369"><a href="#cb41-369" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-370"><a href="#cb41-370" aria-hidden="true" tabindex="-1"></a><span class="co"># pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1kt_', endings=('1','3','F1'))</span></span>
+<span id="cb41-371"><a href="#cb41-371" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb41-372"><a href="#cb41-372" aria-hidden="true" tabindex="-1"></a><span class="fu"># Directory RED_LED_PD_mj/RED_LED_PD_mj/RED_transient/</span></span>
+<span id="cb41-373"><a href="#cb41-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-374"><a href="#cb41-374" aria-hidden="true" tabindex="-1"></a><span class="fu">## iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off</span></span>
+<span id="cb41-377"><a href="#cb41-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-378"><a href="#cb41-378" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.read_csv(<span class="st">'datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off\Trace 2022-12-21 12-27-21 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">1</span>, sep<span class="op">=</span><span class="st">','</span>, usecols<span class="op">=</span>[<span class="st">'Time (s)'</span>,<span class="st">'2 (VOLT)'</span>,<span class="st">'3 (VOLT)'</span>,<span class="st">'M1'</span>])</span>
+<span id="cb41-379"><a href="#cb41-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-380"><a href="#cb41-380" aria-hidden="true" tabindex="-1"></a>resistance <span class="op">=</span> <span class="fl">100.0</span> <span class="co">#</span></span>
+<span id="cb41-381"><a href="#cb41-381" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> dataset.columns</span>
+<span id="cb41-382"><a href="#cb41-382" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
+<span id="cb41-383"><a href="#cb41-383" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">3</span>]] <span class="op">=</span> dataset[columnNames[<span class="dv">3</span>]] <span class="op">/</span> resistance <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb41-384"><a href="#cb41-384" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">0</span>]] <span class="op">=</span> (dataset[columnNames[<span class="dv">0</span>]] <span class="op">-</span> dataset[columnNames[<span class="dv">0</span>]][<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">10</span><span class="op">**</span><span class="dv">9</span><span class="co"># to nanoseconds, substract offset</span></span>
+<span id="cb41-385"><a href="#cb41-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-386"><a href="#cb41-386" aria-hidden="true" tabindex="-1"></a>pys.PlotVoltageCurrentDataset(dataset)</span>
+<span id="cb41-387"><a href="#cb41-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-388"><a href="#cb41-388" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-389"><a href="#cb41-389" aria-hidden="true" tabindex="-1"></a>datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off\Trace 2022-12-21 12-29-00 0.csv is the same file, but seperated with tabs</span>
+<span id="cb41-390"><a href="#cb41-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-391"><a href="#cb41-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-394"><a href="#cb41-394" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-395"><a href="#cb41-395" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.read_csv(<span class="st">'datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled20mA_Uf3V_off1V_f1kHz\Trace 2022-12-21 13-13-35 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">1</span>, sep<span class="op">=</span><span class="st">','</span>, usecols<span class="op">=</span>[<span class="st">'Time (s)'</span>,<span class="st">'2 (VOLT)'</span>,<span class="st">'3 (VOLT)'</span>,<span class="st">'M1'</span>])</span>
+<span id="cb41-396"><a href="#cb41-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-397"><a href="#cb41-397" aria-hidden="true" tabindex="-1"></a>resistance <span class="op">=</span> <span class="fl">100.0</span> <span class="co">#</span></span>
+<span id="cb41-398"><a href="#cb41-398" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> dataset.columns</span>
+<span id="cb41-399"><a href="#cb41-399" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
+<span id="cb41-400"><a href="#cb41-400" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">3</span>]] <span class="op">=</span> dataset[columnNames[<span class="dv">3</span>]] <span class="op">/</span> resistance <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb41-401"><a href="#cb41-401" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">0</span>]] <span class="op">=</span> (dataset[columnNames[<span class="dv">0</span>]] <span class="op">-</span> dataset[columnNames[<span class="dv">0</span>]][<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">10</span><span class="op">**</span><span class="dv">9</span><span class="co"># to nanoseconds, substract offset</span></span>
+<span id="cb41-402"><a href="#cb41-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-403"><a href="#cb41-403" aria-hidden="true" tabindex="-1"></a>pys.PlotVoltageCurrentDataset(dataset)</span>
+<span id="cb41-404"><a href="#cb41-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-405"><a href="#cb41-405" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-406"><a href="#cb41-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-407"><a href="#cb41-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-408"><a href="#cb41-408" aria-hidden="true" tabindex="-1"></a><span class="fu"># TODO Green LED</span></span>
+<span id="cb41-409"><a href="#cb41-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-410"><a href="#cb41-410" aria-hidden="true" tabindex="-1"></a>datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled0A_Trace 2022-12-06 12-55-36 0.csv</span>
+<span id="cb41-411"><a href="#cb41-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-414"><a href="#cb41-414" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb41-415"><a href="#cb41-415" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> pd.read_csv(<span class="st">'datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled0A_Trace 2022-12-06 12-55-36 0.csv'</span>, skiprows<span class="op">=</span><span class="dv">1</span>, sep<span class="op">=</span><span class="st">','</span>, usecols<span class="op">=</span>[<span class="st">'Time (s)'</span>,<span class="st">'1 (VOLT)'</span>,<span class="st">'2 (AMP)'</span>,<span class="st">'M1'</span>])</span>
+<span id="cb41-416"><a href="#cb41-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-417"><a href="#cb41-417" aria-hidden="true" tabindex="-1"></a>resistance <span class="op">=</span> <span class="fl">100.0</span> <span class="co">#</span></span>
+<span id="cb41-418"><a href="#cb41-418" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> dataset.columns</span>
+<span id="cb41-419"><a href="#cb41-419" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] </span></span>
+<span id="cb41-420"><a href="#cb41-420" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">3</span>]] <span class="op">=</span> dataset[columnNames[<span class="dv">3</span>]] <span class="op">/</span> resistance <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb41-421"><a href="#cb41-421" aria-hidden="true" tabindex="-1"></a>dataset[columnNames[<span class="dv">0</span>]] <span class="op">=</span> (dataset[columnNames[<span class="dv">0</span>]] <span class="op">-</span> dataset[columnNames[<span class="dv">0</span>]][<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">10</span><span class="op">**</span><span class="dv">9</span><span class="co"># to nanoseconds, substract offset</span></span>
+<span id="cb41-422"><a href="#cb41-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-423"><a href="#cb41-423" aria-hidden="true" tabindex="-1"></a>pys.PlotVoltageCurrentDataset(dataset)</span>
+<span id="cb41-424"><a href="#cb41-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-425"><a href="#cb41-425" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

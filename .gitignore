@@ -3,7 +3,7 @@
 *.mat
 *.xlsx
 *.csv#
-README.html
+*.html
 /visualizations_files
 /temp
 *.bak

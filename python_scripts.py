@@ -197,19 +197,19 @@ def PlotOscVoltCurr(
             polyorder=filteringVoltage[1],
         )
 
-    fig, axVoltage = plt.subplots(2, 1, sharex=True, figsize=(8, 5))
+    fig, axVoltage = plt.subplots()
 
-    pl1 = axVoltage[0].plot(
+    pl1 = axVoltage.plot(
         dtsets[0]["second"], dtsets[0]["Volt"], label="$U_{~}$", color=colors[0]
     )
-    pl2 = axVoltage[0].plot(
+    pl2 = axVoltage.plot(
         dtsets[1]["second"], dtsets[1]["Volt"], label="$U_{d}$", color=colors[1]
     )
 
-    axVoltage[0].set_ylabel("Voltage [V]")
-    axVoltage[0].grid()
+    axVoltage.set_ylabel("Voltage [V]")
+    axVoltage.grid()
 
-    axCurrent = axVoltage[0].twinx()
+    axCurrent = axVoltage.twinx()
     axCurrent.tick_params(axis="y", labelcolor=colors[2])
     pl3 = axCurrent.plot(
         dtsets[2]["second"], dtsets[2]["Volt"], label="$\mathcal{I}$", color=colors[2]
@@ -219,12 +219,12 @@ def PlotOscVoltCurr(
     # join labels
     lns = pl1 + pl2 + pl3
     labs = [l.get_label() for l in lns]
-    axVoltage[0].legend(lns, labs)
+    axVoltage.legend(lns, labs)
 
     # axVoltage[1].plot(dtsets[0]["second"], diodeResistance, label="Resistance")
-    axVoltage[1].set_ylabel("Resistance $[k \Omega]$")
-    axVoltage[1].set_xlabel("time [ns]")
-    axVoltage[1].grid()
+    # axVoltage[1].set_ylabel("Resistance $[k \Omega]$")
+    # axVoltage[1].set_xlabel("time [ns]")
+    # axVoltage[1].grid()
 
     plt.title(title)
 
@@ -338,7 +338,7 @@ def GetEnding(s=""):
     return s[next(i for i in reversed(range(len(s))) if s[i] == "_") + 1 : -4]
 
 
-def PrintDataFromDirectory(directoryPath: str):
+def PrintDataFromDirectory(directoryPath: str, filterValues = True):
     onlyfiles = [
         f
         for f in listdir(directoryPath)
@@ -367,7 +367,7 @@ def PrintDataFromDirectory(directoryPath: str):
                 datasetBaseName=f,
                 endings=fileEndings,
                 title=f,
-                filterValues=True,
+                filterValues=filterValues,
                 filteringCurrent=(100, 5),
                 filteringVoltage=(100, 5),
             )
@@ -390,7 +390,7 @@ def PrintDataFromDirectory(directoryPath: str):
                 fileName=f,
                 filePath=directoryPath,
                 title=f,
-                filterValues=True,
+                filterValues=filterValues,
                 filteringCurrent=(100, 5),
                 filteringVoltage=(100, 5),
             )

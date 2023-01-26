@@ -383,31 +383,90 @@ pys.PlotVoltageCurrentDataset(dataset)
 # APS
 
 ```{python}
-def PlotVoltageTime(dataset:pd.DataFrame, title = ' '):
-    col = dataset.columns
-    # print(dataset[col[0]][0])
-    for i in range(1, len(dataset[col[0]])):
-      dataset[col[0]][i] = dataset[col[0]][i] - dataset[col[0]][0]
-      dataset[col[0]][i] *= 10**6
-    dataset[col[0]][0] = 0
-    plt.figure()
-    plt.plot(dataset[col[0]], dataset[col[1]])
-    plt.ylabel("Voltage [V]")
-    plt.xlabel("Time [us]")
-    plt.title(title)
-    plt.grid()
-    plt.show()
+# def PlotVoltageTime(dataset:pd.DataFrame, title = ' '):
+#     col = dataset.columns
+#     # print(dataset[col[0]][0])
+#     for i in range(1, len(dataset[col[0]])):
+#       dataset[col[0]][i] = dataset[col[0]][i] - dataset[col[0]][0]
+#       dataset[col[0]][i] *= 10**6
+#     dataset[col[0]][0] = 0
+#     plt.figure()
+#     plt.plot(dataset[col[0]], dataset[col[1]])
+#     plt.ylabel("Voltage [V]")
+#     plt.xlabel("Time [us]")
+#     plt.title(title)
+#     plt.grid()
+#     plt.show()
 
+# def PrintDataFromDirectoryVoltageTime(directoryPath: str, filterValues = True):
+#     onlyfiles = [
+#         f
+#         for f in listdir(directoryPath)
+#         if isfile(join(directoryPath, f)) and f[-4:] == ".csv"
+#     ]
+#     print(onlyfiles)
+#     for f in onlyfiles:
+#         dataset = pd.read_csv(directoryPath + f, sep=',', skiprows=[1])
+#         PlotVoltageTime(dataset=dataset, title=f)
+# PrintDataFromDirectoryVoltageTime('datasets/APS/')
 def PrintDataFromDirectoryVoltageTime(directoryPath: str, filterValues = True):
     onlyfiles = [
         f
         for f in listdir(directoryPath)
         if isfile(join(directoryPath, f)) and f[-4:] == ".csv"
     ]
+    files = [
+        'Uout_aps_redu5vf1khz1_2.csv',      
+        'Ureset_aps_redu5vf1khz1_1.csv',    
+        'Vout_apsgreenu5vf1khz3_2.csv',  
+        'Vout_apsgreen_u5vf1khz2_2.csv',  
+        'Vout_apsrredv5vf1khz2x4_2.csv',
+        'Vreset_apsgreenu5vf1khz2_1.csv',
+        'Vreset_apsgreenu5vf1khz3_1.csv',
+        'Vreset_apsred_v5vf1khz2x2_1.csv',
+        'Vreset_apsblue_u5vf1khz6_1.csv',
+        'Ureset_apsgreen_v5vf1khz2x1_1.csv'
+    ]
     print(onlyfiles)
+    pl = list()
+    fig, axVoltage = plt.subplots()
+    axVoltage.set_ylabel("Voltage [V]")
+    axReset = axVoltage.twinx()
+    axReset.set_ylabel('Reset voltage [V]')
     for f in onlyfiles:
+        if f in files:
+            continue
         dataset = pd.read_csv(directoryPath + f, sep=',', skiprows=[1])
-        PlotVoltageTime(dataset=dataset, title=f)
+        col = dataset.columns
+        dataset[col[1]] /= 10
+        for i in range(1, len(dataset[col[0]])):
+            dataset[col[0]][i] = dataset[col[0]][i] - dataset[col[0]][0]
+            dataset[col[0]][i] *= 10**6
+        dataset[col[0]][0] = 0
+        color = 'black'
+        colors = ['red', 'green', 'blue']
+        if('reset' in f):
+            
+            pl.append(axReset.plot(dataset[col[0]], dataset[col[1]], label = 'RESET', color = color))
+        else:
+            for c in colors:
+                if(c in f):
+                    color = c
+            pl.append(axVoltage.plot(dataset[col[0]], dataset[col[1]], label = color + ' LED', color = color))
+        # PlotVoltageTime(dataset=dataset, title=f)
+        # break
+    lns = pl[0]
+    for i in range(1, len(pl)):
+        lns +=pl[i]
+    labs = [l.get_label() for l in lns]
+    axVoltage.legend(lns, labs)
+    axVoltage.set_ylabel("Voltage [V]")
+    axVoltage.grid()
+    plt.yscale = 'log'
+    plt.title('APS measurements')
+
+    # fig.tight_layout()
+    plt.show()
 PrintDataFromDirectoryVoltageTime('datasets/APS/')
 ```
 

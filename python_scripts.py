@@ -105,7 +105,16 @@ def SweepPlot(
     return None, df
 
 
-def SweepPlotForwardReverse(dfForw, dfRev, clmnForw, clmnRev, vmin, vmax, curveFitFunc):
+def SweepPlotForwardReverse(
+    dfForw: pd.DataFrame,
+    dfRev: pd.DataFrame,
+    clmnForw: list,
+    clmnRev: list,
+    vmin,
+    vmax,
+    curveFitFunc,
+    yscale = 'linear'
+):
     cmap = mpl.colormaps["viridis"]
     norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax)
 
@@ -143,7 +152,7 @@ def SweepPlotForwardReverse(dfForw, dfRev, clmnForw, clmnRev, vmin, vmax, curveF
     mu.append(muR)
 
     plt.grid()
-    plt.yscale("log")
+    plt.yscale(yscale)
     plt.xlabel("$U_{pdF} [V]$")
     plt.ylabel("$I_{pdF} [nA]$")
 
@@ -152,7 +161,6 @@ def SweepPlotForwardReverse(dfForw, dfRev, clmnForw, clmnRev, vmin, vmax, curveF
         ax=plt.gca(),
         label="$I_{LED} [mA]$",
     )
-
 
     return mu
 
@@ -221,10 +229,12 @@ def PlotOscVoltCurr(
     labs = [l.get_label() for l in lns]
     axVoltage.legend(lns, labs)
 
-    # axVoltage[1].plot(dtsets[0]["second"], diodeResistance, label="Resistance")
-    # axVoltage[1].set_ylabel("Resistance $[k \Omega]$")
-    # axVoltage[1].set_xlabel("time [ns]")
-    # axVoltage[1].grid()
+    # diode_R = dtsets[1]["Volt"] / dtsets[2]["Volt"] * 1000
+
+    # plt.plot(dtsets[0]["second"], diode_R, label="Resistance")
+    # plt.ylabel("Resistance $[k \Omega]$")
+    # plt.xlabel("time [ns]")
+    # plt.grid()
 
     plt.title(title)
 
@@ -338,7 +348,7 @@ def GetEnding(s=""):
     return s[next(i for i in reversed(range(len(s))) if s[i] == "_") + 1 : -4]
 
 
-def PrintDataFromDirectory(directoryPath: str, filterValues = True):
+def PrintDataFromDirectory(directoryPath: str, filterValues=True):
     onlyfiles = [
         f
         for f in listdir(directoryPath)

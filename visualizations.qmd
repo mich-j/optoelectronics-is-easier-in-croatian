@@ -27,6 +27,20 @@ import constants as const
 import python_scripts as pys
 ```
 
+# Photoresistor
+Directory _/LED_PDetector_
+```{python}
+dataset=pd.read_csv('datasets/LVJ_PDetector/IpdF_Upd_15VBenchvue_29112022 2022-11-29 15-56-50.csv', sep=',', skiprows=4)
+plt.figure()
+plt.plot(dataset['1 - Get CH1 Voltage Measurement'], dataset['1 - Get CH1 Current Measurement']*1000)
+plt.grid()
+plt.xlabel('$U_{pd}[V]$')
+plt.ylabel('$I_{pdF}[mA]$')
+plt.title('Photoresistor voltage versus forward current')
+
+plt.show()
+```
+
 # Photodiode forward and reverse, in dark and illuminated
 
 $\mu$ - diode ideality factor can be calculated
@@ -97,6 +111,8 @@ dtF = pd.read_csv('datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_3
 dtR = pd.read_csv('datasets/RED_LED_PD_mj/RED_LED_PD_mj/LVJPD_RED_1cm_BenchVue_30112022G1/Ipd_Popt6_UpdR_30112022 2022-11-30 12-02-00 0 2022-11-30 12-03-12 0.csv',
   sep=',', skiprows=6)
 
+# dtR['3 - Get Measurement Value'] = dtR['3 - Get Measurement Value']*(-1)
+
 cF = ['2 - Get Measurement Value', 'Get Measurement Value', '1 - Sweep CH2 Voltage Setting', '1 - Get CH2 Current Measurement']
 cR = ['2 - Get Measurement Value', '3 - Get Measurement Value', '1 - Sweep CH2 Voltage Setting', '1 - Get CH2 Current Measurement']
 
@@ -104,6 +120,7 @@ muFR = pys.SweepPlotForwardReverse(dtF, dtR, cF, cR, 0, 27, exp_func)
 
 plt.suptitle("Photodiode U / I characterictics")
 plt.title("Variable red LED illumination")
+pys.SweepPlotForwardReverse(dtF, dtR, cF, cR, 0, 27, exp_func, yscale='log')
 
 plt.show()
 
@@ -119,6 +136,19 @@ In `Ipd_Ufpd_Uled_0_6V 2022-12-02 11-32-27 0.csv` there is only one measured var
 ```{python}
 dataset=pd.read_csv('datasets/LVJ_PD_BVue_l1mm_02122022G2/Ipd_Urpd_Uled_0_6V 2022-12-02 10-29-07 0.csv', sep=',', skiprows=6)
 
+dataset['2 - Get Measurement Value'] = dataset['2 - Get Measurement Value'] * (-1)
+
+pys.SweepPlot(dataset, '2 - Get Measurement Value', '1 - Get Measurement Value', '3 - Sweep CH2 Voltage Setting', '3 - Get CH2 Current Measurement', 2, yScale=10**6, labelScale=1000, curveFitFunc=exp_func)
+
+plt.legend(title='$I_{LED} [mA]$', loc='best')
+
+plt.suptitle('Photodiode reverse voltage versus photodiode reverse current')
+plt.title('Variable blue LED illumination, 1 mm distance')
+plt.xlabel('$U_{pd} [V]$')
+plt.ylabel('$I_{pd} [nA]$')
+
+plt.show()
+
 ax, mu_calc = pys.SweepPlot(dataset, '2 - Get Measurement Value', '1 - Get Measurement Value', '3 - Sweep CH2 Voltage Setting', '3 - Get CH2 Current Measurement', 2, yScale=10**6, labelScale=1000, curveFitFunc=exp_func)
 
 plt.legend(title='$I_{LED} [mA]$', loc='best')
@@ -129,7 +159,6 @@ plt.xlabel('$U_{pd} [V]$')
 plt.ylabel('$I_{pd} [nA]$')
 
 plt.show()
-
 mu['blu_R'] = mu_calc
 ```
 
@@ -151,6 +180,7 @@ cR = ['Get Measurement Value.1', 'Get Measurement Value', 'Sweep CH2 Voltage Set
 muFR = pys.SweepPlotForwardReverse(dtF, dtR, cF, cR, 0, 27, exp_func)
 plt.suptitle("Photodiode U / I characterictics")
 plt.title("Variable green LED illumination")
+pys.SweepPlotForwardReverse(dtF, dtR, cF, cR, 0, 27, exp_func, yscale='log')
 plt.show()
 
 mu['grn_F'] = muFR[0]
@@ -168,7 +198,7 @@ for key in mu:
 
 for key in mu:
   if key.split('_')[1] == 'R':
-    axs[1].plot(mu[key]['i_led'], mu[key]['mu'], label=key.split('_')[0])
+    axs[1].plot(mu[key]['i_led'], mu[key]['mu']*(-1), label=key.split('_')[0])
 
 for ax in axs:
   ax.grid()
@@ -185,22 +215,6 @@ plt.show()
 
 # LED Voltage-current characteristics
 
-## Red LED
-
-Directory _/RED_LED_PD_mj/Iled_Uled_RED_
-
-```{python}
-dataset=pd.read_csv('datasets/RED_LED_PD_mj/RED_LED_PD_mj/Iled_Uled_RED/IledRed_UledF_06V_50mV 2022-12-02 16-48-23 1.csv', sep=',')
-plt.figure()
-plt.plot(dataset['1 - Get CH2 Voltage Setting'], dataset['2 - Get Measurement Value Iled']*1000)
-plt.grid()
-plt.xlabel('$U_{LED}[V]$')
-plt.ylabel('$I_{LED}[mA]$')
-plt.title('Red LED voltage versus current')
-
-plt.show()
-```
-
 ## Blue LED
 
 Directory _LVJ_OPTO_LEDtrans20122022_
@@ -212,39 +226,30 @@ pys.PrintDataFromDirectory(directoryPath='datasets/LVJ_OPTO_LEDtrans20122022/LVJ
 ```
 
 # LED transient characteristics
+## 
 
-# Directory /LvJ_OPTO_2022_GE211222022
-
-```{python}
-pys.PrintDataFromDirectory(directoryPath="datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022")
-```
-
-## Directory /LvJ_OPTO_2022_GE211222022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr
+Directory _/LvJ_OPTO_2022_GE211222022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr_
 
 ```{python}
-pys.PrintDataFromDirectory(directoryPath='datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022\LED_R_0_5Vtr')
+# pys.PrintDataFromDirectory(directoryPath='datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022\LED_R_0_5Vtr')
+
+pys.PlotOscVoltCurr('datasets/LVJ_OPTO_2022_GE21122022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr', 'i_rof_vf_0_5vf1k4_', ('1', '2', 'F1'), resistance=10, filterValues=True, filteringCurrent=(200, 5), filteringVoltage=(200, 5))
+
 ```
+
+# Photodiode transient characteristics
 
 ## Directory /LvJ_OPTO_2022_GE211222022/LVJ_OPTO_2022_GE21122022/PD_dark
 
 ```{python}
 pys.PrintDataFromDirectory(directoryPath='datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022\PD_dark')
 
-
 ```
 
-# Photoresistor
-Directory _/LED_PDetector_
-```{python}
-dataset=pd.read_csv('datasets/LVJ_PDetector/IpdF_Upd_15VBenchvue_29112022 2022-11-29 15-56-50.csv', sep=',', skiprows=4)
-plt.figure()
-plt.plot(dataset['1 - Get CH1 Voltage Measurement'], dataset['1 - Get CH1 Current Measurement']*1000)
-plt.grid()
-plt.xlabel('$U_{pd}[V]$')
-plt.ylabel('$I_{pdF}[mA]$')
-plt.title('Photoresistor voltage versus forward current')
+# Directory /LvJ_OPTO_2022_GE211222022
 
-plt.show()
+```{python}
+pys.PrintDataFromDirectory(directoryPath="datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022")
 ```
 
 # Directory LVJ_OPHO2022\LVJ_OPHO2022

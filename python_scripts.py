@@ -396,3 +396,19 @@ def PrintDataFromDirectory(directoryPath: str, filterValues = True):
             )
         else:
             PlotSingleFile_OPHO(fileName=f, filePath=directoryPath, title=f)
+
+def PlotVoltageTime(dataset:pd.DataFrame):
+    plt.figure()
+    plt.plot(dataset[0], dataset[1])
+    plt.show()
+
+def PrintDataFromDirectoryVoltageTime(directoryPath: str, filterValues = True):
+    onlyfiles = [
+        f
+        for f in listdir(directoryPath)
+        if isfile(join(directoryPath, f)) and f[-4:] == ".csv"
+    ]
+    for f in onlyfiles:
+        dataset = pd.read_csv(directoryPath + f)
+        PlotVoltageTime(dataset=dataset)
+

@@ -122,7 +122,7 @@ dataset=pd.read_csv('datasets/LVJ_PD_BVue_l1mm_02122022G2/Ipd_Urpd_Uled_0_6V 202
 ax, mu_calc = pys.SweepPlot(dataset, '2 - Get Measurement Value', '1 - Get Measurement Value', '3 - Sweep CH2 Voltage Setting', '3 - Get CH2 Current Measurement', 2, yScale=10**6, labelScale=1000, curveFitFunc=exp_func)
 
 plt.legend(title='$I_{LED} [mA]$', loc='best')
-plt.yscale('log')
+# plt.yscale('log')
 plt.suptitle('Photodiode reverse voltage versus photodiode reverse current')
 plt.title('Variable blue LED illumination, 1 mm distance')
 plt.xlabel('$U_{pd} [V]$')
@@ -374,4 +374,36 @@ dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0])
 pys.PlotVoltageCurrentDataset(dataset)
 
 ```
+
+# APS
+
+```{python}
+def PlotVoltageTime(dataset:pd.DataFrame, title = ' '):
+    col = dataset.columns
+    # print(dataset[col[0]][0])
+    for i in range(1, len(dataset[col[0]])):
+      dataset[col[0]][i] = dataset[col[0]][i] - dataset[col[0]][0]
+      dataset[col[0]][i] *= 10**6
+    dataset[col[0]][0] = 0
+    plt.figure()
+    plt.plot(dataset[col[0]], dataset[col[1]])
+    plt.ylabel("Voltage [V]")
+    plt.xlabel("Time [us]")
+    plt.title(title)
+    plt.grid()
+    plt.show()
+
+def PrintDataFromDirectoryVoltageTime(directoryPath: str, filterValues = True):
+    onlyfiles = [
+        f
+        for f in listdir(directoryPath)
+        if isfile(join(directoryPath, f)) and f[-4:] == ".csv"
+    ]
+    print(onlyfiles)
+    for f in onlyfiles:
+        dataset = pd.read_csv(directoryPath + f, sep=',', skiprows=[1])
+        PlotVoltageTime(dataset=dataset, title=f)
+PrintDataFromDirectoryVoltageTime('datasets/APS/')
+```
+
 

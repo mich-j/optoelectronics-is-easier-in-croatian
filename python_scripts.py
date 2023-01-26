@@ -52,6 +52,7 @@ def SweepPlot(
     curveFitFunc=None,
     colormap=None,
     color_normalize=None,
+    skip_plots=0
 ):
 
     n = data[SweepColumnName].max()
@@ -68,12 +69,12 @@ def SweepPlot(
             index.append(i)
 
     # fig, ax = plt.subplots()
-    plt.grid()
+    plt.grid(which="both")
 
     prevIndex = 0
     mu = list()
 
-    for i in range(n + 1):
+    for i in range(skip_plots, n + 1):
         x = data[xName][skipRows + prevIndex : index[i]]
         y = data[yName][skipRows + prevIndex : index[i]]
 
@@ -128,7 +129,7 @@ def SweepPlotForwardReverse(
         clmnForw[2],
         clmnForw[3],
         2,
-        yScale=10**3,
+        yScale=10**6,
         labelScale=1000,
         curveFitFunc=curveFitFunc,
         colormap=cmap,
@@ -143,7 +144,7 @@ def SweepPlotForwardReverse(
         clmnRev[2],
         clmnRev[3],
         2,
-        yScale=10**3,
+        yScale=10**6,
         labelScale=1000,
         curveFitFunc=curveFitFunc,
         colormap=cmap,
@@ -151,10 +152,10 @@ def SweepPlotForwardReverse(
     )
     mu.append(muR)
 
-    plt.grid()
+    plt.grid(which="both")
     plt.yscale(yscale)
     plt.xlabel("$U_{pdF} [V]$")
-    plt.ylabel("$I_{pdF} [nA]$")
+    plt.ylabel("$I_{pdF} [\u03BCA]$")
 
     plt.colorbar(
         mpl.cm.ScalarMappable(norm=norm, cmap=cmap),

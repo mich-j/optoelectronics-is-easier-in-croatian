@@ -118,6 +118,7 @@ muFR = pys.SweepPlotForwardReverse(dtF, dtR, cF, cR, 0, 27, exp_func)
 
 plt.suptitle("Photodiode U / I characterictics")
 plt.title("Variable red LED illumination")
+
 pys.SweepPlotForwardReverse(dtF, dtR, cF, cR, 0, 27, exp_func, yscale='log')
 
 plt.show()
@@ -127,6 +128,7 @@ mu['red_R'] = muFR[1]
 ```
 
 ## Under blue LED
+
 Directory _/LVJ_PD_BVue_l1mm_02122022G2_
 
 In `Ipd_Ufpd_Uled_0_6V 2022-12-02 11-32-27 0.csv` there is only one measured variable. Assumed this dataset is invalid.
@@ -143,7 +145,7 @@ plt.legend(title='$I_{LED} [mA]$', loc='best')
 plt.suptitle('Photodiode reverse voltage versus photodiode reverse current')
 plt.title('Variable blue LED illumination, 1 mm distance')
 plt.xlabel('$U_{pd} [V]$')
-plt.ylabel('$I_{pd} [nA]$')
+plt.ylabel('$I_{pd} [\u03BCA]$')
 
 plt.show()
 
@@ -154,12 +156,11 @@ plt.yscale('log')
 plt.suptitle('Photodiode reverse voltage versus photodiode reverse current')
 plt.title('Variable blue LED illumination, 1 mm distance')
 plt.xlabel('$U_{pd} [V]$')
-plt.ylabel('$I_{pd} [nA]$')
+plt.ylabel('$I_{pd} [\u03BCA]$')
 
 plt.show()
 mu['blu_R'] = mu_calc
 ```
-
 
 ## Under green LED
 
@@ -188,15 +189,26 @@ mu['grn_R'] = muFR[1]
 # Photodiode ideality factor
 
 ```{python}
+
 fig, axs = plt.subplots(2, 1, sharex=True, figsize=(7,7))
+
+mu_F_all = pd.DataFrame([])
+color_names_F = pd.DataFrame([])
+
+mu_R_all = pd.DataFrame([])
+color_names_R = pd.DataFrame([])
 
 for key in mu:
   if key.split('_')[1] == 'F':
     axs[0].plot(mu[key]['i_led'], mu[key]['mu'], label=key.split('_')[0])
+    color_names_F = pd.concat([pd.DataFrame([key.split('_')[0]]), color_names_F], axis=1)
+    mu_F_all = pd.concat([mu[key], mu_F_all], axis=1)
 
 for key in mu:
   if key.split('_')[1] == 'R':
     axs[1].plot(mu[key]['i_led'], mu[key]['mu']*(-1), label=key.split('_')[0])
+    color_names_R = pd.concat([pd.DataFrame([key.split('_')[0]]), color_names_R], axis=1)
+    mu_R_all = pd.concat([mu[key], mu_R_all], axis=1)
 
 for ax in axs:
   ax.grid()
@@ -209,9 +221,16 @@ axs[1].set_title('Reverse bias')
 plt.suptitle('Photodiode ideality factor vs illumination')
 fig.tight_layout()
 plt.show()
+
+print(color_names_F)
+print(mu_F_all)
+print(color_names_R)
+print(mu_R_all)
 ```
 
 # LED transient characteristics
+
+Green LED transient datasets couldn't be found, in directory `\datasets\GREEN_LED_PD_mj\ILED_Green_PD_IU_transient` and `datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V` there are datasets for PD under illumination.
 
 ## Blue LED
 
@@ -233,9 +252,9 @@ Directory _/LvJ_OPTO_2022_GE211222022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr_
 
 ```{python}
 
-pys.PlotOscVoltCurr('datasets/LVJ_OPTO_2022_GE21122022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr', 'i_ron_vf_0_5vf1k5_', ('1', '2', 'F1'), resistance=10, filterValues=False, filteringCurrent=(200, 5), filteringVoltage=(200, 5), title='Red LED, transient, rising edge')
+pys.PlotOscVoltCurr('datasets/LVJ_OPTO_2022_GE21122022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr', 'i_ron_vf_0_5vf1k5_', ('1', '2', 'F1'), resistance=10, filterValues=False, filteringCurrent=(200, 5), filteringVoltage=(200, 5), suptitle='Red LED, transient, rising edge', title='$U_{gen} \in <0, 5> V$')
 
-pys.PlotOscVoltCurr('datasets/LVJ_OPTO_2022_GE21122022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr', 'i_rof_vf_0_5vf1k4_', ('1', '2', 'F1'), resistance=10, filterValues=False, filteringCurrent=(200, 5), filteringVoltage=(200, 5), current_scale=-1000, title='Red LED, transient, falling edge')
+pys.PlotOscVoltCurr('datasets/LVJ_OPTO_2022_GE21122022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr', 'i_rof_vf_0_5vf1k4_', ('1', '2', 'F1'), resistance=10, filterValues=False, filteringCurrent=(200, 5), filteringVoltage=(200, 5), current_scale=-1000, suptitle='Red LED, transient, falling edge', title='$U_{gen} \in <0, 5> V$')
 
 ```
 
@@ -288,7 +307,7 @@ filteringCurrent=(200,5), filteringVoltage=(200,5), suptitle='Photodiode blue il
 
 pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2f_', endings=('1','3','F1'), yscale=-1, suptitle='Photodiode blue illuminated, transient, falling edge', title='U_{gen} \in <0, 4> V')
 
-pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2r_', endings=('1','3','F1'), yscale=-1, suptitle='Photodiode blue illuminated, transient, rising edge', title='U_{gen} \ in <0, 4> V')
+pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2r_', endings=('1','3','F1'), yscale=-1, suptitle='Photodiode blue illuminated, transient, rising edge', title='U_{gen} \in <0, 4> V')
 ```
 
 ## Green LED illumination

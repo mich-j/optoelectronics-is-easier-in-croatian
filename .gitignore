@@ -3,10 +3,10 @@
 *.mat
 *.xlsx
 *.csv#
+*.html
 /visualizations_files
 /temp
 *.bak
-*.html
 *.pdf
 visualizations.ipynb
 *.aux

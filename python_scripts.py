@@ -113,7 +113,7 @@ def SweepPlotForwardReverse(
     vmin,
     vmax,
     curveFitFunc,
-    yscale = 'linear'
+    yscale="linear",
 ):
     cmap = mpl.colormaps["viridis"]
     norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax)
@@ -174,7 +174,10 @@ def PlotOscVoltCurr(
     datasetBaseName,
     endings: list,
     title=" ",
+    suptitle=" ",
     resistance=100,
+    current_scale=1000,
+    yscale=1,
     filterValues=False,
     filteringCurrent=(-1, -1),
     filteringVoltage=(-1, -1),
@@ -191,7 +194,7 @@ def PlotOscVoltCurr(
         ) * 10**9  # to nanoseconds, substract offset
         dtsets.append(var)
 
-    dtsets[2]["Volt"] = dtsets[2]["Volt"] / resistance * 1000  # to mA
+    dtsets[2]["Volt"] = dtsets[2]["Volt"] / resistance * current_scale
 
     if filterValues:
         dtsets[2]["Volt"] = savgol_filter(
@@ -208,13 +211,14 @@ def PlotOscVoltCurr(
     fig, axVoltage = plt.subplots()
 
     pl1 = axVoltage.plot(
-        dtsets[0]["second"], dtsets[0]["Volt"], label="$U_{~}$", color=colors[0]
+        dtsets[0]["second"], dtsets[0]["Volt"]*yscale, label="$U_{gen}$", color=colors[0]
     )
     pl2 = axVoltage.plot(
-        dtsets[1]["second"], dtsets[1]["Volt"], label="$U_{d}$", color=colors[1]
+        dtsets[1]["second"], dtsets[1]["Volt"]*yscale, label="$U_{diode}$", color=colors[1]
     )
 
     axVoltage.set_ylabel("Voltage [V]")
+    axVoltage.set_xlabel("Time [ns]")
     axVoltage.grid()
 
     axCurrent = axVoltage.twinx()
@@ -237,12 +241,13 @@ def PlotOscVoltCurr(
     # plt.grid()
 
     plt.title(title)
+    plt.suptitle(suptitle)
 
     fig.tight_layout()
     plt.show()
 
 
-def PlotVoltageCurrentDataset(dataset: pd.DataFrame, title=" "):
+def PlotVoltageCurrentDataset(dataset: pd.DataFrame, title=" ", suptitle=''):
     columnNames = dataset.columns
     fig, ax1 = plt.subplots()
     ax1.set_xlabel("Time [ns]")
@@ -250,13 +255,13 @@ def PlotVoltageCurrentDataset(dataset: pd.DataFrame, title=" "):
     lns1 = ax1.plot(
         dataset[columnNames[0]],
         dataset[columnNames[1]],
-        label="U_generator",
+        label="$U_{gen}$",
         color=colors[0],
     )
     lns2 = ax1.plot(
         dataset[columnNames[0]],
         dataset[columnNames[2]],
-        label="U_photodiode",
+        label="$U_{diode}$",
         color=colors[1],
     )
 
@@ -265,7 +270,7 @@ def PlotVoltageCurrentDataset(dataset: pd.DataFrame, title=" "):
     lns3 = ax2.plot(
         dataset[columnNames[0]],
         dataset[columnNames[3]],
-        label="I_photodiode",
+        label="I",
         color=colors[2],
     )
     ax2.tick_params(axis="y", labelcolor=colors[2])
@@ -276,17 +281,18 @@ def PlotVoltageCurrentDataset(dataset: pd.DataFrame, title=" "):
     ax1.legend(lns, labs, loc=0)
 
     plt.title(title)
+    plt.suptitle(suptitle)
     plt.grid()
     fig.tight_layout()  # otherwise the right y-label is slightly clipped
     plt.show()
 
-    diodeResistance = dataset[columnNames[2]] / (dataset[columnNames[3]] / 1000)
-    plt.figure()
-    plt.plot(dataset[columnNames[0]], diodeResistance, label="Resistance")
-    plt.ylabel("Resistance [Ohm]")
-    plt.xlabel("Time [ns]")
-    plt.grid()
-    plt.show()
+    # diodeResistance = dataset[columnNames[2]] / (dataset[columnNames[3]] / 1000)
+    # plt.figure()
+    # plt.plot(dataset[columnNames[0]], diodeResistance, label="Resistance")
+    # plt.ylabel("Resistance [Ohm]")
+    # plt.xlabel("Time [ns]")
+    # plt.grid()
+    # plt.show()
 
 
 """
@@ -407,12 +413,14 @@ def PrintDataFromDirectory(directoryPath: str, filterValues=True):
         else:
             PlotSingleFile_OPHO(fileName=f, filePath=directoryPath, title=f)
 
-def PlotVoltageTime(dataset:pd.DataFrame):
+
+def PlotVoltageTime(dataset: pd.DataFrame):
     plt.figure()
     plt.plot(dataset[0], dataset[1])
     plt.show()
 
-def PrintDataFromDirectoryVoltageTime(directoryPath: str, filterValues = True):
+
+def PrintDataFromDirectoryVoltageTime(directoryPath: str, filterValues=True):
     onlyfiles = [
         f
         for f in listdir(directoryPath)
@@ -421,4 +429,3 @@ def PrintDataFromDirectoryVoltageTime(directoryPath: str, filterValues = True):
     for f in onlyfiles:
         dataset = pd.read_csv(directoryPath + f)
         PlotVoltageTime(dataset=dataset)
-

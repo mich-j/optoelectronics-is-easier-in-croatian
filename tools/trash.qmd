@@ -167,3 +167,37 @@ dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0])
 pys.PlotVoltageCurrentDataset(dataset)
 
 ``` -->
+
+
+# Directory RED_LED_PD_mj/RED_LED_PD_mj/RED_transient/
+
+## iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off
+```{python}
+
+dataset = pd.read_csv('datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off\Trace 2022-12-21 12-27-21 0.csv', skiprows=1, sep=',', usecols=['Time (s)','2 (VOLT)','3 (VOLT)','M1'])
+
+resistance = 100.0 #
+columnNames = dataset.columns
+# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
+dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000
+dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset
+
+pys.PlotVoltageCurrentDataset(dataset)
+
+```
+datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled15mA_Uf3V_off1V_f1kHz_off\Trace 2022-12-21 12-29-00 0.csv is the same file, but seperated with tabs
+
+
+```{python}
+
+dataset = pd.read_csv('datasets\RED_LED_PD_mj\RED_LED_PD_mj\RED_transient\iPD_t_Rled20mA_Uf3V_off1V_f1kHz\Trace 2022-12-21 13-13-35 0.csv', skiprows=1, sep=',', usecols=['Time (s)','2 (VOLT)','3 (VOLT)','M1'])
+
+resistance = 100.0 #
+columnNames = dataset.columns
+# Convert the voltage on the resistor (U_generator - U_photodiode) to current [mA] 
+dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000
+dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to nanoseconds, substract offset
+
+pys.PlotVoltageCurrentDataset(dataset)
+
+```

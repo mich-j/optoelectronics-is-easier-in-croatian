@@ -238,9 +238,9 @@ Directory _LVJ_OPTO_LEDtrans20122022_
 
 ```{python}
 
-pys.PlotOscVoltCurr('datasets\LVJ_OPTO_LEDtrans20122022\LVJ_OPTO_LEDtrans20122022', 'led_b_nt_u4v1khz1_', ['1', '3', 'F1'], current_scale=-1000, suptitle='Blue LED, transient, falling edge', title='$U_{gen} \in <0, 4> V$')
+pys.PlotOscVoltCurr('datasets\LVJ_OPTO_LEDtrans20122022\LVJ_OPTO_LEDtrans20122022', 'led_b_nt_u4v1khz1_', ['1', '3', 'F1'], current_scale=-1000, suptitle='Blue LED, transient, ', title='$U_{gen} \in <0, 4> V$')
 
-pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1khon4_', endings=('1','3','F1'), suptitle='Blue LED, transient, rising edge', title='$U_{gen} \in <0, 4> V$')
+pys.PlotOscVoltCurr(path_to_dir='datasets\LVJ_OPHO2022\LVJ_OPHO2022\Blue\B_trans', datasetBaseName='iled_bu5vf1khon4_', endings=('1','3','F1'), suptitle='Blue LED, transient, ', title='$U_{gen} \in <0, 4> V$')
 
 pys.PlotOscVoltCurr('datasets\LVJ_OPTO_LEDtrans20122022\LVJ_OPTO_LEDtrans20122022', 'led_b_tru4v1khz6_', ['1', '3', 'F1'], current_scale=1000, suptitle='Blue LED, transient, square wave', title='$U_{gen} \in <0, 4> V$')
 
@@ -252,9 +252,9 @@ Directory _/LvJ_OPTO_2022_GE211222022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr_
 
 ```{python}
 
-pys.PlotOscVoltCurr('datasets/LVJ_OPTO_2022_GE21122022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr', 'i_ron_vf_0_5vf1k5_', ('1', '2', 'F1'), resistance=10, filterValues=False, filteringCurrent=(200, 5), filteringVoltage=(200, 5), suptitle='Red LED, transient, rising edge', title='$U_{gen} \in <0, 5> V$')
+pys.PlotOscVoltCurr('datasets/LVJ_OPTO_2022_GE21122022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr', 'i_ron_vf_0_5vf1k5_', ('1', '2', 'F1'), filterValues=False, filteringCurrent=(200, 5), filteringVoltage=(200, 5), suptitle='Red LED, transient, ', title='$U_{gen} \in <0, 5> V$')
 
-pys.PlotOscVoltCurr('datasets/LVJ_OPTO_2022_GE21122022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr', 'i_rof_vf_0_5vf1k4_', ('1', '2', 'F1'), resistance=10, filterValues=False, filteringCurrent=(200, 5), filteringVoltage=(200, 5), current_scale=-1000, suptitle='Red LED, transient, falling edge', title='$U_{gen} \in <0, 5> V$')
+pys.PlotOscVoltCurr('datasets/LVJ_OPTO_2022_GE21122022/LVJ_OPTO_2022_GE21122022/LED_R_0_5Vtr', 'i_rof_vf_0_5vf1k4_', ('1', '2', 'F1'), filterValues=False, filteringCurrent=(200, 5), filteringVoltage=(200, 5), current_scale=-1000, suptitle='Red LED, transient, ', title='$U_{gen} \in <0, 5> V$')
 
 ```
 
@@ -271,17 +271,17 @@ where $R = 100 \Omega$
 Directory _/LvJ_OPTO_2022_GE211222022/LVJ_OPTO_2022_GE21122022/PD_dark_
 
 ```{python}
-pys.PlotOscVoltCurr('datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022\PD_dark', 'idtr_v2vf1kon_', ['3','2','F1'],yscale=-1, suptitle='Photodiode dark, transient, falling edge', title='$U_{gen} \ in <-2, 2> V$')
+pys.PlotOscVoltCurr('datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022\PD_dark', 'idtr_v2vf1kon_', ['3','2','F1'],yscale=1, suptitle='Photodiode dark, transient, ', title='$U_{gen} \in <-2, 2> V$')
 
-pys.PlotOscVoltCurr('datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022\PD_dark', 'idtr_v2vf1kof3_', ['3','2','F1'],yscale=-1, suptitle='Photodiode dark, transient, rising edge', title='$U_{gen} \ in <-2, 2> V$')
+pys.PlotOscVoltCurr('datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022\PD_dark', 'idtr_v2vf1kof3_', ['3','2','F1'],yscale=1, suptitle='Photodiode dark, transient, forward->reverse bias', title='$U_{gen} \in <-2, 2> V$')
 ```
 
 Directory _/LVJ_OPHO2022/LVJ_OPHO2022/_
 
 ```{python}
-pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_d_f1ku2off1_', endings=('1','3','F1'), yscale=-1, suptitle='Photodiode dark, transient, rising edge', title='$U_{gen} \ in <-2, 2> V$')
+pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_d_f1ku2off1_', endings=('1','3','F1'), yscale=-1, suptitle='Photodiode dark, transient, ', title='$U_{gen} \in <-2, 2> V$')
 
-pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_d_f1ku2onr6_', current_scale=-1, endings=('1','3','F1'), suptitle='Photodiode dark, transient, falling edge', title='$U_{gen} \ in <-2, 2> V$')
+pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_d_f1ku2onr6_', current_scale=-1, endings=('1','3','F1'), suptitle='Photodiode dark, transient, ', title='$U_{gen} \in <-2, 2> V$')
 ```
 
 ## Red LED illumination
@@ -289,9 +289,9 @@ pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBa
 Directory _/LvJ_OPTO_2022_GE211222022_
 
 ```{python}
-pys.PlotOscVoltCurr('datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022', 'irtr_v3vf1kof15ma_', ['2','3','F1'], suptitle='Photodiode illuminated, transient, falling edge', title='$U_{gen} \in <0, 5> V, I_{LED} = 15 mA$')
+pys.PlotOscVoltCurr('datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022', 'irtr_v3vf1kof7_', endings=['3','2','F1'], suptitle='Photodiode illuminated, transient, forward->reverse bias', title='$U_{gen} \in <0, 5> V, I_{LED} = 15 mA$')
 
-pys.PlotOscVoltCurr('datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022', 'irtr_v3vf1kon3_', ['2','3','F1'], suptitle='Photodiode illuminated, transient, rising edge', title='$U_{gen} \in <0, 5> V, I_{LED} = 15 mA$')
+pys.PlotOscVoltCurr('datasets\LVJ_OPTO_2022_GE21122022\LVJ_OPTO_2022_GE21122022', 'irtr_v3vf1kon3_', endings=['3','2','F1'], suptitle='Photodiode illuminated, transient, ', title='$U_{gen} \in <0, 5> V, I_{LED} = 15 mA$')
 ```
 
 ## Blue LED illumination
@@ -300,19 +300,21 @@ Directory _LVJ_OPHO2022\LVJ_OPHO2022_
 
 ```{python}
 pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_f1ku2of1_', endings=('1','3','F1'), filterValues=False,
-filteringCurrent=(200,5), filteringVoltage=(200,5), suptitle='Photodiode blue illuminated, transient, falling edge', title='$U_{gen} \in <-2, 2> V$')
+filteringCurrent=(200,5), filteringVoltage=(200,5), suptitle='Photodiode blue illuminated, transient, ', title='$U_{gen} \in <-2, 2> V$')
 
 pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_f1ku2on4_', endings=('1','3','F1'), filterValues=False,
-filteringCurrent=(200,5), filteringVoltage=(200,5), suptitle='Photodiode blue illuminated, transient, rising edge', title='$U_{gen} \in <-2, 2> V$')
+filteringCurrent=(200,5), filteringVoltage=(200,5), suptitle='Photodiode blue illuminated, transient, ', title='$U_{gen} \in <-2, 2> V$')
 
-pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2f_', endings=('1','3','F1'), yscale=-1, suptitle='Photodiode blue illuminated, transient, falling edge', title='U_{gen} \in <0, 4> V')
+pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2f_', endings=('1','3','F1'), yscale=-1, suptitle='Photodiode blue illuminated, transient, ', title='$U_{gen} \in <0, 4> V$')
 
-pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2r_', endings=('1','3','F1'), yscale=-1, suptitle='Photodiode blue illuminated, transient, rising edge', title='U_{gen} \in <0, 4> V')
+pys.PlotOscVoltCurr(path_to_dir='datasets/LVJ_OPHO2022/LVJ_OPHO2022/', datasetBaseName='pd_b_r1ku2r_', endings=('1','3','F1'), yscale=-1, suptitle='Photodiode blue illuminated, transient, ', title='$U_{gen} \in <0, 4> V$')
 ```
 
 ## Green LED illumination
 
 datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled0A_Trace 2022-12-06 12-55-36 0.csv
+
+In the `GREEN_LED_PD_mj` directory there were duplicate transient files, so there is only one usable plot.
 
 ```{python}
 dataset = pd.read_csv('datasets\GREEN_LED_PD_mj\ILED_Green_Ipd_UpdUF_0_2V\Trans_ipd_Ustep_4V_Iled2005mA_Trace 2022-12-06 13-01-29 0.csv', skiprows=1, sep=',', usecols=['Time (s)','1 (VOLT)','2 (AMP)','M1'])
@@ -324,7 +326,7 @@ columnNames = dataset.columns
 dataset[columnNames[3]] = dataset[columnNames[3]] / resistance * 1000
 dataset[columnNames[0]] = (dataset[columnNames[0]] - dataset[columnNames[0]][0]) * 10**9# to 
 
-pys.PlotVoltageCurrentDataset(dataset, suptitle='Photodiode green illuminated, transient, falling edge', title='$U_{gen} \in <-1, 1> V, I_{LED} = 20 mA$')
+pys.PlotVoltageCurrentDataset(dataset, suptitle='Photodiode green illuminated, transient, forward->reverse', title='$U_{gen} \in <-1, 1> V, I_{LED} = 20 mA$')
 ```
 
 # APS

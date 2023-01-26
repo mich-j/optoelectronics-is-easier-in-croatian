@@ -283,7 +283,7 @@ def PlotVoltageCurrentDataset(dataset: pd.DataFrame, title=" ", suptitle=''):
 
     plt.title(title)
     plt.suptitle(suptitle)
-    plt.grid()
+    plt.grid(which='both')
     fig.tight_layout()  # otherwise the right y-label is slightly clipped
     plt.show()
 

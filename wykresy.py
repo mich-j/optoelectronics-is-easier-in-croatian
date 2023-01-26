@@ -59,10 +59,19 @@ def PrintDataFromDirectoryVoltageTime(directoryPath: str, filterValues = True):
             dataset[col[0]][i] = dataset[col[0]][i] - dataset[col[0]][0]
             dataset[col[0]][i] *= 10**6
         dataset[col[0]][0] = 0
+        data = dataset
+        dropRows = []
+        for i in range(len(data)):
+            if(data[col[0]][i]<1200):
+                dropRows.append(i)
+        # print(dataset.head())
+        # for i in range(len(dropRows) -1, 0, -1):
+        #     print(i)
+        dataset.drop(dropRows)
+        # print(data[[col[0]]][dropRows[-1]])
         color = 'black'
         colors = ['red', 'green', 'blue']
-        if('reset' in f):
-            
+        if('reset' in f):            
             pl.append(axReset.plot(dataset[col[0]], dataset[col[1]], label = 'RESET', color = color))
         else:
             for c in colors:

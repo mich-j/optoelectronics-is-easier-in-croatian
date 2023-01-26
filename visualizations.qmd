@@ -188,15 +188,26 @@ mu['grn_R'] = muFR[1]
 # Photodiode ideality factor
 
 ```{python}
+
 fig, axs = plt.subplots(2, 1, sharex=True, figsize=(7,7))
+
+mu_F_all = pd.DataFrame([])
+color_names_F = pd.DataFrame([])
+
+mu_R_all = pd.DataFrame([])
+color_names_R = pd.DataFrame([])
 
 for key in mu:
   if key.split('_')[1] == 'F':
     axs[0].plot(mu[key]['i_led'], mu[key]['mu'], label=key.split('_')[0])
+    color_names_F = pd.concat([pd.DataFrame([key.split('_')[0]]), color_names_F], axis=1)
+    mu_F_all = pd.concat([mu[key], mu_F_all], axis=1)
 
 for key in mu:
   if key.split('_')[1] == 'R':
     axs[1].plot(mu[key]['i_led'], mu[key]['mu']*(-1), label=key.split('_')[0])
+    color_names_R = pd.concat([pd.DataFrame([key.split('_')[0]]), color_names_R], axis=1)
+    mu_R_all = pd.concat([mu[key], mu_R_all], axis=1)
 
 for ax in axs:
   ax.grid()
@@ -209,6 +220,11 @@ axs[1].set_title('Reverse bias')
 plt.suptitle('Photodiode ideality factor vs illumination')
 fig.tight_layout()
 plt.show()
+
+print(color_names_F)
+print(mu_F_all)
+print(color_names_R)
+print(mu_R_all)
 ```
 
 # LED transient characteristics
